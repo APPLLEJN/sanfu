@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#fd8727",
+    "navigationBarBackgroundColor": "#ef6c00",
+    "navigationBarTitleText": "aaa",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 20000
+  }
+}
