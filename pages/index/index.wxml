@@ -1,3 +1,18 @@
 <view class="page-container">
-    <input type="text" placeholder="搜索感兴趣的作品或作者" class="home_search" placeholder-style="color:#999999" />
+    <input type="text" placeholder="搜索感兴趣的作品或作者" class="home_search"
+           placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/15px 15px no-repeat;" />
+    <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" width="355" height="150"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="flex-wrp" style="flex-direction:row;">
+        <view class="flex-item" bindtap="changeRecommend" id="0"><image src="{{recommendIndex === 0 ? '/assets/images/all_on.png' : '/assets/images/all.png'}}" alt="" /></view>
+        <view class="flex-item" bindtap="changeRecommend" id="1"><image src="{{recommendIndex === 1 ? '/assets/images/three_on.png' : '/assets/images/three.png'}}" alt="" /></view>
+        <view class="flex-item" bindtap="changeRecommend" id="2"><image src="{{recommendIndex === 2 ? '/assets/images/four_on.png' : '/assets/images/four.png'}}" alt="" /></view>
+        <view class="flex-item" bindtap="changeRecommend" id="3"><image src="{{recommendIndex === 3? '/assets/images/weilu_on.png' : '/assets/images/weilu.png'}}" alt="" /></view>
+    </view>
 </view>

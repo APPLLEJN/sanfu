@@ -10,3 +10,18 @@
   margin: 20rpx 30rpx;
   text-align: center;
 }
+
+.flex-wrp {
+  display: flex;
+  margin: 50rpx 30rpx 85rpx;
+}
+
+.flex-item {
+  flex: 1;
+  text-align: center;
+}
+
+.flex-item image {
+  width: 150rpx;
+  height: 98rpx;
+}
