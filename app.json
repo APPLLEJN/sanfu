@@ -5,10 +5,25 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "backgroundColor": "#fd8727",
-    "navigationBarBackgroundColor": "#ef6c00",
-    "navigationBarTitleText": "aaa",
-    "navigationBarTextStyle": "white"
+    "backgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "三福阅读",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "书架"
+    }, {
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    },{
+      "pagePath": "pages/login/login",
+      "text": "我的"
+    },{
+      "pagePath": "pages/login/login",
+      "text": "我的"
+    }]
   },
   "networkTimeout": {
     "request": 10000,

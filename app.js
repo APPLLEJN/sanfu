@@ -14,22 +14,22 @@ App({
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
         // 验证TOKEN是否失效
         // ...
-        if (!userInfo && options.path !== "pages/login/login")
-            wx.reLaunch({ url: "/pages/login/login" })
-        else
-            this.setUserInfo(userInfo, token)
+        // if (!userInfo && options.path !== "pages/login/login")
+        //     wx.reLaunch({ url: "/pages/login/login" })
+        // else
+        //     this.setUserInfo(userInfo, token)
         
     },
     onShow: function (options) {
-        if (!this.globalData.hasUserInfo &&
-            (typeof options === 'object' && options.path !== "pages/login/login")
-        )
-            wx.reLaunch({ url: "/pages/login/login" })
-        else if (!this.globalData.hasUserInfo)
-            wx.redirectTo({
-                url: '/pages/login/login'
-            })
-        
+        // if (!this.globalData.hasUserInfo &&
+        //     (typeof options === 'object' && options.path !== "pages/login/login")
+        // )
+        //     wx.reLaunch({ url: "/pages/login/login" })
+        // else if (!this.globalData.hasUserInfo)
+        //     wx.redirectTo({
+        //         url: '/pages/login/login'
+        //     })
+        //
     },
     onHide: function (options) {
         // 回到首页

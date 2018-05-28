@@ -1,3 +1,12 @@
 .container{
   box-sizing: border-box;
 }
+.home_search {
+  height: 54rpx;
+  line-height: 54rpx;
+  background: #f4f4f4;
+  font-size: 24rpx;
+  border-radius: 27rpx;
+  margin: 20rpx 30rpx;
+  text-align: center;
+}
