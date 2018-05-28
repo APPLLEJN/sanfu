@@ -1,0 +1,26 @@
+.home-title {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30rpx;
+  align-items: center;
+}
+
+.home-title .text {
+  border-left: 8px solid #ff5977;
+  padding-left: 20rpx;
+  font-size: 32rpx;
+  color: #333333
+}
+
+.home-title .more {
+  display:flex;
+  font-size: 24rpx;
+  color: #33b2f9;
+  align-items: center;
+}
+
+.home-title .more image {
+  width: 16rpx;
+  height: 24rpx;
+  margin-left: 5rpx;
+}

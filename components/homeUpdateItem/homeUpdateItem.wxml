@@ -1,0 +1,12 @@
+<view class="home-update">
+    <image class="image"></image>
+    <view class="text-wp">
+        <view class="title">
+            标题<image></image>
+            <view>更新至 <text>365</text>话</view>
+        </view>
+        <view class="text">
+            副标题 副标题 副标题 副标题
+        </view>
+    </view>
+</view>

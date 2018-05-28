@@ -5,7 +5,7 @@
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
         <block wx:for="{{imgUrls}}" wx:key="*this">
             <swiper-item>
-                <image src="{{item}}" class="slide-image" width="355" height="150"/>
+                <image src="{{item}}" class="slide-image" mode="widthFix"/>
             </swiper-item>
         </block>
     </swiper>
@@ -15,4 +15,26 @@
         <view class="flex-item" bindtap="changeRecommend" id="2"><image src="{{recommendIndex === 2 ? '/assets/images/four_on.png' : '/assets/images/four.png'}}" alt="" /></view>
         <view class="flex-item" bindtap="changeRecommend" id="3"><image src="{{recommendIndex === 3? '/assets/images/weilu_on.png' : '/assets/images/weilu.png'}}" alt="" /></view>
     </view>
+    <homeTitle text="精品推荐"></homeTitle>
+    <view class="home-content-wrapper" style="flex-direction:row;">
+        <block wx:for="[1]" wx:key="*this">
+            <homeItem></homeItem>
+        </block>
+    </view>
+    <homeTitle text="新作推荐"></homeTitle>
+    <view class="home-content-wrapper" style="flex-direction:row;">
+        <block wx:for="[1]" wx:key="*this">
+            <homeItem></homeItem>
+        </block>
+    </view>
+    <homeTitle text="最新更新"></homeTitle>
+    <view class="home-content-wrapper" style="flex-direction:row;">
+        <block wx:for="[1]" wx:key="*this">
+            <homeItem></homeItem>
+        </block>
+    </view>
+    <homeTitle text="人气更新"></homeTitle>
+    <block wx:for="[1]" wx:key="*this">
+        <homeUpdateItem></homeUpdateItem>
+    </block>
 </view>

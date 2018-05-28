@@ -1,0 +1,4 @@
+<view class="home-title" style="flex-direction:row;">
+    <view class="text">{{text}}</view>
+    <view class="more">更多<image src="/assets/images/more.png"/></view>
+</view>

@@ -1,6 +1,11 @@
 .container{
   box-sizing: border-box;
 }
+
+.slide-image {
+  width: 100%;
+}
+
 .home_search {
   height: 54rpx;
   line-height: 54rpx;
@@ -22,6 +27,13 @@
 }
 
 .flex-item image {
-  width: 150rpx;
-  height: 98rpx;
+  width: 155rpx;
+  height: 100rpx;
+}
+
+.home-content-wrapper {
+  display: flex;
+  flex-wrap:wrap;
+  padding:12px;
+  justify-content:space-between;
 }

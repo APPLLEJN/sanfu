@@ -1,0 +1,29 @@
+.home-update image.image{
+  min-height: 350rpx;
+  background: red;
+  color: #999;
+  font-size: 22rpx;
+}
+
+.home-update .text-wp {
+  padding: 24rpx 30rpx;
+}
+
+.home-update .title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.home-update .title image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.home-update .title text {
+  color: #ff5977;
+}
+
+.home-update .text {
+  color: #999;
+  font-size: 26rpx;
+}

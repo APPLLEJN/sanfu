@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    
+    "homeItem": "/components/homeItem/homeItem",
+    "homeUpdateItem": "/components/homeUpdateItem/homeUpdateItem",
+    "homeTitle": "/components/homeTitle/homeTitle"
   }
 }

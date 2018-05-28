@@ -1,0 +1,49 @@
+.home-item {
+  margin-bottom: 35rpx;
+  font-size: 22rpx;
+  color: #ffffff;
+  text-align: center;
+}
+
+.home-item-bg-wp {
+  position: relative;
+  width: 215rpx;
+  height: 290rpx;
+}
+.home-item image.bg {
+  width: 215rpx;
+  height: 290rpx;
+  background: #ff5977;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-item image.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.home-item .left-text {
+  height: 50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.home-item .bottom-text {
+  height: 58rpx;
+  line-height: 58rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.home-item .title {
+  color: #666;
+  font-size: 28rpx;
+}
