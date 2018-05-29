@@ -4,6 +4,7 @@
   color: #ffffff;
   text-align: center;
   padding: 0 1%;
+  flex: 1 1 33.33%
 }
 
 .home-item-bg-wp {
@@ -12,7 +13,7 @@
   height: 290rpx;
 }
 .home-item image.bg {
-  width: 215rpx;
+  width: 100%;
   height: 290rpx;
   background: #ff5977;
   position: absolute;
@@ -29,7 +30,8 @@
   height: 50rpx;
   line-height: 50rpx;
   position: absolute;
-  right: 0;
+  font-size: 22rpx;
+  right: 5rpx;
   top: 0;
   color: #fff;
   display:flex;
@@ -37,7 +39,7 @@
 }
 
 .home-item image.top-text-bg {
-  width: 114rpx;
+  width: 116rpx;
   position: absolute;
   right: 0;
   top: 0;
