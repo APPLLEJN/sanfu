@@ -24,13 +24,17 @@
   height: 30rpx;
 }
 
-.home-item .left-text {
+.home-item .top-text {
   height: 50rpx;
   line-height: 50rpx;
   position: absolute;
   right: 0;
   top: 0;
   background: rgba(0,0,0,0.3);
+}
+
+.home-item .top-text image {
+  width: 24rpx;
 }
 
 .home-item .bottom-text {
@@ -46,4 +50,6 @@
 .home-item .title {
   color: #666;
   font-size: 28rpx;
+  align-items:center;
+  display:flex;
 }
