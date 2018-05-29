@@ -30,22 +30,33 @@
   position: absolute;
   right: 0;
   top: 0;
-  background: rgba(0,0,0,0.3);
+  color: #fff;
+  display:flex;
+  align-items:center;
 }
 
-.home-item .top-text image {
-  width: 24rpx;
-}
-
-.home-item .bottom-text {
-  height: 58rpx;
-  line-height: 58rpx;
+.home-item image.top-text-bg {
+  width: 114rpx;
   position: absolute;
-  bottom: 0;
-  left: 0;
   right: 0;
-  background: rgba(0,0,0,0.3);
+  top: 0;
 }
+
+.home-item .top-text image.top-text-icon {
+  width: 22rpx;
+  display:flex;
+  margin-right: 5rpx;
+}
+
+/*.home-item .bottom-text {*/
+  /*height: 58rpx;*/
+  /*line-height: 58rpx;*/
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  /*background: rgba(0,0,0,0.3);*/
+/*}*/
 
 .home-item .title {
   color: #666;

@@ -1,8 +1,11 @@
 <view class="home-item">
     <view class="home-item-bg-wp">
         <image src="" class="bg"></image>
-        <view class="top-text"><image src="/assets/images/hot.png" mode="widthFix"></image> 12345</view>
-        <view class="bottom-text">热度12345</view>
+        <image src="/assets/images/hot_bg.png" class="top-text-bg" mode="widthFix"></image>
+        <view class="top-text">
+            <image src="/assets/images/hot.png" class="top-text-icon" mode="widthFix"></image>
+            <text>12345</text>
+        </view>
     </view>
     <block>
         <view class="title">标题
