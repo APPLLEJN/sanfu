@@ -9,32 +9,38 @@
             </swiper-item>
         </block>
     </swiper>
-    <view class="flex-wrp" style="flex-direction:row;">
-        <view class="flex-item" bindtap="changeRecommend" id="0"><image src="{{recommendIndex === 0 ? '/assets/images/all_on.png' : '/assets/images/all.png'}}" alt="" /></view>
-        <view class="flex-item" bindtap="changeRecommend" id="1"><image src="{{recommendIndex === 1 ? '/assets/images/three_on.png' : '/assets/images/three.png'}}" alt="" /></view>
-        <view class="flex-item" bindtap="changeRecommend" id="2"><image src="{{recommendIndex === 2 ? '/assets/images/four_on.png' : '/assets/images/four.png'}}" alt="" /></view>
-        <view class="flex-item" bindtap="changeRecommend" id="3"><image src="{{recommendIndex === 3? '/assets/images/weilu_on.png' : '/assets/images/weilu.png'}}" alt="" /></view>
+    <view class="flex-wrp">
+        <view class="flex-item" bindtap="changeRecommend" id="0"><image src="{{recommendIndex === 0 ? '/assets/images/all_on.png' : '/assets/images/all.png'}}" alt="" mode="widthFix"/></view>
+        <view class="flex-item" bindtap="changeRecommend" id="1"><image src="{{recommendIndex === 1 ? '/assets/images/three_on.png' : '/assets/images/three.png'}}" alt="" mode="widthFix" /></view>
+        <view class="flex-item" bindtap="changeRecommend" id="2"><image src="{{recommendIndex === 2 ? '/assets/images/four_on.png' : '/assets/images/four.png'}}" alt="" mode="widthFix" /></view>
+        <view class="flex-item" bindtap="changeRecommend" id="3"><image src="{{recommendIndex === 3? '/assets/images/weilu_on.png' : '/assets/images/weilu.png'}}" alt="" mode="widthFix" /></view>
     </view>
     <homeTitle text="精品推荐"></homeTitle>
-    <view class="home-content-wrapper" style="flex-direction:row;">
-        <block wx:for="[1]" wx:key="*this">
-            <homeItem></homeItem>
-        </block>
+    <view class="home-content-wrapper">
+        <veiw class="home-content-inner">
+            <block wx:for="{{recommendList}}" wx:key="*this">
+                <homeItem></homeItem>
+            </block>
+        </veiw>
     </view>
     <homeTitle text="新作推荐"></homeTitle>
-    <view class="home-content-wrapper" style="flex-direction:row;">
-        <block wx:for="[1]" wx:key="*this">
-            <homeItem></homeItem>
-        </block>
+    <view class="home-content-wrapper">
+        <veiw class="home-content-inner">
+            <block wx:for="{{newList}}" wx:key="*this">
+                <homeItem></homeItem>
+            </block>
+        </veiw>
     </view>
     <homeTitle text="最新更新"></homeTitle>
-    <view class="home-content-wrapper" style="flex-direction:row;">
-        <block wx:for="[1]" wx:key="*this">
-            <homeItem></homeItem>
-        </block>
+    <view class="home-content-wrapper">
+        <veiw class="home-content-inner">
+            <block wx:for="{{newestList}}" wx:key="*this">
+                <homeItem></homeItem>
+            </block>
+        </veiw>
     </view>
     <homeTitle text="人气更新"></homeTitle>
-    <block wx:for="[1]" wx:key="*this">
+    <block wx:for="{{puporList}}" wx:key="*this">
         <homeUpdateItem></homeUpdateItem>
     </block>
 </view>

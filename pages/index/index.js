@@ -15,7 +15,11 @@ Page({
         autoplay: false,
         interval: 5000,
         duration: 1000,
-        recommendIndex: 0
+        recommendIndex: 0,
+        recommendList: [1,2,3],
+        newList: [1,2,3],
+        newestList: [1,2,3],
+        puporList: [1,2,3]
     },
     changeIndicatorDots: function(e) {
         this.setData({

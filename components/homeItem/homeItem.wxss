@@ -3,6 +3,8 @@
   font-size: 22rpx;
   color: #ffffff;
   text-align: center;
+  width: 33.33%;
+  padding: 0 1%;
 }
 
 .home-item-bg-wp {

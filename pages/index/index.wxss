@@ -19,6 +19,7 @@
 .flex-wrp {
   display: flex;
   margin: 50rpx 30rpx 85rpx;
+  flex-direction:row;
 }
 
 .flex-item {
@@ -28,12 +29,16 @@
 
 .flex-item image {
   width: 155rpx;
-  height: 100rpx;
 }
 
 .home-content-wrapper {
+  padding: 0 12px;
+}
+
+.home-content-inner {
+  margin: 0 -1%;
   display: flex;
   flex-wrap:wrap;
-  padding: 0 12px;
   justify-content:space-between;
+  flex-direction:row;
 }
