@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding-right: 30rpx;
   align-items: center;
+  margin-bottom: 30rpx;
 }
 
 .home-title .text {
