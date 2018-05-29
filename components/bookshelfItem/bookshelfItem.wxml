@@ -1,0 +1,10 @@
+<!--components/bookshelfItem/bookshelfItem.wxml-->
+<view class='bookshelf-item'>
+  <image src='http://mhfm3cnc.cdndm5.com/32/31287/20180409155644_180x240_30.jpg'></image>
+  <view class='item-right'>
+    <view class='item-title'>报报，报告大王</view>
+    <view class='item-author'>By 白菜不菜小可爱</view>
+    <view class='item-info'>阅读进度：2话/99话</view>
+    <view class='item-info'>更新至第99话：遇见霸道总裁...</view>
+  </view>
+</view>

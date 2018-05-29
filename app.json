@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/bookshelf/bookshelf"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,27 +12,33 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "书架",
-      "iconPath": "assets/images/bookrack.png",
-      "selectedIconPath": "assets/images/bookrack_on.png"
-    }, {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "assets/images/home.png",
-      "selectedIconPath": "assets/images/home_on.png"
-    },{
-      "pagePath": "pages/login/login",
-      "text": "分类",
-      "iconPath": "assets/images/classify.png",
-      "selectedIconPath": "assets/images/classify_on.png"
-    },{
-      "pagePath": "pages/login/login",
-      "text": "我的",
-      "iconPath": "assets/images/me.png",
-      "selectedIconPath": "assets/images/me_on.png"
-    }]
+    "selectedColor": "#ff5977",
+    "list": [
+      {
+        "pagePath": "pages/bookshelf/bookshelf",
+        "text": "书架",
+        "iconPath": "assets/images/bookrack.png",
+        "selectedIconPath": "assets/images/bookrack_on.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/home.png",
+        "selectedIconPath": "assets/images/home_on.png"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "分类",
+        "iconPath": "assets/images/classify.png",
+        "selectedIconPath": "assets/images/classify_on.png"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "我的",
+        "iconPath": "assets/images/me.png",
+        "selectedIconPath": "assets/images/me_on.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 10000,

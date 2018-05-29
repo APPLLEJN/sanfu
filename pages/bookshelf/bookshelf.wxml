@@ -1,0 +1,20 @@
+<view class='bookshelf-page'>
+  <view class='bookshelf-tab'>
+    <view class='tab-item {{ tabType=="bookshelf"?"current":"" }}' data-type='bookshelf' bindtap='handleChangeTab'>书架</view>
+    <view class='tab-item {{ tabType=="history"?"current":"" }}' data-type='history' bindtap='handleChangeTab'>历史</view>
+  </view>
+  <view class='bookshelf-search'>
+    <input placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 185rpx center/28rpx 28rpx no-repeat;" />
+  </view>
+  <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"block":"none" }}'>
+    <block wx:for="{{bookshelfList}}" wx:key="*this">
+      <bookshelfItem></bookshelfItem>
+    </block>
+  </view>
+
+  <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"none":"block" }}'>
+    <block wx:for="{{historyList}}" wx:key="*this">
+      <bookshelfItem></bookshelfItem>
+    </block>
+  </view>
+</view>

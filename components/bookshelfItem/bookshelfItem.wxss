@@ -1,0 +1,33 @@
+/* components/bookshelfItem/bookshelfItem.wxss */
+.bookshelf-item {
+  margin: 15rpx 0 30rpx;
+  height: 224rpx;
+  position: relative;
+  padding-left: 192rpx; 
+}
+.bookshelf-item image {
+   position: absolute; 
+  display: block;
+  width: 168rpx;
+  height: 224rpx;
+  left: 0;
+  top: 0;
+}
+.bookshelf-item .item-right {
+  overflow: hidden;
+}
+.bookshelf-item .item-right .item-title {
+  color: #333;
+  font-size: 30rpx;
+  margin-top: 23rpx;
+}
+.bookshelf-item .item-right .item-author {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 25rpx;
+}
+.bookshelf-item .item-right .item-info {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
