@@ -8,6 +8,7 @@ Page({
    */
   data: {
     tabType: 'bookshelf',
+    isSearch: false,
     bookshelfList: [1,2,3,4,5],
     historyList: [1,2,3]
   },
@@ -15,6 +16,18 @@ Page({
   handleChangeTab: function (e) {
     this.setData({
       tabType: e.target.dataset.type
+    })
+  },
+
+  handleSearch: function (e) {
+    this.setData({
+      isSearch: true
+    })
+  },
+  
+  handleBack: function(e) {
+    this.setData({
+      isSearch: false
     })
   },
 
