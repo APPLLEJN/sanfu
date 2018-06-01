@@ -1,0 +1,19 @@
+.record-wrapper {
+ 	border-top: 1rpx solid #e7e7e7;
+ 	font-size: 30rpx;
+ 	color: #333333
+}
+
+.q_item {
+	padding: 55rpx 30rpx
+}
+
+.a_item {
+	padding: 55rpx 30rpx;
+	background: #fff8ed;
+	color: #eab157
+}
+
+.none {
+	display: none
+}

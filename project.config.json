@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -42,6 +42,13 @@
 					"name": "搜索",
 					"pathName": "pages/search/search",
 					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "书架",
+					"pathName": "pages/qa/qa",
+					"query": "",
+					"scene": "1001"
 				}
 			]
 		}

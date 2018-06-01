@@ -1,0 +1,29 @@
+.record-item {
+  display: flex;
+  padding: 28rpx 30rpx 35rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.record-item .text {
+	color: #333;
+	font-size: 30rpx
+}
+
+.record-item .date {
+	color: #cacaca;
+	font-size: 22rpx
+}
+
+.record-item .money {
+	color: #ff5977;
+	font-size: 38rpx
+}
+
+
+.record-item .money text{  
+	color: #666;
+	font-size: 24rpx
+}

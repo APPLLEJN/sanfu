@@ -1,0 +1,8 @@
+<view class="record-wrapper">
+    <veiw class="record-inner">
+        <block wx:for="{{recordList}}" wx:key="*this">
+            <recordItem money="{{item.money}}" date="{{item.date}}"></recordItem>
+        </block>
+    </veiw>
+    <view class="more"><text>查看更多</text></view>
+</view>
