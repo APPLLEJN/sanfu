@@ -62,6 +62,12 @@
 					"name": "详情",
 					"pathName": "pages/detail/detail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/category/category",
+					"query": ""
 				}
 			]
 		}

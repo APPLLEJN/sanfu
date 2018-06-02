@@ -1,0 +1,39 @@
+<!--pages/category/category.wxml-->
+<view class='category-page'>
+  <view class='category-tab'>
+    <view  data-type='all' class='tab-item {{ currentTab=="all"?"current":"" }}'>全部</view>
+    <view data-type='novel' class='tab-item {{ currentTab=="novel"?"current":"" }}'>小说</view>
+    <view data-type='comic' class='tab-item no-border {{ currentTab=="comic"?"current":"" }}'>漫画</view>
+    <view class='select-btn' bindtap='handleShowSelect'><image src='/assets/images/select_icon.png'></image>筛选</view>
+  </view>
+
+  <view class='category-list'>
+    <block wx:for="{{categoryList}}" wx:key="*this">
+      <bookshelfItem></bookshelfItem>
+    </block>
+  </view>
+  
+</view>
+
+<view class='category-select-wrap {{isSelectShow?"show":""}}'>
+  <view class='category-select-bg' bindtap='handleHideSelect'></view>
+  <view class='category-select-box {{isSelectBoxShow?"show":""}}'>
+    <view class='box-title'>标签分类</view>
+    <view class='box-item-wrap'>
+      <view class='box-item {{item.id==categoryTab?"current":""}}' data-id="{{item.id}}" wx:for="{{categoryTabList}}" wx:key="*this">{{item.name}}</view>
+    </view>
+    <view class='box-title'>完结状态</view>
+    <view class='box-item-wrap'>
+      <view class='box-item {{item.id==finishStatus?"current":""}}' data-id="{{item.id}}" wx:for="{{finishStatusList}}" wx:key="*this">{{item.name}}</view>
+    </view>
+    <view class='box-title'>付费类型</view>
+    <view class='box-item-wrap'>
+      <view class='box-item {{item.id==payType?"current":""}}' data-id="{{item.id}}" wx:for="{{payTypeList}}" wx:key="*this">{{item.name}}</view>
+    </view>
+
+    <view class='box-btn-wrap'>
+      <view class='reset-btn'>重置</view>
+      <view class='confirm-btn'>确定</view>
+    </view>
+  </view>
+</view>
