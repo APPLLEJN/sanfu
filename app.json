@@ -5,7 +5,9 @@
     "pages/bookshelf/bookshelf",
     "pages/search/search",
     "pages/record/record",
-    "pages/qa/qa"
+    "pages/qa/qa",
+    "pages/me/me",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

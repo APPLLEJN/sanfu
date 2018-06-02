@@ -1,0 +1,12 @@
+<view class="record-wrapper">
+    <veiw class="record-inner">
+        <block wx:for="{{questionList}}" wx:key="*this">
+    		<view>
+    			<view class="q_item" bindtap="tap" id="{{index}}">
+    				<text>{{item.question}}</text>
+				</view>
+    			<view class="{{showAnswer[index] ? 'a_item' : 'none' }}">{{item.answer}}</view>
+    		</view>
+        </block>
+    </veiw>
+</view>

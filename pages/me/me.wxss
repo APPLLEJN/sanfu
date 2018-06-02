@@ -1,0 +1,98 @@
+.user-info-wrapper {
+  background: #f9f9f9;
+}
+
+.user-info {
+  padding: 55rpx 0 55rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: justify-content
+}
+
+.user-info view {
+  display: flex
+}
+
+.user-info .avatar {
+  width: 135rpx;
+  height: 135rpx;
+  border-radius: 100%;
+  background : red
+}
+
+.user-info .user-name {
+  margin-left: 45rpx;
+  font-size: 34rpx;
+  color: #333;
+  flex-direction: column;
+  flex: 1;
+}
+
+.user-info .user-name .money-wrapper {
+  align-items: center;
+  font-size: 24rpx;
+  color: #999
+}
+
+.user-info .user-name image {
+  width: 26rpx;
+  margin-right: 10rpx
+}
+
+.user-info .user-id {
+  font-size: 24rpx;
+  color: #fefefe;
+  padding: 28rpx 30rpx 28rpx 35rpx ;
+  border-radius: 100rpx 0 0 100rpx;
+  background: linear-gradient(to right, #ff585f, #ff5988)
+}
+
+.list {
+  background: #fff;
+  padding: 0 32rpx;
+}
+
+.list .list-item {
+  padding: 34rpx 0;
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.list-item text {
+  flex: 1
+}
+
+.list-item .icon {
+  width: 42rpx;
+  margin-right: 26rpx
+}
+
+.list-item .arrow {
+  width: 12rpx
+}
+
+.company_info {
+  margin-top: 36rpx;
+  text-align: center;
+  color: #eab157;
+  font-size: 22rpx;
+  background: #fff;
+  padding: 34rpx 0;
+}
+.company_info_inner {
+  background: #fff8ed;
+  padding: 34rpx 0;
+  display: flex;
+  justify-content: center;
+  text-align:right;
+}
+
+.company_info_inner image {
+  width: 124rpx;
+  margin-left: 25rpx
+}

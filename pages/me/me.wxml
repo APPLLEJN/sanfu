@@ -1,0 +1,32 @@
+<view class="user-info-wrapper">
+    <view class="user-info">
+        <image src="/assets/images/all_on.png" class="avatar"></image>
+        <view class="user-name">
+            <view>{{me.name}}</view>
+            <view class="money-wrapper"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{me.money}}金币</view>
+        </view>
+        <view class="user-id">
+            ID:{{me.id}}
+        </view>
+    </view>
+    <view class="list">
+        <block wx:for="{{list}}" wx:key="*this">
+            <navigator url="{{item.link}}" class="list-item">
+                <image src="{{item.icon}}" class="icon" mode="widthFix"></image>
+                <text>{{item.name}}</text>
+                <image src="/assets/images/arrow.png" class="arrow" mode="widthFix"></image>
+            </navigator>
+        </block>
+    </view>
+    <view class="company_info">
+        <view class="company_info_inner">
+            <view>
+                <view>2018-2088XX文化有限公司版权号</view>
+                <view>客服QQ：241968416516</view>
+                <view>工作时间：9:00-18:00</view>
+                <view>网络备案号128819-12号</view>
+            </view>
+            <image src="/assets/images/qr_code.png" mode="widthFix"></image>
+        </view>
+    </view>
+</view>

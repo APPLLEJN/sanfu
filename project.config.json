@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "touristappid",
-	"projectname": "%E4%B8%89%E7%A6%8F",
+	"appid": "wx90137d207d84a66b",
+	"projectname": "sanfu",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -45,8 +45,15 @@
 				},
 				{
 					"id": 2,
-					"name": "书架",
+					"name": "常见问题",
 					"pathName": "pages/qa/qa",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/me/me",
 					"query": "",
 					"scene": "1001"
 				}
