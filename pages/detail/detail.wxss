@@ -1,17 +1,95 @@
-.record-wrapper {
- 	border-top: 1rpx solid #e7e7e7;
- 	font-size: 30rpx;
- 	color: #333333
+.detail-wrapper .info {
+	padding: 50rpx 30rpx;
+	background: black;
+	font-size: 24rpx;
+	color: #fff;
+	display: flex;
+	align-items: center
+}
+.detail-wrapper .info image {
+	width: 224rpx;
+	margin-right: 24rpx
+}
+.detail-wrapper .info-text .title {
+	font-size: 34rpx
 }
 
-.q_item {
-	padding: 55rpx 30rpx
+.detail-wrapper .content .tab {
+	font-size: 30rpx;
+	color: #999;
+	display: flex
 }
 
-.a_item {
-	padding: 55rpx 30rpx;
-	background: #fff8ed;
-	color: #eab157
+.detail-wrapper .content .tab view {
+	display: flex;
+	flex: 1;
+	padding-top: 24rpx;
+	justify-content: center;
+	border-bottom: 1rpx solid #e7e7e7
+}
+
+.detail-wrapper .content .tab view.on {
+	color: #ff5977;
+}
+
+.detail-wrapper .content .tab text {
+	border-bottom: 6rpx solid #999;
+	padding-bottom: 25rpx
+}
+
+.detail-wrapper .content .tab view.on text {
+	border-bottom: 6rpx solid #ff5977;
+	padding-bottom: 25rpx
+}
+
+.detail-content {
+	padding: 34rpx 30rpx;
+	font-size: 26rpx;
+	color: #666;
+}
+
+.detail-content .title {
+	font-size: 30rpx;
+	color: #333;
+	margin-bottom: 20rpx
+}
+
+.des-content {
+	margin-bottom: 58rpx
+}
+
+.similar-inner {
+	margin: 0 -1%;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	flex-direction:row;
+}
+
+.bottom-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100rpx;
+	line-height: 100rpx;
+	border-top: 1px solid #e7e7e7;
+	font-size: 28rpx;
+	background: #fff;
+	padding-left: 30rpx;
+	display: flex;
+	justify-content: space-between
+}
+.bottom-bar	.current {
+	color: #ff5977;
+	margin-right: 28rpx
+}
+
+.bottom-bar .btn {
+	width: 250rpx;
+	text-align: center;
+	background: #ff5977;
+	color: #fff
 }
 
 .none {
