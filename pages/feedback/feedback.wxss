@@ -1,0 +1,48 @@
+/* pages/feedback/feedback.wxss */
+.feedback-page {
+  position: relative;
+  background: #f9f9f9;
+  height: 100%;
+}
+.feedback-box {
+  padding: 46rpx 30rpx;
+  border-top: 2rpx solid #e7e7e7;
+  border-bottom: 2rpx solid #e7e7e7;
+  background: #fff;
+}
+.feedback-area-box {
+  padding: 30rpx;
+  background: #f9f9f9;
+  border: 2rpx solid #e7e7e7;
+  position: relative;
+}
+.feedback-area-box textarea {
+  font-size: 30rpx;
+  color: #555;
+}
+.area-num {
+  width: 120rpx;
+  text-align: right;
+  color: #cacaca;
+  font-size: 30rpx;
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+}
+.feedback-btn-area {
+  margin-top: 150rpx;
+  padding: 0 30rpx;
+}
+.feedback-btn-area .feedback-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #cacaca;
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.feedback-btn-area .feedback-btn.active {
+  background: #ff5977;
+}

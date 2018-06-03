@@ -141,5 +141,5 @@
   border-radius: 10rpx;
   font-size: 24rpx;
   color: #555;
-  margin: 0 8rpx 20rpx;
+  margin: 0 7rpx 20rpx;
 }
