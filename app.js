@@ -3,6 +3,23 @@
 // 开发模式开关
 const dev = true
 
+const showLoading = function (options) {
+    if (wx.canIUse('showLoading')) {
+        wx.showLoading(options);
+    } else {
+        wx.showToast(Object.assign({
+            icon: 'loading'
+        }, options));
+    }
+}
+const hideLoading = function () {
+    if (wx.canIUse('hideLoading')) {
+        wx.hideLoading();
+    } else {
+        wx.hideToast();
+    }
+}
+
 App({
     apiBaseUrl: dev
         ? '' // 测试环境
@@ -14,10 +31,10 @@ App({
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
         // 验证TOKEN是否失效
         // ...
-        // if (!userInfo && options.path !== "pages/login/login")
-        //     wx.reLaunch({ url: "/pages/login/login" })
-        // else
-        //     this.setUserInfo(userInfo, token)
+         if (!userInfo && options.path !== "pages/login/login")
+             wx.reLaunch({ url: "/pages/login/login" })
+         else
+             this.setUserInfo(userInfo, token)
         
     },
     onShow: function (options) {
@@ -74,7 +91,7 @@ App({
         hasUserInfo: false,
         token: undefined,
     },
-    // showLoading,
+    showLoading,
     // hideLoading,
     // 回到首页
     backToHome: function () {
@@ -128,19 +145,7 @@ App({
                 console.log('└ 请求结果', res)
                 if (!res.data) return fail()
                 const data = res.data
-                if (data.code !== 0 && data.code !== '0') {
-                    // console.log(res)
-                    if (data.msg)
-                        return fail({ errMsg: data.msg, code: data.code })
-                    if (res.statusCode !== 200)
-                        return fail({
-                            code: `HTTP${res.statusCode}`,
-                            errMsg: undefined
-                        })
-                    return fail({ errMsg: data.code })
-                }
-                if (data.data)
-                    return success(data.data)
+                if (data) return success(data)
                 success(data)
             },
             fail,
