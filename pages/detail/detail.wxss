@@ -95,3 +95,51 @@
 .none {
 	display: none
 }
+
+.directory-list {
+  position: relative;
+}
+.directory-list .order-btn {
+  position: absolute;
+  width: 100rpx;
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+  right: 0;
+}
+.directory-list .order-btn image {
+  position: absolute;
+  width: 12rpx;
+  height: 24rpx;
+  left: 0;
+  top: 8rpx;
+}
+.directory-list-title {
+  color: #333;
+  font-size: 30rpx;
+}
+.directory-list-title text {
+  color: #aaa;
+  font-size: 24rpx;
+}
+.directory-list-title text.current {
+  color: #ff5977;
+}
+.directory-list-box {
+  margin: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.directory-list-box .directory-item {
+  width: 160rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  /* flex-grow: 1; */
+  text-align: center;
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #555;
+  margin: 0 8rpx 20rpx;
+}

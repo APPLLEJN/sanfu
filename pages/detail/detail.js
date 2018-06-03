@@ -6,7 +6,9 @@ Page({
     data: {
 		info: {title: 'title', owner: 'owner'},
 		tabOn: 0,
-		similarList: [1,2,3]
+		similarList: [1,2,3],
+    order: 'down',
+    directoryList: [1,2,3,4,5,6,7,8,9]
     },
     
     onLoad: function () {

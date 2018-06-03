@@ -7,7 +7,8 @@
     "pages/record/record",
     "pages/qa/qa",
     "pages/me/me",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/category/category"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,7 +33,7 @@
         "selectedIconPath": "assets/images/home_on.png"
       },
       {
-        "pagePath": "pages/login/login",
+        "pagePath": "pages/category/category",
         "text": "分类",
         "iconPath": "assets/images/classify.png",
         "selectedIconPath": "assets/images/classify_on.png"

@@ -25,8 +25,13 @@
 			</veiw>
 		</view>
 
-		<view class="{{tabOn === 1 ? 'detail-content' : 'none'}}">
-
+		<view class="directory-list {{tabOn === 1 ? 'detail-content' : 'none'}}">
+      <view wx:if="{{order=='down'}}" class='order-btn'><image src='/assets/images/down-icon.png'></image>倒序</view>
+      <view wx:else class='order-btn'><image src='/assets/images/up-icon.png'></image>正序</view>
+      <view class='directory-list-title'>连载中 <text>最后更新第<text class='current'>99</text>话/章 2018-05-09</text> </view>
+      <view class='directory-list-box'>
+        <view class='directory-item' wx:for="{{directoryList}}" wx:key="*this">5章</view>
+      </view>
 		</view>
 	</view>
 	<view class="bottom-bar">
