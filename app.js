@@ -31,10 +31,10 @@ App({
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
         // 验证TOKEN是否失效
         // ...
-         if (!userInfo && options.path !== "pages/login/login")
-             wx.reLaunch({ url: "/pages/login/login" })
-         else
-             this.setUserInfo(userInfo, token)
+        // if (!userInfo && options.path !== "pages/login/login")
+        //     wx.reLaunch({ url: "/pages/login/login" })
+        // else
+        //     this.setUserInfo(userInfo, token)
         
     },
     onShow: function (options) {

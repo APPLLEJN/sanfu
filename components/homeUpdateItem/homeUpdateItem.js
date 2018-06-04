@@ -2,26 +2,18 @@ const app = getApp()
 
 Component({
     properties: {
-        color: {
-            type: String,
-            value: ''
-        },
-        textColor: {
-            type: String,
-            value: ''
-        },
         title: {
             type: String,
             value: ''
         },
-        subtitle: {
+        info: {
             type: String,
             value: ''
         },
-        border: {
+        image: {
             type: String,
-            value: '2'
-        },
+            value: ''
+        }
     },
 
     data: {

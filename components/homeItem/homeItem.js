@@ -2,26 +2,18 @@ const app = getApp()
 
 Component({
     properties: {
-        color: {
+        image: {
             type: String,
             value: ''
         },
-        textColor: {
+        name: {
             type: String,
             value: ''
         },
-        title: {
+        id: {
             type: String,
             value: ''
-        },
-        subtitle: {
-            type: String,
-            value: ''
-        },
-        border: {
-            type: String,
-            value: '2'
-        },
+        }
     },
 
     data: {

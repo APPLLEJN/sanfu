@@ -3,9 +3,9 @@
            placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/15px 15px no-repeat;" />
     <swiper indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
-        <block wx:for="{{imgUrls}}" wx:key="*this">
+        <block wx:for="{{bannerList}}" wx:key="*this">
             <swiper-item>
-                <image src="{{item}}" class="slide-image" mode="widthFix"/>
+                <image src="{{item.img_url}}" class="slide-image" mode="widthFix"/>
             </swiper-item>
         </block>
     </swiper>
@@ -18,29 +18,29 @@
     <homeTitle text="精品推荐"></homeTitle>
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
-            <block wx:for="{{recommendList}}" wx:key="*this">
-                <homeItem></homeItem>
+            <block wx:for="{{fineQualitiyComics}}" wx:key="*this">
+                <homeItem image="{{item.resource}}" name="{{item.name}}" id="{{item.id}}"></homeItem>
             </block>
         </veiw>
     </view>
     <homeTitle text="新作推荐"></homeTitle>
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
-            <block wx:for="{{newList}}" wx:key="*this">
-                <homeItem></homeItem>
+            <block wx:for="{{newComics}}" wx:key="*this">
+                <homeItem image="{{item.resource}}" name="{{item.name}}" id="{{item.id}}"></homeItem>
             </block>
         </veiw>
     </view>
     <homeTitle text="最新更新"></homeTitle>
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
-            <block wx:for="{{newestList}}" wx:key="*this">
-                <homeItem></homeItem>
+            <block wx:for="{{newUpdateComics}}" wx:key="*this">
+                <homeItem image="{{item.resource}}" name="{{item.name}}" id="{{item.id}}"></homeItem>
             </block>
         </veiw>
     </view>
     <homeTitle text="人气更新"></homeTitle>
-    <block wx:for="{{puporList}}" wx:key="*this">
-        <homeUpdateItem></homeUpdateItem>
+    <block wx:for="{{popularComics}}" wx:key="*this">
+        <homeUpdateItem image="{{item.pic_url}}" title="{{item.name}}" info="{{item.info}}"></homeUpdateItem>
     </block>
 </view>

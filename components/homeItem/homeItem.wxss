@@ -3,8 +3,6 @@
   font-size: 22rpx;
   color: #ffffff;
   text-align: center;
-  padding: 0 1%;
-  flex: 1 1 33.33%
 }
 
 .home-item-bg-wp {
@@ -66,4 +64,16 @@
   font-size: 28rpx;
   align-items:center;
   display:flex;
+  flex: 1;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.home-item .title text {
+  display:flex;
+  flex: 1;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }

@@ -16,14 +16,14 @@ Page({
                 if (res.code) {
                     //发起网络请求
                     app.request({
-                        url: 'http://sanfu.weilubook.com/littleapp/user/get_info',
+                        url: 'https://sanfu.weilubook.com/littleapp/user/login',
                         method: 'POST',
                         header: {
                             'content-type': 'application/x-www-form-urlencoded' // 默认值
                         },
                         data: {js_code: res.code},
                         success: (result) => {
-                            wx.getUserinfo({
+                            wx.getUserInfo({
                                 success: (data) => {
 
                                 }

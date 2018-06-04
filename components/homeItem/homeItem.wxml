@@ -1,6 +1,6 @@
 <view class="home-item">
     <view class="home-item-bg-wp">
-        <image src="" class="bg"></image>
+        <image src="{{image}}" class="bg"></image>
         <image src="/assets/images/hot_bg.png" class="top-text-bg" mode="widthFix"></image>
         <view class="top-text">
             <image src="/assets/images/hot.png" class="top-text-icon" mode="widthFix"></image>
@@ -8,7 +8,8 @@
         </view>
     </view>
     <block>
-        <view class="title">标题
+        <view class="title">
+            <text>{{name}}</text>
             <image class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
             <image class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
             <image class="icon" src="/assets/images/lu.png" mode="widthFix"></image>

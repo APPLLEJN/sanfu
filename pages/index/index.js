@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
     data: {
-        imgUrls: [
+        bannerList: [
             'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
@@ -16,10 +16,10 @@ Page({
         interval: 5000,
         duration: 1000,
         recommendIndex: 0,
-        recommendList: [1,2,3],
-        newList: [1,2,3],
-        newestList: [1,2,3],
-        puporList: [1,2,3]
+        fineQualitiyComics: [],
+        newComics: [1,2,3],
+        newUpdateComics: [1,2,3],
+        popularComics: [1,2,3]
     },
     changeIndicatorDots: function(e) {
         this.setData({
@@ -47,6 +47,25 @@ Page({
         })
     },
     onLoad: function () {
-        
+        this.getData()
+    },
+    getData: function () {
+        app.request({
+            url: 'https://sanfu.weilubook.com/littleapp/home/index',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {child_site: 1},
+            success: (result) => {
+                this.setData({
+                    bannerList: result.data.carousels,
+                    fineQualitiyComics: result.data.fine_qualitiy_comics,
+                    newComics: result.data.new_comics,
+                    newUpdateComics: result.data.new_update_comics,
+                    popularComics: result.data.popular_comics
+                })
+            }
+        })
     }
 })
