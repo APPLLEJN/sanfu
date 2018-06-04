@@ -10,7 +10,7 @@ Component({
             type: String,
             value: ''
         },
-        id: {
+        sid: {
             type: String,
             value: ''
         }

@@ -19,7 +19,7 @@
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{fineQualitiyComics}}" wx:key="*this">
-                <homeItem image="{{item.resource}}" name="{{item.name}}" id="{{item.id}}"></homeItem>
+                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}"></homeItem>
             </block>
         </veiw>
     </view>
@@ -27,7 +27,7 @@
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{newComics}}" wx:key="*this">
-                <homeItem image="{{item.resource}}" name="{{item.name}}" id="{{item.id}}"></homeItem>
+                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}"></homeItem>
             </block>
         </veiw>
     </view>
@@ -35,7 +35,7 @@
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{newUpdateComics}}" wx:key="*this">
-                <homeItem image="{{item.resource}}" name="{{item.name}}" id="{{item.id}}"></homeItem>
+                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}"></homeItem>
             </block>
         </veiw>
     </view>
