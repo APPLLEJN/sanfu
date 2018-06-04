@@ -16,7 +16,6 @@ Page({
 		//wx.setNavigationBarTitle({
 		//	title: option.title
 		//})
-		console.log(option.id)
 		this.getDetail(option.id)
     },
 	changeTab: function(e) {
@@ -36,7 +35,10 @@ Page({
 			data: {comic_id: id},
 			success: (result) => {
 				wx.setNavigationBarTitle({
-					title: result.title
+					title: result.data.comic_name
+				})
+				this.setData({
+					comic: result.data
 				})
 			}
 		})

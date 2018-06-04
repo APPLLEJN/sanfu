@@ -1,11 +1,11 @@
 <view class="detail-wrapper">
 	<view class="info">
-		<image src="http://mhfm3cnc.cdndm5.com/32/31287/20180409155644_180x240_30.jpg" mode="widthFix"></image>
+		<image src="{{comic.resource}}" mode="widthFix"></image>
 		<view class="info-text">
-			<view class="title">{{info.title}}</view>
-			<view>{{info.owner}}</view>
-			<view>{{info.owner}}</view>
-			<view>{{info.owner}}</view>
+			<view class="title">{{comic.comic_name}}</view>
+			<view>By {{comic.author_name}}</view>
+			<view>{{comic.click_cnt}}万热度/{{comic.like_cnt}}万点赞/{{comic.fav_cnt}}万收藏</view>
+			<view>{{comic.owner}}</view>
 		</view>
 	</view>
 	<view class="content">
@@ -16,7 +16,7 @@
 
 		<view class="{{tabOn === 0 ? 'detail-content' : 'none'}}">
 			<view class="title">作品简介</view>
-			<view class="des-content">丹麦王子哈姆雷特在德国威登堡大学就读时突然接到父亲的死讯，回国奔丧时接连遇到了叔父克劳狄斯即位和叔父与母亲乔特鲁德在父亲葬礼后一个月匆忙结婚的一连串事变，这使哈姆雷特充满了疑惑和不满。紧接着，在霍拉旭和勃那多站岗时出现了父亲老哈姆雷特的鬼魂，说明自己是被克...</view>
+			<view class="des-content">{{comic.intro}}</view>
 			<view class="title">同类好书</view>
 			<veiw class="similar-inner">
 				<block wx:for="{{similarList}}" wx:key="*this">
