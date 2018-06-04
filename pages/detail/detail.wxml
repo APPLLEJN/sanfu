@@ -42,5 +42,6 @@
 		<view class="btn">
 			继续阅读
 		</view>
+    <view class='collect-btn {{isCollected?"collected":""}}'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image>收藏</view>
 	</view>
 </view>

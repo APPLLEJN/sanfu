@@ -68,6 +68,12 @@
 					"name": "分类",
 					"pathName": "pages/category/category",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "反馈",
+					"pathName": "pages/feedback/feedback",
+					"query": ""
 				}
 			]
 		}

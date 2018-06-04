@@ -44,19 +44,19 @@ Page({
     changeRecommend: function(e) {
         this.setData({
             recommendIndex: +e.currentTarget.id
-        })
+        }, this.getData(+e.currentTarget.id))
     },
     onLoad: function () {
-        this.getData()
+        this.getData(0)
     },
-    getData: function () {
+    getData: function (id) {
         app.request({
             url: 'https://sanfu.weilubook.com/littleapp/home/index',
             method: 'POST',
             header: {
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
-            data: {child_site: 1},
+            data: {child_site: id},
             success: (result) => {
                 this.setData({
                     bannerList: result.data.carousels,

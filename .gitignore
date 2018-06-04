@@ -1,0 +1,7 @@
+.idea
+dist
+.DS_Store
+.cache
+.vscode
+.cache
+.idea/*

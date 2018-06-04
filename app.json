@@ -8,7 +8,8 @@
     "pages/qa/qa",
     "pages/me/me",
     "pages/detail/detail",
-    "pages/category/category"
+    "pages/category/category",
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",
