@@ -10,7 +10,7 @@
         </view>
         <block>
             <view class="title">
-                <text>{{name}}</text>
+                <view class='title-name'>{{name}}</view>
                 <image class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
                 <image class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
                 <image class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
