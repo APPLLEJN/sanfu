@@ -1,6 +1,10 @@
 <view class="detail-wrapper">
 	<view class="info">
-		<image src="{{comic.resource}}" mode="widthFix"></image>
+    <view class='info-bg-wrap'>
+      <view class='info-bg' style='background-image: url(http://mhfm3cnc.cdndm5.com/32/31287/20180409155644_180x240_30.jpg)'></view>
+    </view>
+		  <!-- <image src="{{comic.resource}}" mode="widthFix"></image>  -->
+		  <image src="http://mhfm3cnc.cdndm5.com/32/31287/20180409155644_180x240_30.jpg" mode="widthFix"></image> 
 		<view class="info-text">
 			<view class="title">{{comic.comic_name}}</view>
 			<view>By {{comic.author_name}}</view>
