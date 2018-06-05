@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
     data: {
-		top:0,
 		scrollTop: 0,
 		height: wx.getSystemInfoSync().windowHeight,
 		width: wx.getSystemInfoSync().windowWidth
@@ -29,7 +28,7 @@ Page({
 			console.log('center')
 		}
 		this.setData({
-			top: top
+			scrollTop: top
 		})
     },
 	scroll: function(e) {
