@@ -1,0 +1,8 @@
+<view class="read">
+  <scroll-view style="height: {{height}}px" scroll-y scroll-top="{{top}}" bindtap="tap" bindscroll="scroll">
+      <image src="http://www.pujia8.com/static/pics/20170930120018_57.jpg" mode="widthFix"></image>
+      <image src="http://www.pujia8.com/static/pics/20170930120018_57.jpg" mode="widthFix"></image>
+      <image src="http://www.pujia8.com/static/pics/20170930120018_57.jpg" mode="widthFix"></image>
+      <image src="http://www.pujia8.com/static/pics/20170930120018_57.jpg" mode="widthFix"></image>
+  </scroll-view>
+</view>

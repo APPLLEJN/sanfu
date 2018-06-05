@@ -9,7 +9,8 @@
     "pages/me/me",
     "pages/detail/detail",
     "pages/category/category",
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/read/read"
   ],
   "window": {
     "backgroundTextStyle": "light",
