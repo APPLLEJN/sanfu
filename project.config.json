@@ -78,7 +78,8 @@
 				{
 					"id": -1,
 					"name": "阅读",
-					"pathName": "pages/read/read"
+					"pathName": "pages/read/read",
+					"query": ""
 				}
 			]
 		}
