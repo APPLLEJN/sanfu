@@ -49,6 +49,7 @@
   position: absolute;
   left: 0;
   top: 460rpx;
+  text-decoration: underline;
 }
 .login-btn {
   width: 260rpx;
