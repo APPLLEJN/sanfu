@@ -1,8 +1,7 @@
 <view class="read">
   <scroll-view style="height: {{height}}px" scroll-y scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
       <block wx:for="{{imageList}}" wx:key="*this">
-          <image class="image" src="{{arr[index] ? item : '/assets/images/me.png'}}"></image>
+          <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/me.png'}}"></image>
       </block>
-      <image lazy-load="{{true}}" src="http://www.pujia8.com/static/pics/20170930120018_57.jpg" mode="widthFix"></image>
   </scroll-view>
 </view>

@@ -1,10 +1,10 @@
 <view class="detail-wrapper">
 	<view class="info">
     <view class='info-bg-wrap'>
-      <view class='info-bg' style='background-image: url(http://mhfm3cnc.cdndm5.com/32/31287/20180409155644_180x240_30.jpg)'></view>
+      <view class='info-bg' style='background-image: url({{comic.resource}})'></view>
     </view>
 		  <!-- <image src="{{comic.resource}}" mode="widthFix"></image>  -->
-		  <image src="http://mhfm3cnc.cdndm5.com/32/31287/20180409155644_180x240_30.jpg" mode="widthFix"></image> 
+	  	<image src="{{comic.resource}}" mode="widthFix"></image>
 		<view class="info-text">
 			<view class="title">{{comic.comic_name}}</view>
 			<view>By {{comic.author_name}}</view>
@@ -34,18 +34,20 @@
       <view wx:else class='order-btn'><image src='/assets/images/up-icon.png'></image>正序</view>
       <view class='directory-list-title'>连载中 <text>最后更新第<text class='current'>99</text>话/章 2018-05-09</text> </view>
       <view class='directory-list-box'>
-        <view class='directory-item' wx:for="{{directoryList}}" wx:key="*this">5章</view>
+		  	<block  wx:for="{{comic.chapters}}" wx:key="*this">
+			  	<navigator url="{{'/pages/read/read?id='+item.chapter_id+'&cid='+comic.comic_id}}" class='directory-item'>{{item.title}}</navigator>
+			</block>
       </view>
-		</view>
+	</view>
 	</view>
 	<view class="bottom-bar">
 		<view>
-			<text class="current">14话/章</text>
-			<text>粉黛想容</text>
+			<text class="current">{{readCurrent}}话/章</text>
+			<text>{{directoryName}}</text>
 		</view>
-		<view class="btn">
-			继续阅读
-		</view>
-    <view class='collect-btn {{isCollected?"collected":""}}'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image>收藏</view>
+		<navigator url="{{'/pages/read/read?id='+(readCurrent === 1 ? comic.chapters[0].chapter_id : readCurrent) +'&cid='+comic.comic_id}}" class="btn">
+			{{readCurrent === 1 ? '开始阅读' : '继续阅读'}}
+		</navigator>
+    <view class='collect-btn {{isCollected?"collected":""}}' ontap="addfavor"><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image>收藏</view>
 	</view>
 </view>

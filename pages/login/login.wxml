@@ -6,6 +6,6 @@
   <view class='login-box'>
      <image src='/assets/images/login-title.png'></image> 
      <view class='login-tip'>使用微信账号授权并登录 ></view>
-     <view class='login-btn'>立即登录</view>
+     <button open-type="getUserInfo" bindgetuserinfo="getUserinfo" class='login-btn'>立即登录</button>
   </view>
 </view>

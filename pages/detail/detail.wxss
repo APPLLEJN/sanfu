@@ -1,3 +1,4 @@
+@import "../../wxParse/wxParse.wxss";
 .detail-wrapper .info {
 	padding: 50rpx 30rpx;
 	background: black;
@@ -68,7 +69,7 @@
 }
 
 .detail-content {
-	padding: 34rpx 30rpx;
+	padding: 34rpx 30rpx 80px;
 	font-size: 26rpx;
 	color: #666;
 }

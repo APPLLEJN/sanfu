@@ -25,7 +25,8 @@ Page({
                         success: (result) => {
                             wx.getUserInfo({
                                 success: (data) => {
-
+                                    wx.setStorageSync('token', result.data.access_token)
+                                    wx.setStorageSync('userInfo', data.userInfo)
                                 }
                             })
                         }

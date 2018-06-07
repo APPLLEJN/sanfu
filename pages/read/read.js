@@ -7,36 +7,48 @@ Page({
 		scrollTop: 0,
 		height: wx.getSystemInfoSync().windowHeight,
 		width: wx.getSystemInfoSync().windowWidth,
-		imageList: [
-			'http://www.pujia8.com/static/pics/20170930120018_57.jpg',
-			'http://www.pujia8.com/static/uploads/20180516141341_49.jpg',
-			'http://www.pujia8.com/static/uploads/20180516141343_89.jpg',
-			'http://www.pujia8.com/static/uploads/20180516141346_15.jpg',
-			'http://www.pujia8.com/static/uploads/20180516141349_44.jpg',
-			'http://www.pujia8.com/static/uploads/20180516141351_90.jpg',
-			'http://www.pujia8.com/static/uploads/20180606100423_51.png',
-		],
+		imageList: [],
 		arr: [],
 		arrHeight: [],
 		itemHeight: 0,
+        id: null,
+        cid: null
 	},
     
-    onLoad: function () {
+    onLoad: function (option) {
 		this.setData({
 			me: {name: 'jn', money: '999999', id: '223344'}
 		})
-		const {imageList,arr} = this.data
-		imageList.map(item => {
-			arr.push(false)
-		})
-		this.setData({
-			arr: arr
-		})
+
+        this.getDetail(option.id, option.cid)
+        this.setData({
+            id: option.id,
+            cid: option.cid
+        })
+
     },
-	onReady: function () {
-		setTimeout(() => {
-			this.getRect()
-		}, 1000)
+	onReady: function () {},
+	getDetail: function (id, cid) {
+		app.request({
+            url: 'https://sanfu.weilubook.com/littleapp/chapter/detail',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {chapter_id: id, comic_id: cid},
+            success: (result) => {
+                wx.setNavigationBarTitle({
+                    title: result.data.title
+                })
+                const { content } = result.data
+                const { arr } = this.data
+                content.map(item => arr.push(false))
+                this.setData({
+                    arr: arr,
+                    imageList: result.data.content
+                }, () => this.getRect())
+            }
+		})
 	},
 	getRect: function () {
 		var that = this
@@ -80,19 +92,23 @@ Page({
 		})
     },
 	scroll: function(e) {
-		const {arr, arrHeight, height} = this.data
-		console.log(arrHeight)
+		const {arr, arrHeight, height, cid, id} = this.data
 		for (var i = 0; i < arrHeight.length; i++) {
-			if (arrHeight[i] < e.detail.scrollTop + height) {
+			if (arrHeight[i] < e.detail.scrollTop + height + 50 ) {
 				if (arr[i] == false) {
 					arr[i] = true;
 				}
 			}
 		}
-		console.log(arr, '===')
 		this.setData({
 			scrollTop: e.detail.scrollTop,
 			arr: this.data.arr
 		})
+        console.log(e.detail.scrollTop, height, e.detail.scrollHeight)
+        if (e.detail.scrollTop + height > e.detail.scrollHeight - 50) {
+            //到底部
+            console.log('到底部')
+            wx.setStorageSync('read_current'+cid, id)
+        }
 	}
 })

@@ -1,22 +1,26 @@
 //index.js
 //获取应用实例
+var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp()
 
 Page({
     data: {
-		info: {title: 'title', owner: 'owner'},
+		info: {},
 		tabOn: 0,
 		similarList: [1,2,3],
-    order: 'down',
-    isCollected: false,
-    directoryList: [1,2,3,4,5,6,7,8,9]
+		order: 'down',
+    	isCollected: false,
+		id: null,
+		readCurrent: 1,
+		directoryName: ''
     },
     
     onLoad: function (option) {
-		//wx.setNavigationBarTitle({
-		//	title: option.title
-		//})
 		this.getDetail(option.id)
+		this.setData({
+			id: option.id,
+			readCurrent: wx.getStorageSync('read_current'+option.id) || 1
+		})
     },
 	changeTab: function(e) {
     	console.log(e)
@@ -26,6 +30,7 @@ Page({
 		})
     },
 	getDetail: function (id) {
+		const { readCurrent } = this.data
 		app.request({
 			url: 'https://sanfu.weilubook.com/littleapp/comic/detail',
 			method: 'POST',
@@ -37,9 +42,24 @@ Page({
 				wx.setNavigationBarTitle({
 					title: result.data.comic_name
 				})
+				console.log(readCurrent, result.data.chapters.filter(item=>item.chapter_id))
 				this.setData({
-					comic: result.data
+					comic: result.data,
+					directoryName: readCurrent === 1 ? result.data.chapters[0].title : result.data.chapters.filter(item=>item.chapter_id==readCurrent)[0].title
 				})
+			}
+		})
+	},
+	addfavor: function() {
+		app.request({
+			url: 'https://sanfu.weilubook.com/littleapp/favorite_comic/add',
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			data: {comic_id: this.data.id, access_token: wx.getStorageSync('token')},
+			success: (result) => {
+				// 换成红色桃心！
 			}
 		})
 	}
