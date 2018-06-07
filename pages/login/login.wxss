@@ -1,3 +1,71 @@
 .container{
   box-sizing: border-box;
 }
+.login-page {
+  width: 100%;
+  height: 100%;
+}
+.login-page .login-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAAbCAYAAAAj3QpJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQTUzMjBGMzYyM0ExMUU4ODU1Mjk3MzAyQ0Q2RUQwQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQTUzMjBGNDYyM0ExMUU4ODU1Mjk3MzAyQ0Q2RUQwQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkFBNTMyMEYxNjIzQTExRTg4NTUyOTczMDJDRDZFRDBCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFBNTMyMEYyNjIzQTExRTg4NTUyOTczMDJDRDZFRDBCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+0nB6cwAABcRJREFUeNrsmmtvVFUUhs+Z6VyKUKA37jEQjbaJN7xLDH+Hz373X/kTvAuKovUOaEEqRiEQaKcz0+M6yXvCzoQPTPHdMeR5kjczk5RZXde9zi7l/bVz7xcAAAAAAPC/Zib0wRQ/vxN6NXQs9Fvokun3qu30Qq+H5kPfyF5psjUXOqvv/yT0p2Lj4HDotdCt0EehyujX6dDx0Hroa5M/ze//dmgh9G3oqsnWOLRftur6+Dy0EWqZbC2GzoRuhz4LDUy2alZDp+RPXYMdY9+/GVoK/RT60Vh/e2Rrn+J302hrOfRW6L7id8+Yq2dDz4VuhL6UfYdfpeZtPTMua962TT3cU/zqWXgxdM0Uu5Fqr+7hYejj0F1Trmq/ngmtqPbOy37LlKtXQkdDVzQHS1MM67PpHeXqkuy1TH11IPSG6uPT0N8mn4bK1Quycd40byt9Zz1vT2qvuGjqq0K2zujcWgv9bOzh2dC7Sa7+MtXgWLF7UXP2w9C2cbavqjbWtQs65m2lM/e0zpIflK+uqS5m1cP90IXQ9Wnqoh4AX01p8IQW941d/NtpB+GKFvfLxoeEQovFWb2vk/WH0dYpLe53zfErtLQfVwO7ba1qcb9qtrVX8espV+tGW0saunf1kODkgGrjlg59J8/Lt3UdWi66Ooj3KVfXjLaOavEcaBAOjLb6Wtz/0eLu5KQW9xs6tFy0lKt6Gfwl9L3R1rIe6IaaFffMl1Mrevi+kGHeHlWuLpptvaRcXTFeyjRz6WX18nfyzV2Dd0JfaJlyMa/e2jD3VaH47dfZ6LTV1QxszsbrRluVFvfNDGfjfi3uNzPM21OaT7+r3l30kj2mvkD7ddpGmZb2xKvTseb362SwlRZ/YW6u3cZ+t7nKYauVHJRPYq765OqxejhXrsqJGnEtgzly1co4b/vFg1uszhOUq85DYunO1UyG+OXKVS+x1c3YV/1MttoZ7DyJueokPdzPWBe5zquZjLmaui5yLAkAAAAAAPAf3BIAAAAAAACLOwAAAAAAsLgDAAAAALC4AwAAAAAAizsAAAAAALC4AwAAAACwuAMAAAAAAIs7AAAAAACwuAMAAAAAsLgDAAAAAACLOwAAAAAAizsAAAAAALC4AwAAAAAAizsAAAAAAIs7AAAAAACwuAMAAAAAAIs7AAAAAACLOwAAAAAAsLgDAAAAALC4T8144tXFILSj98MMthq2zbaa79/JkN9xRluNjVHGXLnrovn+KrRFrh6rh3P1VTVRIw5GmXK1k3Hebil2OfoqZ66GD4mlO1ejDPGrMvZwlamH077aymRrnMFOrr7KmaucZ2OueTvIfDbuui5mQkce8WcrObVXn/dN8W93s8TMhnr6vBg6rPeloSgWk8+HVfQdg191DA/pfc/oUxPDJld7jblqiq+v1wX5VZoauP7+tj4f0tBom2w1MeuGng5tmmzVzOl1j3zsmnJVqrdqDhpzNZZP3aSvhoXnr3zjpJfqmXYidMeQqyZ+B5NcHdFcdPhV23oqqY8l+edYOmeTXC0a62KomJXKz/HQbUP8qmQeNbk6pr522Gon83ZOs6k0xLBSnrqJf8umuTSeqLkjSQ84FpmF5Cxp5m3L1MNzyR6zpPg5cjUzkStXD1eqv3Yyb8fGc7jZmTrK1cAUv3o2HZjYYypjXzVn47zmfN+Yqxn5sazz6pHrory/du69KQ32ZWBkvC2p1LB9vW5LjiLckT+zyc2Ta8Eo1Fh92d00DsLmMM6Rq1I+tZUn181Ck6u+bG7JN3ddNDdAOyZbzcNBR8P2nvEBoUhyNTQN3CZ+bcUvR6468qtSX42NPdzkapTcnJQZcrVl8mly3g6MN05pXzW3da4FI11yx8WDvyq4ctWTb86+KpJ5m+tsTOet64Z6lDw8josHt59lhh7eLLz/bXg2ydXA3MO55m1X9e4+GyvZcc/bJn69ZI/ZND1kFckFWimftqepi38FGACgw2F6+MVsvwAAAABJRU5ErkJggg==);
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-color: #fff7d0;
+}
+.gaoshiqing-logo {
+  position: absolute;
+  width: 750rpx;
+  height: 405rpx;
+  left: 0;
+  top: 0;
+}
+.login-bottom {
+  position: absolute;
+  width: 750rpx;
+  height: 313rpx;
+  left: 0;
+  bottom: 0;
+}
+.login-box {
+  position: absolute;
+  width: 704rpx;
+  height: 712rpx;
+  left: 50%;
+  margin-left: -352rpx;
+  top: 218rpx;
+}
+.login-box image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.login-tip {
+  width: 100%;
+  color: #130600;
+  font-size: 28rpx;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 460rpx;
+}
+.login-btn {
+  width: 260rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  border: 4rpx solid #080103;
+  border-radius: 48rpx;
+  background: #ffec79;
+  text-align: center;
+  color: #130600;
+  font-size: 32rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -130rpx;
+  bottom: 60rpx;
+}
+/* .login-page .login-bg image {
+  width: 100%;
+  height: 100%;
+} */

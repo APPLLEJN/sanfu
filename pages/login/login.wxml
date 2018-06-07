@@ -1,3 +1,11 @@
-<view class="page-container">
-  <button open-type="getUserInfo" bindgetuserinfo="getUserinfo">获取用户信息</button>
+<view class="login-page">
+  <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserinfo">获取用户信息</button> -->
+  <view class='login-bg'></view>
+  <image class='gaoshiqing-logo' src='/assets/images/gaoshiqing.png'></image>
+  <image class='login-bottom' src='/assets/images/login-bottom.png'></image>
+  <view class='login-box'>
+     <image src='/assets/images/login-title.png'></image> 
+     <view class='login-tip'>使用微信账号授权并登录 ></view>
+     <view class='login-btn'>立即登录</view>
+  </view>
 </view>
