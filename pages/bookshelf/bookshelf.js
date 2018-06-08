@@ -9,8 +9,10 @@ Page({
   data: {
     tabType: 'bookshelf',
     isSearch: false,
-    bookshelfList: [1,2,3,4,5],
-    historyList: [1,2,3]
+    currentBookPage: 1,
+    currentHistoryPage: 1,
+    bookshelfList: [],
+    historyList: []
   },
 
   handleChangeTab: function (e) {
@@ -20,8 +22,8 @@ Page({
   },
 
   handleSearch: function (e) {
-    this.setData({
-      isSearch: true
+    wx.navigateTo({
+      url: '/pages/search/search'
     })
   },
   
@@ -35,7 +37,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getBookData()
+    this.getHistoryData()
   },
 
   /**
@@ -85,5 +88,37 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getBookData: function () {
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/favorite_comic/get_my_list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token'), page: this.data.currentBookPage, keyword: '' },
+      success: (result) => {
+        this.setData({
+          bookshelfList: result.data.comics,
+          currentBookPage: this.data.currentBookPage+1
+        })
+      }
+    })
+  },
+  getHistoryData: function () {
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/read_history/get_my_list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token'), page: this.data.currentHistoryPage, keyword: '' },
+      success: (result) => {
+        this.setData({
+          historyList: result.data.comics,
+          currentHistoryPage: this.data.currentHistoryPage + 1
+        })
+      }
+    })
   }
 })

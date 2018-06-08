@@ -2,7 +2,10 @@ const app = getApp()
 
 Component({
   properties: {
-    
+    bookItem: {
+      type: Object,
+      value: {}
+    }
   },
 
   data: {

@@ -2,7 +2,7 @@
 
 <view class='search-wrap'>
   <view class='search-input'>
-     <input type="text" placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 0 center/13px 13px no-repeat; padding-left: 20px;" />
+     <input type="text" placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 0 center/13px 13px no-repeat; padding-left: 20px;" confirm-type="search" bindconfirm="handleSearch" value="{{searchData}}" />
      <view class='search-back-btn' bindtap='handleGoBack'>取消</view>
   </view>
   <view class='search-hot' style='display: {{ searchResultList.length>0?"none":"block" }}'>
@@ -21,13 +21,13 @@
   <view class='search-history' style='display: {{ searchResultList.length>0?"none":"block" }}'>
     <view class='search-history-title'>搜索历史</view>
     <view class='search-history-list'>
-      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 琅琊榜之</view>
-      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 雨后人去楼也空</view>
+      <view class='search-history-list-item' wx:for="{{searchHistory}}"><image src='/assets/images/record.png'></image> {{item}}</view>
+      <!-- <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 雨后人去楼也空</view>
       <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 人偶</view>
       <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 江左琅琊榜</view>
-      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 雨后人去楼也空</view>
+      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 雨后人去楼也空</view> -->
     </view>
-    <view class='search-history-clear-btn'><image src='/assets/images/clear.png'></image> 清除历史记录</view>
+    <view class='search-history-clear-btn'  style='display: {{ searchHistory.length>0?"block":"none" }}' bindtap='handleClearHistory'><image src='/assets/images/clear.png'></image> 清除历史记录</view>
   </view>
 
   <view class='search-result' style='display: {{ searchResultList.length>0?"block":"none" }}'>
