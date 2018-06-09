@@ -29,6 +29,10 @@ Page({
                                 success: (data) => {
                                     wx.setStorageSync('token', result.data.access_token)
                                     wx.setStorageSync('userInfo', data.userInfo)
+                                    
+                                    wx.switchTab({
+                                      url: '/pages/index/index'
+                                    })
                                 }
                             })
                         }

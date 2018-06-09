@@ -12,4 +12,31 @@
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
   </block>
+  <view class='read-bottom' style='display:none;'>
+    <view class='read-bottom-top'>
+      <view class='bottom-btn collect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+      <view class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</view>
+      <view class='bottom-btn like'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
+    </view>
+    <view class='read-bottom-cp'>
+      <view class='cp-btn prev'><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
+      <view class='cp-btn next'><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
+    </view>
+  </view>
+  <view class='read-setting'>
+    <view class='read-setting-font' style='display: {{isShowFontSet?"block":"none"}}'>字体大小
+      <view class='font-selection'>
+        <view class='selection-item'>A-</view>
+        <view class='selection-item selected'>A</view>
+        <view class='selection-item'>A+</view>
+      </view>
+    </view>
+    <view class='read-setting-box'>
+      <view class='setting-item home'><image src='/assets/images/setting-home.png'></image></view>
+      <view class='setting-item mulu'><image src='/assets/images/setting-mulu.png'></image></view>
+      <view class='setting-item set' bindtap='handleShowFontSet'><image src='/assets/images/setting-set.png'></image></view>
+      <view class='setting-item prev'><image src='/assets/images/setting-prev.png'></image></view>
+      <view class='setting-item next'><image src='/assets/images/setting-next.png'></image></view>
+    </view>
+  </view>
 </view>
