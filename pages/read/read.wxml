@@ -1,7 +1,15 @@
 <view class="read">
-  <scroll-view style="height: {{height}}px" scroll-y scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
-      <block wx:for="{{imageList}}" wx:key="*this">
-          <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/me.png'}}"></image>
-      </block>
-  </scroll-view>
+  <block wx:if="{{type=='comic'}}">
+    <scroll-view style="height: {{height}}px" scroll-y scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
+        <block wx:for="{{imageList}}" wx:key="*this">
+            <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/me.png'}}"></image>
+        </block>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <view>
+      <import src="/wxParse/wxParse.wxml"/>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </block>
 </view>

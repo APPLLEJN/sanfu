@@ -4,9 +4,15 @@
   height: 224rpx;
   position: relative;
   padding-left: 192rpx; 
+  overflow: hidden;
+  transition: .5s;
+}
+.bookshelf-item.slide {
+  transform: translateX(-310rpx);
+  overflow: visible;
 }
 .bookshelf-item image {
-   position: absolute; 
+  position: absolute; 
   display: block;
   width: 168rpx;
   height: 224rpx;
@@ -30,4 +36,30 @@
   font-size: 24rpx;
   color: #666;
   margin-top: 10rpx;
+}
+.bookshelf-item .item-delete {
+  position: absolute;
+  width: 310rpx;
+  height: 144rpx;
+  top: 0;
+  right: -312rpx;
+  border-left: 2rpx solid #e7e7e7;
+  margin: 40rpx 0;
+}
+.bookshelf-item .item-delete .delete-btn {
+  width: 50%;
+  line-height: 190rpx;
+  display: inline-block;
+  text-align: center;
+  font-size: .75rem;
+  color: rgb(153,153,153);
+  position: relative;
+}
+.bookshelf-item .item-delete .delete-btn image {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  left: 50%;
+  margin-left: -20rpx;
+  top: 30rpx;
 }
