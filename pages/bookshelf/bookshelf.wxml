@@ -8,14 +8,14 @@
     <!-- <input type="text" placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/14px 14px no-repeat;" /> -->
   </view>
   <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"block":"none" }}'>
-    <block wx:for="{{bookshelfList}}" wx:key="*this">
-      <bookshelfItem></bookshelfItem>
+    <block wx:for="{{bookshelfList}}" wx:key="book_{{item.comic_id}}">
+       <bookshelfItem bookItem="{{item}}"></bookshelfItem> 
     </block>
   </view>
 
   <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"none":"block" }}'>
-    <block wx:for="{{historyList}}" wx:key="*this">
-      <bookshelfItem></bookshelfItem>
+    <block wx:for="{{historyList}}" wx:key="history_{{item.comic_id}}">
+      <bookshelfItem bookItem="{{item}}"></bookshelfItem>
     </block>
   </view>
 </view>
