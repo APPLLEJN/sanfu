@@ -20,7 +20,7 @@
 <template name="wxParseAudio">
   <!--增加audio标签支持，并循环添加-->
   <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-    <audio poster="{{item.attr.poster}}" name="{{item.attr.name}}" author="{{item.attr.author}}" src="{{item.attr.src}}" id="myAudio" controls="controls" loop></audio>
+    <audio poster="{{item.attr.poster}}" name="{{item.attr.name}}" author="{{item.attr.author}}" src="{{item.attr.src}}" id="myAudio" controls="controls" loop ></audio>
   </view>
 </template>
 
