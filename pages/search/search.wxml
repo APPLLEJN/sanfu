@@ -22,10 +22,6 @@
     <view class='search-history-title'>搜索历史</view>
     <view class='search-history-list'>
       <view class='search-history-list-item' wx:for="{{searchHistory}}"><image src='/assets/images/record.png'></image> {{item}}</view>
-      <!-- <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 雨后人去楼也空</view>
-      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 人偶</view>
-      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 江左琅琊榜</view>
-      <view class='search-history-list-item'><image src='/assets/images/record.png'></image> 雨后人去楼也空</view> -->
     </view>
     <view class='search-history-clear-btn'  style='display: {{ searchHistory.length>0?"block":"none" }}' bindtap='handleClearHistory'><image src='/assets/images/clear.png'></image> 清除历史记录</view>
   </view>

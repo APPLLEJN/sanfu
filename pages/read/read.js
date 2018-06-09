@@ -2,29 +2,45 @@
 //获取应用实例
 const app = getApp()
 
+var WxParse = require('../../wxParse/wxParse.js');
+
 Page({
     data: {
-		scrollTop: 0,
-		height: wx.getSystemInfoSync().windowHeight,
-		width: wx.getSystemInfoSync().windowWidth,
-		imageList: [],
-		arr: [],
-		arrHeight: [],
-		itemHeight: 0,
+        type: 'comic111',
+        scrollTop: 0,
+        height: wx.getSystemInfoSync().windowHeight,
+        width: wx.getSystemInfoSync().windowWidth,
+        imageList: [],
+        arr: [],
+        arrHeight: [],
+        itemHeight: 0,
         id: null,
         cid: null
 	},
     
     onLoad: function (option) {
-		this.setData({
-			me: {name: 'jn', money: '999999', id: '223344'}
-		})
+        this.setData({
+          me: {name: 'jn', money: '999999', id: '223344'}
+        })
 
-        this.getDetail(option.id, option.cid)
+        // this.getDetail(option.id, option.cid)
         this.setData({
             id: option.id,
             cid: option.cid
         })
+        setTimeout(() => {
+          var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://stream13.qqmusic.qq.com/31913719.mp3http://www.170mv.com/kw/other.web.rh01.sycdn.kuwo.cn/resource/n3/21/19/3413654131.mp3"></audio>';
+          /**
+          * WxParse.wxParse(bindName , type, data, target,imagePadding)
+          * 1.bindName绑定的数据名(必填)
+          * 2.type可以为html或者md(必填)
+          * 3.data为传入的具体数据(必填)
+          * 4.target为Page对象,一般为this(必填)
+          * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+          */
+          var that = this;
+          WxParse.wxParse('article', 'html', article, that, 5);
+        }, 1000)
 
     },
 	onReady: function () {},

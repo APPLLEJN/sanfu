@@ -1,10 +1,14 @@
 <!--components/bookshelfItem/bookshelfItem.wxml-->
-<view class='bookshelf-item'>
+<view class='bookshelf-item {{isTouchMove?"slide":""}}' bindtouchstart="handleTouchstart" bindtouchmove="handleTouchmove" bindtap='handleNav'>
   <image src='{{bookItem.resource}}'></image>
   <view class='item-right'>
     <view class='item-title'>{{bookItem.comic_name}}</view>
     <view class='item-author'>By {{bookItem.author_name}}</view>
     <view class='item-info'>阅读进度：{{bookItem.read_cnt}}话/{{bookItem.number_of_chapter}}话</view>
     <view class='item-info'>更新至第99话：遇见霸道总裁...</view>
+  </view>
+  <view class='item-delete'>
+    <view class='delete-btn'><image src='/assets/images/top-icon.png'></image> 置顶</view>
+    <view class='delete-btn'><image src='/assets/images/delete-icon.png'></image> 删除</view>
   </view>
 </view>
