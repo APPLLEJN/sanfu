@@ -204,3 +204,12 @@ view{
 .wxParse-figure {
   overflow: hidden;
 }
+
+.wxParse-audio{
+  text-align: center;
+  margin: 10px 0;
+}
+
+.wxParse-audio-audio{
+  width:100%;
+}
