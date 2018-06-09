@@ -48,6 +48,6 @@
 		<navigator url="{{'/pages/read/read?id='+(readCurrent === 1 ? comic.chapters[0].chapter_id : readCurrent) +'&cid='+comic.comic_id}}" class="btn">
 			{{readCurrent === 1 ? '开始阅读' : '继续阅读'}}
 		</navigator>
-    <view class='collect-btn {{isCollected?"collected":""}}' ontap="addfavor"><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image>收藏</view>
+    <view class='collect-btn {{isCollected?"collected":""}}' ontap="changeFavor"><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image>收藏</view>
 	</view>
 </view>

@@ -50,9 +50,9 @@ Page({
 			}
 		})
 	},
-	addfavor: function() {
+	changeFavor: function() {
 		app.request({
-			url: 'https://sanfu.weilubook.com/littleapp/favorite_comic/add',
+			url: this.comic.isCollected ? 'https://sanfu.weilubook.com/littleapp/favorite_comic/remove' : 'https://sanfu.weilubook.com/littleapp/favorite_comic/add',
 			method: 'POST',
 			header: {
 				'content-type': 'application/x-www-form-urlencoded' // 默认值

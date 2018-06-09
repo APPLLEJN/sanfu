@@ -11,8 +11,10 @@ Page({
         
     },
     getUserinfo: function () {
+        console.log('======')
         wx.login({
             success: function(res) {
+                console.log(res, '====')
                 if (res.code) {
                     //发起网络请求
                     app.request({
