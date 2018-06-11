@@ -134,5 +134,5 @@ Page({
     this.setData({
       isShowFontSet: !this.data.isShowFontSet
     })
-  }
+  },
 })
