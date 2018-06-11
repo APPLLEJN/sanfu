@@ -9,13 +9,13 @@
   </view>
   <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"block":"none" }}'>
     <block wx:for="{{bookshelfList}}" wx:key="book_{{item.comic_id}}">
-       <bookshelfItem bookItem="{{item}}"></bookshelfItem> 
+       <bookshelfItem bookItem="{{item}}" isCategory="{{false}}" isSlide="{{true}}" binddeleteItem="handleDelete"></bookshelfItem> 
     </block>
   </view>
 
   <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"none":"block" }}'>
     <block wx:for="{{historyList}}" wx:key="history_{{item.comic_id}}">
-      <bookshelfItem bookItem="{{item}}"></bookshelfItem>
+      <bookshelfItem bookItem="{{item}}" isCategory="{{false}}" isSlide="{{false}}"></bookshelfItem>
     </block>
   </view>
 </view>

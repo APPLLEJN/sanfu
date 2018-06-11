@@ -80,7 +80,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (this.data.tabType == 'bookshelf') {
+      this.getBookData()
+    } else {
+      this.getHistoryData()
+    }
   },
 
   /**
@@ -99,9 +103,13 @@ Page({
       data: { access_token: wx.getStorageSync('token'), page: this.data.currentBookPage, keyword: '' },
       success: (result) => {
         this.setData({
-          bookshelfList: result.data.comics,
-          currentBookPage: this.data.currentBookPage+1
+          bookshelfList: this.data.bookshelfList.concat(result.data.comics),
         })
+        if (result.data.comics.length > 0) {
+          this.setData({
+            currentBookPage: this.data.currentBookPage + 1
+          })
+        }
       }
     })
   },
@@ -115,8 +123,38 @@ Page({
       data: { access_token: wx.getStorageSync('token'), page: this.data.currentHistoryPage, keyword: '' },
       success: (result) => {
         this.setData({
-          historyList: result.data.comics,
-          currentHistoryPage: this.data.currentHistoryPage + 1
+          historyList: this.data.historyList.concat(result.data.comics),
+        })
+        if (result.data.comics.length > 0) {
+          this.setData({
+            currentHistoryPage: this.data.currentHistoryPage + 1
+          })
+        }
+      }
+    })
+  },
+  handleDelete: function (e) {
+    const id = e.detail
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/favorite_comic/remove',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token'), comic_id: id },
+      success: (result) => {
+        let list = this.data.bookshelfList
+        list.forEach((item, index) => {
+          if (item.comic_id == id) {
+            list.splice(index, 1)
+            return
+          }
+        })
+        this.setData({
+          bookshelfList: []
+        })
+        this.setData({
+          bookshelfList: list
         })
       }
     })

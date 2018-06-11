@@ -1,15 +1,15 @@
 <!--pages/category/category.wxml-->
 <view class='category-page'>
   <view class='category-tab'>
-    <view  data-type='0' class='tab-item {{ currentTab=="0"?"current":"" }}' bindtap='handleChangeTab'>全部</view>
+    <view  data-type='' class='tab-item {{ currentTab==""?"current":"" }}' bindtap='handleChangeTab'>全部</view>
     <view data-type='2' class='tab-item {{ currentTab=="2"?"current":"" }}' bindtap='handleChangeTab'>小说</view>
     <view data-type='1' class='tab-item no-border {{ currentTab=="1"?"current":"" }}' bindtap='handleChangeTab'>漫画</view>
     <view class='select-btn' bindtap='handleShowSelect'><image src='/assets/images/select_icon.png'></image>筛选</view>
   </view>
 
   <view class='category-list'>
-    <block wx:for="{{categoryList}}" wx:key="*this">
-      <bookshelfItem bookItem="{{item}}"></bookshelfItem>
+    <block wx:for="{{categoryList}}" wx:key="{{item.comic_id}}">
+      <bookshelfItem isCategory="{{true}}" bookItem="{{item}}"></bookshelfItem>
     </block>
   </view>
   
@@ -20,20 +20,20 @@
   <view class='category-select-box {{isSelectBoxShow?"show":""}}'>
     <view class='box-title'>标签分类</view>
     <view class='box-item-wrap'>
-      <view class='box-item {{item.id==categoryTab?"current":""}}' data-id="{{item.id}}" wx:for="{{categoryTabList}}" wx:key="*this">{{item.name}}</view>
+      <view class='box-item {{item.comic_class_id==categoryTab?"current":""}}' data-id="{{item.comic_class_id}}" wx:for="{{categoryTabList}}" wx:key="{{item.comic_class_id}}" bindtap='handleChangeClass'>{{item.title}}</view>
     </view>
     <view class='box-title'>完结状态</view>
     <view class='box-item-wrap'>
-      <view class='box-item {{item.id==finishStatus?"current":""}}' data-id="{{item.id}}" wx:for="{{finishStatusList}}" wx:key="*this">{{item.name}}</view>
+      <view class='box-item {{item.id==finishStatus?"current":""}}' data-id="{{item.id}}" wx:for="{{finishStatusList}}" wx:key="{{item.id}}" bindtap='handleChangeFinish'>{{item.name}}</view>
     </view>
     <view class='box-title'>付费类型</view>
     <view class='box-item-wrap'>
-      <view class='box-item {{item.id==payType?"current":""}}' data-id="{{item.id}}" wx:for="{{payTypeList}}" wx:key="*this">{{item.name}}</view>
+      <view class='box-item {{item.id==payType?"current":""}}' data-id="{{item.id}}" wx:for="{{payTypeList}}" wx:key="{{item.id}}" bindtap='handleChangePay'>{{item.name}}</view>
     </view>
 
     <view class='box-btn-wrap'>
-      <view class='reset-btn'>重置</view>
-      <view class='confirm-btn'>确定</view>
+      <view class='reset-btn' bindtap='handleReset'>重置</view>
+      <view class='confirm-btn' bindtap='handleConfirm'>确定</view>
     </view>
   </view>
 </view>
