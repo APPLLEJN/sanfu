@@ -146,12 +146,12 @@ App({
                 
                 if (!res.data) return fail()
                 const data = res.data
-                if (data.code == 502) {
-                  wx.navigateTo({
-                    url: '/pages/login/login'
-                  })
-                  return
-                }
+                // if (data.code == 502) {
+                //   wx.navigateTo({
+                //     url: '/pages/login/login'
+                //   })
+                //   return
+                // }
                 if (data) return success(data)
                 success(data)
             },

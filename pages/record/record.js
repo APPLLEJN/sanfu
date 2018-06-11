@@ -5,7 +5,7 @@ const app = getApp()
 Page({
     data: {
       currentType: 1,
-    	recordList: [{money: 300, date: 'date'}, {money: 400, date: 'date3'}, {money: 500, date: 'date2'}],
+      recordList: [{ money: 300, time: 1528705446124 }, { money: 400, date: 1528705446124 }, { money: 500, date: 1528705446124}],
       currentPage: 1
     },
     
