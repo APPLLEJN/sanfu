@@ -1,8 +1,8 @@
 <view class="record-wrapper">
     <veiw class="record-inner">
         <block wx:for="{{recordList}}" wx:key="*this">
-            <recordItem money="{{item.change_cash}}" date="{{item.time}}" description="{{item.description}}"></recordItem>
+            <recordItem money="{{item.change_cash}}" date="{{item.date}}" description="{{item.description}}"></recordItem>
         </block>
     </veiw>
-    <view class="more"><text>查看更多</text></view>
+    <view class="more" wx:if="{{moreData}}" bindtap="getData"><text>查看更多</text></view>
 </view>

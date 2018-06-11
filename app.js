@@ -29,10 +29,17 @@ App({
         const userInfo = wx.getStorageSync('userInfo')
         const token = wx.getStorageSync('token')
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
+        console.log(options, 'options.path')
+        let query = ''
+        for (let key in options.query) {
+            console.log(key, options.query, options.query[key])
+            query = key + '=' + options.query[key] + '&'
+        }
+        const fromUrl = encodeURIComponent("/" + options.path + '?'+ query)
         // 验证TOKEN是否失效
         // ...
          if (!userInfo && options.path !== "pages/login/login")
-             wx.reLaunch({ url: "/pages/login/login" })
+             wx.reLaunch({ url: "/pages/login/login?path=" + fromUrl })
          else
              this.setUserInfo(userInfo, token)
         

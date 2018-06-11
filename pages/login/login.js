@@ -7,14 +7,17 @@ Page({
         
     },
     
-    onLoad: function () {
+    onLoad: function (options) {
+        console.log(options.path)
+        this.setData({
+            fromPath: options.path || '/pages/index/index'
+        })
         
     },
     getUserinfo: function () {
-        console.log('======')
+        const fromPath = this.data.fromPath
         wx.login({
             success: function(res) {
-                console.log(res, '====')
                 if (res.code) {
                     //发起网络请求
                     app.request({
@@ -25,13 +28,13 @@ Page({
                         },
                         data: {js_code: res.code},
                         success: (result) => {
+                            const {cash, user_id} = result.data
                             wx.getUserInfo({
                                 success: (data) => {
                                     wx.setStorageSync('token', result.data.access_token)
-                                    wx.setStorageSync('userInfo', data.userInfo)
-                                    
-                                    wx.switchTab({
-                                      url: '/pages/index/index'
+                                    wx.setStorageSync('userInfo', Object.assign({}, data.userInfo, {cash, user_id}))
+                                    wx.reLaunch({
+                                      url: decodeURIComponent(fromPath)
                                     })
                                 }
                             })

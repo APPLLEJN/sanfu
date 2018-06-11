@@ -1,12 +1,12 @@
 <view class="user-info-wrapper">
     <view class="user-info">
-        <image src="/assets/images/all_on.png" class="avatar"></image>
+        <image src="{{me.avatarUrl}}" class="avatar"></image>
         <view class="user-name">
-            <view>{{me.name}}</view>
-            <view class="money-wrapper"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{me.money}}金币</view>
+            <view>{{me.nickName}}</view>
+            <view class="money-wrapper"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{me.cash}}金币</view>
         </view>
         <view class="user-id">
-            ID:{{me.id}}
+            ID:{{me.user_id}}
         </view>
     </view>
     <view class="list">

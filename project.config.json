@@ -61,7 +61,7 @@
 					"id": 4,
 					"name": "详情",
 					"pathName": "pages/detail/detail",
-					"query": ""
+					"query": "id=123"
 				},
 				{
 					"id": -1,

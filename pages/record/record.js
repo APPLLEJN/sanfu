@@ -1,12 +1,14 @@
 //index.js
 //获取应用实例
 const app = getApp()
+import { timeFormat } from '../../utils/index'
 
 Page({
     data: {
       currentType: 1,
       recordList: [{ money: 300, time: 1528705446124 }, { money: 400, date: 1528705446124 }, { money: 500, date: 1528705446124}],
-      currentPage: 1
+      currentPage: 1,
+      moreData: true
     },
     
     onLoad: function (options) {
@@ -19,6 +21,7 @@ Page({
         this.getData()
     },
     getData: function() {
+      const {recordList} = this.data
       app.request({
         url: 'https://sanfu.weilubook.com/littleapp/cash_log/get_list',
         method: 'POST',
@@ -27,10 +30,11 @@ Page({
         },
         data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, type: this.data.currentType },
         success: (result) => {
-          console.log(result)
+          result.data.cash_logs.map(item =>item.date = timeFormat(item.time))
           this.setData({
-            recordList: result.data.cash_logs,
-            currentPage: this.data.currentPage + 1
+            recordList: result.data.cash_logs.concat(recordList),
+            currentPage: this.data.currentPage + 1,
+            moreData: result.data.cash_logs.length == 20
           })
         }
       })

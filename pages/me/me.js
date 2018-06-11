@@ -10,13 +10,13 @@ Page({
 			{icon: '/assets/images/recharge_record.png', name: '充值记录', link: '/pages/record/record?type=recharge'},
 			{icon: '/assets/images/pay_record.png', name: '消费记录', link: '/pages/record/record?type=pay'},
 			{icon: '/assets/images/qa.png', name: '常见问题', link: '/pages/qa/qa'},
-      { icon: '/assets/images/opinion.png', name: '意见反馈', link: '/pages/feedback/feedback'}
+      		{icon: '/assets/images/opinion.png', name: '意见反馈', link: '/pages/feedback/feedback'}
 		]
     },
     
     onLoad: function () {
 		this.setData({
-			me: {name: 'jn', money: '999999', id: '223344'}
+			me: wx.getStorageSync('userInfo')
 		})
     },
     tap: function(e) {
