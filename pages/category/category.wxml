@@ -1,15 +1,15 @@
 <!--pages/category/category.wxml-->
 <view class='category-page'>
   <view class='category-tab'>
-    <view  data-type='all' class='tab-item {{ currentTab=="all"?"current":"" }}'>全部</view>
-    <view data-type='novel' class='tab-item {{ currentTab=="novel"?"current":"" }}'>小说</view>
-    <view data-type='comic' class='tab-item no-border {{ currentTab=="comic"?"current":"" }}'>漫画</view>
+    <view  data-type='0' class='tab-item {{ currentTab=="0"?"current":"" }}' bindtap='handleChangeTab'>全部</view>
+    <view data-type='2' class='tab-item {{ currentTab=="2"?"current":"" }}' bindtap='handleChangeTab'>小说</view>
+    <view data-type='1' class='tab-item no-border {{ currentTab=="1"?"current":"" }}' bindtap='handleChangeTab'>漫画</view>
     <view class='select-btn' bindtap='handleShowSelect'><image src='/assets/images/select_icon.png'></image>筛选</view>
   </view>
 
   <view class='category-list'>
     <block wx:for="{{categoryList}}" wx:key="*this">
-      <bookshelfItem></bookshelfItem>
+      <bookshelfItem bookItem="{{item}}"></bookshelfItem>
     </block>
   </view>
   

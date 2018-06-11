@@ -1,7 +1,7 @@
 <view class="record-item">
    <view>
-        <view class="text">充值成功</view>
-        <view class="date">{{date}}</view>
+        <view class="text">{{description}}</view>
+        <view class="date">{{formatTime()}}</view>
    </view>
    <view class="money">{{money}}<text>金币</text></view>
 </view>

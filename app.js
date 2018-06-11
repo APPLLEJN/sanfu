@@ -143,8 +143,15 @@ App({
         const requrestOptions = Object.assign({
             success: function (res) {
                 console.log('└ 请求结果', res)
+                
                 if (!res.data) return fail()
                 const data = res.data
+                if (data.code == 502) {
+                  wx.navigateTo({
+                    url: '/pages/login/login'
+                  })
+                  return
+                }
                 if (data) return success(data)
                 success(data)
             },
