@@ -44,6 +44,7 @@ Page({
 				console.log(readCurrent, result.data.chapters.filter(item=>item.chapter_id))
 				this.setData({
 					comic: result.data,
+          chapters: result.data.chapters,
 					directoryName: readCurrent === 1 ? result.data.chapters[0].title : result.data.chapters.filter(item=>item.chapter_id==readCurrent)[0].title
 				})
 			}
@@ -61,5 +62,11 @@ Page({
 				// 换成红色桃心！
 			}
 		})
-	}
+	},
+  handleOrder: function(e) {
+    this.setData({
+      order: e.target.dataset.type,
+      chapters: this.data.chapters.reverse()
+    })
+  }
 })

@@ -36,12 +36,12 @@
 		</view>
 
 		<view class="directory-list {{tabOn === 1 ? 'detail-content' : 'none'}}">
-      <view wx:if="{{order=='down'}}" class='order-btn'><image src='/assets/images/down-icon.png'></image>倒序</view>
-      <view wx:else class='order-btn'><image src='/assets/images/up-icon.png'></image>正序</view>
+      <view wx:if="{{order=='down'}}" class='order-btn' bindtap='handleOrder' data-type="up"><image src='/assets/images/down-icon.png'></image>倒序</view>
+      <view wx:else class='order-btn' bindtap='handleOrder' data-type="down"><image src='/assets/images/up-icon.png'></image>正序</view>
       <view class='directory-list-title'>连载中 <text>最后更新第<text class='current'>{{comic.number_of_chapter}}</text>话/章 2018-05-09</text> </view>
       <view class='directory-list-box'>
-		  	<block  wx:for="{{comic.chapters}}" wx:key="*this">
-			  	<navigator url="{{'/pages/read/read?id='+item.chapter_id+'&cid='+comic.comic_id}}" class='directory-item'>{{item.title}}</navigator>
+		  	<block  wx:for="{{chapters}}" wx:key="*this">
+			  	<navigator url="{{'/pages/read/read?id='+item.chapter_id+'&cid='+comic.comic_id}}" class='directory-item'><image wx:if="{{item.unlocked==0}}" src='/assets/images/lock-icon.png'></image>{{item.title}}</navigator>
 			</block>
       </view>
 	</view>

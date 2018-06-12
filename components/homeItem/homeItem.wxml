@@ -2,7 +2,7 @@
     <navigator url="/pages/detail/detail?id={{sid}}" class="list-item">
         <view class="home-item-bg-wp">
             <image src="{{image}}" class="bg" mode="widthFix"></image>
-            <image src="/assets/images/hot_bg.png" class="top-text-bg" mode="widthFix"></image>
+            <!-- <image src="/assets/images/hot_bg.png" class="top-text-bg"></image> -->
             <view class="top-text">
                 <image src="/assets/images/hot.png" class="top-text-icon" mode="widthFix"></image>
                 <text>{{cnt}}</text>

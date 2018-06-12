@@ -1,13 +1,21 @@
 <!--components/bookshelfItem/bookshelfItem.wxml-->
 <view class='bookshelf-item {{isTouchMove?"slide":""}}' bindtouchstart="handleTouchstart" bindtouchmove="handleTouchmove" bindtap='handleNav'>
-  <image src='{{bookItem.resource}}'></image>
+  <image class='left-image' src='{{bookItem.resource}}'></image>
   <view class='item-right'>
-    <view class='item-title'>{{bookItem.comic_name}}</view>
+    <view class='item-title'>{{bookItem.comic_name}}
+      <image wx:if="{{bookItem.child_site==1}}" class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
+      <image wx:if="{{bookItem.child_site==2}}" class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
+      <image wx:if="{{bookItem.child_site==3}}" class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
+    </view>
     <view class='item-author' wx:if="{{!isCategory}}">By {{bookItem.author_name}}</view>
     <view class='item-author category' wx:if="{{isCategory}}">By {{bookItem.author_name}}/{{bookItem.finished=='0'?'连载中':'已完结'}}</view>
     <view class='item-info' wx:if="{{!isCategory}}">阅读进度：{{bookItem.read_cnt}}话/{{bookItem.number_of_chapter}}话</view>
-    <view class='item-info no-category' wx:if="{{!isCategory}}">更新至第99话：遇见霸道总裁...</view>
+    <view class='item-info no-category' wx:if="{{!isCategory}}">更新至第{{bookItem.number_of_chapter}}话：{{bookItem.intro}}</view>
     <view class='item-info category' wx:if="{{isCategory}}">{{bookItem.intro}}</view>
+    <view class='item-more' wx:if="{{isCategory}}">
+      <view class='fav-num'><image src='/assets/images/hot-category.png'></image>{{bookItem.fav_cnt}}</view>
+      <view class='like-num'><image src='/assets/images/like-category.png'></image>{{bookItem.like_cnt}}</view>
+    </view>
   </view>
   <view class='item-delete'>
     <view class='delete-btn'><image src='/assets/images/top-icon.png'></image> 置顶</view>

@@ -11,7 +11,7 @@
   transform: translateX(-310rpx);
   overflow: visible;
 }
-.bookshelf-item image {
+.bookshelf-item .left-image {
   position: absolute; 
   display: block;
   width: 168rpx;
@@ -26,6 +26,14 @@
   color: #333;
   font-size: 30rpx;
   margin-top: 23rpx;
+  display:flex;
+  align-items:center;
+}
+.bookshelf-item .item-right .icon {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
 }
 .bookshelf-item .item-right .item-author {
   font-size: 24rpx;
@@ -78,4 +86,30 @@
   left: 50%;
   margin-left: -20rpx;
   top: 30rpx;
+}
+.bookshelf-item .item-more {
+  display: flex;
+  margin-top: 10rpx;
+}
+.bookshelf-item .item-more view {
+  position: relative;
+  height: 24rpx;
+  line-height: 24rpx;
+  font-size: 22rpx;
+  color: #c9c9c9;
+  padding-left: 30rpx;
+  display: inline-block;
+}
+.bookshelf-item .item-more view image {
+  position: absolute;
+  width: 20rpx;
+  height: 24rpx;
+  left: 0;
+  top: 0;
+}
+.bookshelf-item .item-more view.like-num {
+  margin-left: 60rpx;
+}
+.bookshelf-item .item-more view.like-num image {
+  width: 23rpx;
 }
