@@ -38,6 +38,10 @@
 .home-content-inner {
   display: flex;
   flex-wrap:wrap;
-  justify-content:space-between;
   flex-direction:row;
+  margin-right: -28rpx;
+}
+
+.home-content-inner homeitem {
+  width: 33.33%;
 }

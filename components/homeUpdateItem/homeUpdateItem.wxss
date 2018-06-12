@@ -13,6 +13,12 @@
 .home-update .title {
   font-size: 30rpx;
   color: #333;
+  display: flex;
+  justify-content: space-between
+}
+
+.home-update .title view {
+  display: flex
 }
 
 .home-update .title image {
@@ -23,8 +29,17 @@
 .home-update .title text {
   color: #ff5977;
 }
+.home-update .title .num-chapter {
+  font-size: 22rpx;
+  color: #999;
+}
 
 .home-update .text {
   color: #999;
   font-size: 26rpx;
+}
+
+.home-update image.icon {
+  width: 30rpx;
+  height: 30rpx;
 }

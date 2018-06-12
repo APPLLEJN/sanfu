@@ -6,10 +6,16 @@
 		  <!-- <image src="{{comic.resource}}" mode="widthFix"></image>  -->
 	  	<image src="{{comic.resource}}" mode="widthFix"></image>
 		<view class="info-text">
-			<view class="title">{{comic.comic_name}}</view>
+			<view class="title">
+				{{comic.comic_name}}
+				<image wx:if="{{comic.child_site==1}}" class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
+				<image wx:if="{{comic.child_site==2}}" class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
+				<image wx:if="{{comic.child_site==3}}" class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
+			</view>
 			<view>By {{comic.author_name}}</view>
 			<view>{{comic.click_cnt}}万热度/{{comic.like_cnt}}万点赞/{{comic.fav_cnt}}万收藏</view>
 			<view>{{comic.owner}}</view>
+			<view>更新至第{{comic.number_of_chapter}}话：</view>
 		</view>
 	</view>
 	<view class="content">
@@ -23,8 +29,8 @@
 			<view class="des-content">{{comic.intro}}</view>
 			<view class="title">同类好书</view>
 			<veiw class="similar-inner">
-				<block wx:for="{{similarList}}" wx:key="*this">
-					<homeItem></homeItem>
+				<block wx:for="{{comic.good_books}}" wx:key="*this">
+					<homeItem image="{{item.resource}}" name="{{item.comic_name}}" sid="{{item.comic_id}}" cnt="{{item.like_cnt}}" type="{{item.child_site}}"></homeItem>
 				</block>
 			</veiw>
 		</view>

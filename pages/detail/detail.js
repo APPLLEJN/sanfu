@@ -7,7 +7,6 @@ Page({
     data: {
 		info: {},
 		tabOn: 0,
-		similarList: [1,2,3],
 		order: 'down',
     	isCollected: false,
 		id: null,

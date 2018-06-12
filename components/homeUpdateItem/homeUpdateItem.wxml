@@ -1,13 +1,19 @@
 <view class="home-update">
+    <navigator url="/pages/detail/detail?id={{sid}}" class="list-item">
     <image class="image"></image>
     <view class="text-wp">
         <view class="title">
-            {{title}}
-            <image src="{{image}}"></image>
-            <view>更新至 <text>365</text>话</view>
+            <view>
+                {{title}}
+                <image wx:if="{{type==1}}" class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
+                <image wx:if="{{type==2}}" class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
+                <image wx:if="{{type==3}}" class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
+            </view>
+            <view class="num-chapter">更新至 <text>{{numberChapter}}</text>话</view>
         </view>
         <view class="text">
             {{info}}
         </view>
     </view>
+    </navigator>
 </view>

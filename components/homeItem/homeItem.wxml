@@ -1,19 +1,19 @@
 <view class="home-item">
     <navigator url="/pages/detail/detail?id={{sid}}" class="list-item">
         <view class="home-item-bg-wp">
-            <image src="{{image}}" class="bg"></image>
+            <image src="{{image}}" class="bg" mode="widthFix"></image>
             <image src="/assets/images/hot_bg.png" class="top-text-bg" mode="widthFix"></image>
             <view class="top-text">
                 <image src="/assets/images/hot.png" class="top-text-icon" mode="widthFix"></image>
-                <text>12345</text>
+                <text>{{cnt}}</text>
             </view>
         </view>
         <block>
             <view class="title">
                 <view class='title-name'>{{name}}</view>
-                <image class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
-                <image class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
-                <image class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
+                <image wx:if="{{type==1}}" class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
+                <image wx:if="{{type==2}}" class="icon" src="/assets/images/xi.png" mode="widthFix"></image>
+                <image wx:if="{{type==3}}" class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
             </view>
         </block>
     </navigator>

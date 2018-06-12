@@ -87,8 +87,12 @@
 .similar-inner {
 	display: flex;
 	flex-wrap:wrap;
-	justify-content:space-between;
 	flex-direction:row;
+    margin-right: -28rpx;
+}
+
+.similar-inner homeItem {
+  width: 33.33%
 }
 
 .bottom-bar {
@@ -184,4 +188,9 @@
   font-size: 24rpx;
   color: #555;
   margin: 0 7rpx 20rpx;
+}
+
+.detail-wrapper .info .title .icon {
+  width: 30rpx;
+  height: 30rpx
 }

@@ -13,13 +13,22 @@ Component({
         sid: {
             type: String,
             value: ''
+        },
+        cnt: {
+            type: String,
+            value: ''
+        },
+        type: {
+            type: String,
+            value: ''
         }
     },
 
     data: {
         statusBarHeight: 0,
         barStyle: '',
-        showBack: false,
+        showBack: false
+        //childSiteType: [{1: '三福漫画'}, {2:'四喜文学'}, {3: '为炉文学'}]
     },
 
     // 自定义事件

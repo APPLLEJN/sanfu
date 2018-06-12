@@ -13,6 +13,18 @@ Component({
         image: {
             type: String,
             value: ''
+        },
+        sid: {
+            type: String,
+            value: ''
+        },
+        cnt: {
+            type: String,
+            value: ''
+        },
+        numberChapter: {
+            type: String,
+            value: ''
         }
     },
 
