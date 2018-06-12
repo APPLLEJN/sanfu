@@ -1,7 +1,5 @@
 const app = getApp()
 
-import { formatTime } from '../../utils/index'
-
 Component({
     properties: {
         money: {
@@ -9,8 +7,8 @@ Component({
             value: 0
         },
         date: {
-          type: Number,
-          value: 0
+          type: String,
+          value: ''
         },
         description: {
           type: String,
@@ -18,15 +16,12 @@ Component({
         },
     },
     data: {
-      fTime: 0
     },
     // 自定义事件
     methods: {
 
     },
     ready: function () {
-      this.setData({
-          fTime: formatTime(this.data.date)
-      })
+     
     },
 })

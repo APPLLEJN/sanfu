@@ -7,47 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab: '1',
+    currentTab: '',
     isSelectShow: false,
     isSelectBoxShow: false,
     categoryList: [],
-    categoryTab: 'all',
-    finishStatus: 'all',
-    payType: 'all',
-    categoryTabList: [{ id: 'all', name: '全部' }, { id: 'chuanyu', name: '穿越' }, { id: 'tuili', name: '推理' }, { id: 'xuanyi', name: '悬疑' }, { id: 'riman', name: '日漫' }, { id: 'zongcai', name: '总裁' }, { id: 'lingyi', name: '灵异' }, { id: 'shaonian', name: '少年' }, { id: 'quanmou', name: '权谋' }, { id: 'yanqing', name: '言情' }, { id: 'baoxiao', name: '爆笑' }],
-    finishStatusList: [{ id: 'all', name: '全部' }, { id: 'wanjie', name: '完结' }, { id: 'lianzai', name: '连载' }],
-    payTypeList: [{ id: 'all', name: '全部' }, { id: 'mianfei', name: '免费' }, { id: 'shoufei', name: '收费' }],
+    categoryTab: '',
+    finishStatus: '',
+    payType: '',
+    // categoryTabList: [{ id: 'all', name: '全部' }, { id: 'chuanyu', name: '穿越' }, { id: 'tuili', name: '推理' }, { id: 'xuanyi', name: '悬疑' }, { id: 'riman', name: '日漫' }, { id: 'zongcai', name: '总裁' }, { id: 'lingyi', name: '灵异' }, { id: 'shaonian', name: '少年' }, { id: 'quanmou', name: '权谋' }, { id: 'yanqing', name: '言情' }, { id: 'baoxiao', name: '爆笑' }],
+    categoryTabList: [{ comic_class_id: '', title: '全部' }],
+    finishStatusList: [{ id: '', name: '全部' }, { id: '1', name: '完结' }, { id: '0', name: '连载' }],
+    payTypeList: [{ id: '', name: '全部' }, { id: '0', name: '免费' }, { id: '1', name: '收费' }],
     currentPage: 1
   },
 
   
-  handleShowSelect: function () {
-    wx.hideTabBar()
-    this.setData({
-      isSelectShow: true
-    })
-    setTimeout(() => {
-      this.setData({
-        isSelectBoxShow: true
-      })
-    }, 100)
-  },
-  handleHideSelect: function () {
-    this.setData({
-      isSelectBoxShow: false
-    })
-    setTimeout(() => {
-      this.setData({
-        isSelectShow: false
-      })
-      wx.showTabBar()
-    }, 500)
-  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getData()
+    this.getClassData()
   },
 
   /**
@@ -71,12 +52,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -89,7 +64,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getData()
   },
 
   /**
@@ -105,18 +80,89 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
-      data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: parseInt(this.data.currentTab), class_id: 1, finished: 0, is_charge: 0 },
+      data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: this.data.currentTab, class_id: '', finished: this.data.finishStatus, is_charge: this.data.payType },
       success: (result) => {
         this.setData({
-          categoryList: result.data.comics,
+          categoryList: this.data.categoryList.concat(result.data.comics),
           currentPage: this.data.currentPage + 1
         })
       }
     })
   },
+  getClassData: function () {
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/comic/get_class',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token') },
+      success: (result) => {
+        console.log(result)
+        this.setData({
+          categoryTabList: this.data.categoryTabList.concat(result.data.comic_classes),
+        })
+      }
+    })
+  },
+  handleShowSelect: function () {
+    wx.hideTabBar()
+    this.setData({
+      isSelectShow: true
+    })
+    setTimeout(() => {
+      this.setData({
+        isSelectBoxShow: true
+      })
+    }, 100)
+  },
+  handleHideSelect: function () {
+    this.setData({
+      isSelectBoxShow: false
+    })
+    setTimeout(() => {
+      this.setData({
+        isSelectShow: false
+      })
+      wx.showTabBar()
+    }, 500)
+  },
   handleChangeTab: function (e) {
     this.setData({
-      currentTab: e.target.dataset.type
+      currentTab: e.target.dataset.type,
+      categoryList: [],
+      currentPage: 1
     })
+    this.getData()
+  },
+  handleChangeClass: function (e) {
+    this.setData({
+      categoryTab: e.target.dataset.id,
+    })
+  },
+  handleChangeFinish: function (e) {
+    this.setData({
+      finishStatus: e.target.dataset.id,
+    })
+  },
+  handleChangePay: function (e) {
+    this.setData({
+      payType: e.target.dataset.id,
+    })
+  },
+  handleReset: function () {
+    this.setData({
+      categoryTab: '',
+      finishStatus: '',
+      payType: '',
+    })
+  },
+  handleConfirm: function () {
+    this.setData({
+      categoryList: [],
+      currentPage: 1
+    })
+    this.handleHideSelect()
+    this.getData()
   }
 })

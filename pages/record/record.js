@@ -6,7 +6,8 @@ import { timeFormat } from '../../utils/index'
 Page({
     data: {
       currentType: 1,
-      recordList: [{ money: 300, time: 1528705446124 }, { money: 400, date: 1528705446124 }, { money: 500, date: 1528705446124}],
+      // recordList: [{ money: 300, time: 1528705446124 }, { money: 400, date: 1528705446124 }, { money: 500, date: 1528705446124}],
+      recordList: [],
       currentPage: 1,
       moreData: true
     },
@@ -30,9 +31,10 @@ Page({
         },
         data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, type: this.data.currentType },
         success: (result) => {
-          result.data.cash_logs.map(item =>item.date = timeFormat(item.time))
+          result.data.cash_logs.map(item =>item.date = timeFormat(item.time*1000))
+          console.log(result.data.cash_logs)
           this.setData({
-            recordList: result.data.cash_logs.concat(recordList),
+            recordList: recordList.concat(result.data.cash_logs),
             currentPage: this.data.currentPage + 1,
             moreData: result.data.cash_logs.length == 20
           })
