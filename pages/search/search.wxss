@@ -127,3 +127,13 @@
   padding: 1rpx 30rpx 30rpx;
   background: #fff;
 }
+.search-error {
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  background: #fff;
+}

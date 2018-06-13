@@ -19,6 +19,14 @@
   left: 0;
   top: 0;
 }
+.top-icon {
+  position: absolute;
+  display: block;
+  width: 66rpx;
+  height: 66rpx;
+  left: 102rpx;
+  top: 0;
+}
 .bookshelf-item .item-right {
   overflow: hidden;
 }

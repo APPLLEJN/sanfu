@@ -35,6 +35,12 @@ Component({
     handleDelete: function (e) {
       this.triggerEvent('deleteItem', this.data.bookItem.comic_id)
     },
+    handleTop: function (e) {
+      this.triggerEvent('topItem', this.data.bookItem.comic_id)
+    },
+    handleCancelTop: function (e) {
+      this.triggerEvent('cancelTopItem', this.data.bookItem.comic_id)
+    },
     handleTouchstart: function (e) {
       if (this.data.isSlide) {
         this.setData({

@@ -5,7 +5,8 @@
      <input type="text" placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 0 center/13px 13px no-repeat; padding-left: 20px;" confirm-type="search" bindconfirm="handleSearch" value="{{searchData}}" />
      <view class='search-back-btn' bindtap='handleGoBack'>取消</view>
   </view>
-  <view class='search-hot' style='display: {{ searchResultList.length>0?"none":"block" }}'>
+  <view class='search-error' wx:if="{{searchResultList.length==0}}">无结果</view>
+  <view class='search-hot' style='display: {{ searchResultList?"none":"block" }}'>
     <view class='search-hot-title'>热门搜索</view>
     <view class='search-hot-label-area'>
       <text>琅琊榜</text>
@@ -18,17 +19,17 @@
     <view class='search-hot-chenge-btn' bindtap='handleChange'><image src='/assets/images/change.png'></image> 换一换</view>
   </view>
 
-  <view class='search-history' style='display: {{ searchResultList.length>0?"none":"block" }}'>
+  <view class='search-history' style='display: {{ searchResultList?"none":"block" }}'>
     <view class='search-history-title'>搜索历史</view>
     <view class='search-history-list'>
-      <view class='search-history-list-item' wx:for="{{searchHistory}}"><image src='/assets/images/record.png'></image> {{item}}</view>
+      <view class='search-history-list-item' wx:for="{{searchHistory}}" wx:key="{{item}}" bindtap='handleHistorySearch' data-name="{{item}}"><image src='/assets/images/record.png'></image> {{item}}</view>
     </view>
     <view class='search-history-clear-btn'  style='display: {{ searchHistory.length>0?"block":"none" }}' bindtap='handleClearHistory'><image src='/assets/images/clear.png'></image> 清除历史记录</view>
   </view>
 
   <view class='search-result' style='display: {{ searchResultList.length>0?"block":"none" }}'>
-    <block wx:for="{{searchResultList}}" wx:key="*this">
-      <bookshelfItem></bookshelfItem>
+    <block wx:for="{{searchResultList}}" wx:key="{{item.comic_id}}">
+      <bookshelfItem isCategory="{{true}}" bookItem="{{item}}"></bookshelfItem>
     </block>
   </view>
   

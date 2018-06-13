@@ -6,6 +6,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 Page({
     data: {
+        comic_id: null,
         type: 1,
         scrollTop: 0,
         height: wx.getSystemInfoSync().windowHeight,
@@ -67,7 +68,10 @@ Page({
                 content.map(item => arr.push(false))
                 this.setData({
                     arr: arr,
-                    imageList: result.data.content
+                    imageList: result.data.content,
+                    isCollected: result.data.has_faved == 0 ? false : true,
+                    isLiked: result.data.has_liked == 0 ? false : true,
+                    comic_id: result.data.comic_id
                 }, () => this.getRect())
             }
 		})
@@ -148,4 +152,34 @@ Page({
         console.log(e)
 
     },
+    handleCollect: function() {
+      app.request({
+        url: this.data.isCollected ? 'https://sanfu.weilubook.com/littleapp/favorite_comic/remove' : 'https://sanfu.weilubook.com/littleapp/favorite_comic/add',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        data: { comic_id: this.data.comic_id, access_token: wx.getStorageSync('token') },
+        success: (result) => {
+          this.setData({
+            isCollected: !this.data.isCollected
+          })
+        }
+      })
+    },
+    handleLike: function () {
+      app.request({
+        url: 'https://sanfu.weilubook.com/littleapp/comic/like',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        data: { comic_id: this.data.comic_id, access_token: wx.getStorageSync('token') },
+        success: (result) => {
+          this.setData({
+            isLiked: true
+          })
+        }
+      })
+    }
 })

@@ -1,5 +1,7 @@
 @import "/wxParse/wxParse.wxss";
-
+.read {
+  padding-bottom: 260rpx;
+}
 .read image {
   width: 100%
 }

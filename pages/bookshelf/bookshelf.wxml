@@ -9,7 +9,7 @@
   </view>
   <view class='bookshlef-list' style='display: {{ tabType=="bookshelf"?"block":"none" }}'>
     <block wx:for="{{bookshelfList}}" wx:key="book_{{item.comic_id}}">
-       <bookshelfItem bookItem="{{item}}" isCategory="{{false}}" isSlide="{{true}}" binddeleteItem="handleDelete"></bookshelfItem> 
+       <bookshelfItem bookItem="{{item}}" isCategory="{{false}}" isSlide="{{true}}" binddeleteItem="handleDelete" bindtopItem="handleTop" bindcancelTopItem="handleCancelTop"></bookshelfItem> 
     </block>
   </view>
 

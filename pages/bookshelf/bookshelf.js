@@ -158,5 +158,48 @@ Page({
         })
       }
     })
+  },
+  handleTop: function (e) {
+    const id = e.detail
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/comic/set_top',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token'), comic_id: id },
+      success: (result) => {
+        console.log(777)
+        this.setData({
+          currentPage: 1
+        })
+        if (this.data.tabType == 'bookshelf') {
+          this.getBookData()
+        } else {
+          this.getHistoryData()
+        }
+      }
+    })
+  },
+  handleCancelTop: function (e) {
+    const id = e.detail
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/comic/remove_top',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token'), comic_id: id },
+      success: (result) => {
+        this.setData({
+          currentPage: 1
+        })
+        if (this.data.tabType == 'bookshelf') {
+          this.getBookData()
+        } else {
+          this.getHistoryData()
+        }
+      }
+    })
   }
 })

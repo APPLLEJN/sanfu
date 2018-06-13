@@ -14,9 +14,9 @@
   </block>
   <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
     <view class='read-bottom-top'>
-      <view class='bottom-btn collect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+      <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
       <view class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</view>
-      <view class='bottom-btn like'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
+      <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
     </view>
     <view class='read-bottom-cp'>
       <view class='cp-btn prev'><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>

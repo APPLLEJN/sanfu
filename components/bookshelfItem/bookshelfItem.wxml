@@ -1,6 +1,7 @@
 <!--components/bookshelfItem/bookshelfItem.wxml-->
 <view class='bookshelf-item {{isTouchMove?"slide":""}}' bindtouchstart="handleTouchstart" bindtouchmove="handleTouchmove" bindtap='handleNav'>
   <image class='left-image' src='{{bookItem.resource}}'></image>
+  <image class='top-icon' src='/assets/images/top-mark.png' wx:if="{{bookItem.is_top == 1}}"></image>
   <view class='item-right'>
     <view class='item-title'>{{bookItem.comic_name}}
       <image wx:if="{{bookItem.child_site==1}}" class="icon" src="/assets/images/fu.png" mode="widthFix"></image>
@@ -18,7 +19,8 @@
     </view>
   </view>
   <view class='item-delete'>
-    <view class='delete-btn'><image src='/assets/images/top-icon.png'></image> 置顶</view>
+    <view class='delete-btn' wx:if="{{bookItem.is_top==0}}" catchtap='handleTop'><image src='/assets/images/top-icon.png'></image> 置顶</view>
+    <view class='delete-btn' wx:if="{{bookItem.is_top==1}}" catchtap='handleCancelTop'><image src='/assets/images/top-icon.png'></image> 取消置顶</view>
     <view class='delete-btn' catchtap='handleDelete'><image src='/assets/images/delete-icon.png'></image> 删除</view>
   </view>
 </view>
