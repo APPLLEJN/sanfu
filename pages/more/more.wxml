@@ -1,0 +1,8 @@
+<!--pages/more/more.wxml-->
+<view class='more-page'>
+  <view class='more-list'>
+    <block wx:for="{{moreList}}" wx:key="{{item.comic_id}}">
+      <bookshelfItem isCategory="{{true}}" bookItem="{{item}}"></bookshelfItem>
+    </block>
+  </view>
+</view>
