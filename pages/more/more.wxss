@@ -1,0 +1,4 @@
+/* pages/more/more.wxss */
+.more-list {
+  padding: 1rpx 30rpx 30rpx;
+}

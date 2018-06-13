@@ -10,7 +10,8 @@
     "pages/detail/detail",
     "pages/category/category",
     "pages/feedback/feedback",
-    "pages/read/read"
+    "pages/read/read",
+    "pages/more/more"
   ],
   "window": {
     "backgroundTextStyle": "light",

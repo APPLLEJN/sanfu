@@ -17,9 +17,10 @@ Page({
         duration: 1000,
         recommendIndex: 0,
         fineQualitiyComics: [],
-        newComics: [1,2,3],
-        newUpdateComics: [1,2,3],
-        popularComics: [1,2,3]
+        newComics: [],
+        newUpdateComics: [],
+        popularComics: [],
+        page: 1,
     },
     changeIndicatorDots: function(e) {
         this.setData({
@@ -43,11 +44,17 @@ Page({
     },
     changeRecommend: function(e) {
         this.setData({
-            recommendIndex: +e.currentTarget.id
-        }, this.getData(+e.currentTarget.id))
+            recommendIndex: +e.currentTarget.id,
+            popularComics: [],
+            page: 1
+        }, () => {
+            this.getData(+e.currentTarget.id)
+            this.getPopularComics(+e.currentTarget.id)
+        })
     },
     onLoad: function () {
         this.getData(0)
+        this.getPopularComics(0)
     },
     getData: function (id) {
         app.request({
@@ -63,9 +70,31 @@ Page({
                     fineQualitiyComics: result.data.fine_qualitiy_comics,
                     newComics: result.data.new_comics,
                     newUpdateComics: result.data.new_update_comics,
-                    popularComics: result.data.popular_comics
                 })
             }
         })
-    }
+
+    },
+    getPopularComics: function (id, restart) {
+        const { page, popularComics } = this.data
+        app.request({
+                url: 'https://sanfu.weilubook.com/littleapp/popular_comic/get_list',
+                method: 'POST',
+                header: {
+                    'content-type': 'application/x-www-form-urlencoded' // 默认值
+                },
+                data: {child_site: id, page, per_page: 5},
+                success: (result) => {
+                    if (result.data.popular_comics.length) {
+                        this.setData({
+                            popularComics: result.data.popular_comics.concat(popularComics),
+                            page: page+1
+                        })
+                    }
+            }
+        })
+    },
+    onReachBottom: function () {
+        this.getPopularComics(this.data.recommendIndex)
+    },
 })

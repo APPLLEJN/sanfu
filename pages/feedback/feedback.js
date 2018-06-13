@@ -73,5 +73,33 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  bindFormSubmit: function (e) {
+    app.request({
+          url: 'https://sanfu.weilubook.com/littleapp/feedback/add',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded' // 默认值
+          },
+          data: {
+            access_token: wx.getStorageSync('token'),
+            content: e.detail.value.textarea
+          },
+          success: () => {
+              wx.showToast({
+                title: '提交成功',
+                icon: 'success',
+                duration: 2000
+            })
+          },
+          fail: () => {
+            wx.showToast({
+              title: '提交失败',
+              icon: 'fail',
+              duration: 2000
+            })
+          }
+    })
   }
 })

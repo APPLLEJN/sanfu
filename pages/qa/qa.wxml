@@ -4,6 +4,7 @@
     		<view>
     			<view class="q_item" bindtap="tap" id="{{index}}">
     				<text>{{item.question}}</text>
+					<image src="/assets/images/arrow.png" class="{{showAnswer[index] ? 'arrow down' : 'arrow'}}" mode="widthFix"></image>
 				</view>
     			<view class="{{showAnswer[index] ? 'a_item' : 'none' }}">{{item.answer}}</view>
     		</view>

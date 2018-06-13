@@ -1,12 +1,14 @@
 <!--pages/feedback/feedback.wxml-->
 <view class='feedback-page'>
-  <view class='feedback-box'>
-    <view class='feedback-area-box'>
-      <view class='area-num'>{{currentNum}}/300</view>
-      <textarea maxlength='300' placeholder='请输入您的意见' placeholder-style='color: #cacaca;' bindinput='handleInput'></textarea>
+  <form bindsubmit="bindFormSubmit">
+    <view class='feedback-box'>
+      <view class='feedback-area-box'>
+        <view class='area-num'>{{currentNum}}/300</view>
+        <textarea name="textarea" maxlength='300' placeholder='请输入您的意见' placeholder-style='color: #cacaca;' bindinput='handleInput'></textarea>
+      </view>
     </view>
-  </view>
-  <view class='feedback-btn-area'>
-    <view class='feedback-btn {{currentNum>0?"active":""}}'>提交</view>
-  </view>
+    <view class='feedback-btn-area'>
+      <button form-type="submit" class='feedback-btn {{currentNum>0?"active":""}}'>提交</button>
+    </view>
+  </form>
 </view>
