@@ -1,5 +1,5 @@
 <view class="read">
-  <block wx:if="{{type=='comic'}}">
+  <block wx:if="{{type==1}}">
     <scroll-view style="height: {{height}}px" scroll-y scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
         <block wx:for="{{imageList}}" wx:key="*this">
             <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/me.png'}}"></image>
@@ -12,7 +12,7 @@
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
   </block>
-  <view class='read-bottom' style='display:none;'>
+  <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
     <view class='read-bottom-top'>
       <view class='bottom-btn collect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
       <view class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</view>
@@ -32,11 +32,11 @@
       </view>
     </view>
     <view class='read-setting-box'>
-      <view class='setting-item home'><image src='/assets/images/setting-home.png'></image></view>
-      <view class='setting-item mulu'><image src='/assets/images/setting-mulu.png'></image></view>
+      <navigator url="/pages/index/index" class='setting-item home'><image src='/assets/images/setting-home.png'></image></navigator>
+      <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='setting-item mulu'><image src='/assets/images/setting-mulu.png'></image></navigator>
       <view class='setting-item set' bindtap='handleShowFontSet'><image src='/assets/images/setting-set.png'></image></view>
-      <view class='setting-item prev'><image src='/assets/images/setting-prev.png'></image></view>
-      <view class='setting-item next'><image src='/assets/images/setting-next.png'></image></view>
+      <view data-type="prev" data-prev="{{prev}}" class='setting-item prev' bindtap="link"><image src='/assets/images/setting-prev.png'></image></view>
+      <view data-type="next" data-prev="{{next}}" class='setting-item next' bindtap="link"><image src='/assets/images/setting-next.png'></image></view>
     </view>
   </view>
 </view>

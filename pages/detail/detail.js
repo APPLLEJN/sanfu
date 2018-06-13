@@ -15,10 +15,12 @@ Page({
     },
     
     onLoad: function (option) {
-		this.getDetail(option.id)
 		this.setData({
 			id: option.id,
-			readCurrent: wx.getStorageSync('read_current'+option.id) || 1
+			readCurrent: wx.getStorageSync('read_current_'+option.id) || 1,
+			tabOn: option.isCatalog ? 1 : 0
+		}, () => {
+			this.getDetail(option.id)
 		})
     },
 	changeTab: function(e) {
@@ -41,10 +43,28 @@ Page({
 				wx.setNavigationBarTitle({
 					title: result.data.comic_name
 				})
-				console.log(readCurrent, result.data.chapters.filter(item=>item.chapter_id))
+				//const chapters = result.data.chapters.map((item, index) => {
+				//	if (!index) {
+				//		item.prev = null
+				//		item.next = result.data.chapters[index+1].chapter_id
+				//	} else if (index + 1 === result.data.chapters.length) {
+				//		item.prev = result.data.chapters[index-1].chapter_id
+				//		item.next = null
+				//	} else {
+				//		item.prev = result.data.chapters[index-1].chapter_id
+				//		item.next = result.data.chapters[index+1].chapter_id
+				//	}
+				//	//if (readCurrent === 1 && item.chapter_id) {
+				//	//	comic.prev = null
+				//	//	comic.next =
+				//	//
+				//	//}
+                //
+				//	return item
+				//})
 				this.setData({
 					comic: result.data,
-          chapters: result.data.chapters,
+          			chapters: result.data.chapters,
 					directoryName: readCurrent === 1 ? result.data.chapters[0].title : result.data.chapters.filter(item=>item.chapter_id==readCurrent)[0].title
 				})
 			}

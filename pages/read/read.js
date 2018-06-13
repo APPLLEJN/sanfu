@@ -6,7 +6,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 
 Page({
     data: {
-        type: 'comic111',
+        type: 1,
         scrollTop: 0,
         height: wx.getSystemInfoSync().windowHeight,
         width: wx.getSystemInfoSync().windowWidth,
@@ -18,7 +18,8 @@ Page({
         cid: null,
         isCollected: false,
         isLiked: false,
-        isShowFontSet: false
+        isShowFontSet: false,
+        isShowBaseBottom: true
 	  },
     
     onLoad: function (option) {
@@ -26,24 +27,26 @@ Page({
           me: {name: 'jn', money: '999999', id: '223344'}
         })
 
-        // this.getDetail(option.id, option.cid)
+        this.getDetail(option.id, option.cid)
         this.setData({
             id: option.id,
-            cid: option.cid
+            cid: option.cid,
+            prev: option.prev,
+            next: option.next
         })
-        setTimeout(() => {
-          var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
-          /**
-          * WxParse.wxParse(bindName , type, data, target,imagePadding)
-          * 1.bindName绑定的数据名(必填)
-          * 2.type可以为html或者md(必填)
-          * 3.data为传入的具体数据(必填)
-          * 4.target为Page对象,一般为this(必填)
-          * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-          */
-          var that = this;
-          WxParse.wxParse('article', 'html', article, that, 5);
-        }, 1000)
+        //setTimeout(() => {
+        //  var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
+        //  /**
+        //  * WxParse.wxParse(bindName , type, data, target,imagePadding)
+        //  * 1.bindName绑定的数据名(必填)
+        //  * 2.type可以为html或者md(必填)
+        //  * 3.data为传入的具体数据(必填)
+        //  * 4.target为Page对象,一般为this(必填)
+        //  * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+        //  */
+        //  var that = this;
+        //  WxParse.wxParse('article', 'html', article, that, 5);
+        //}, 1000)
 
     },
 	onReady: function () {},
@@ -93,23 +96,29 @@ Page({
 		}
 
 	},
-  tap: function(e) {
-		const {scrollTop, height, width} = this.data
-		const left = width/3
-		const right = width/3*2
-		const x = e.detail.x
-		let top
-		if (x< left) {
-			top = scrollTop - height
-		} else if (x > right) {
-			top = scrollTop + height
-		} else {
-			console.log('center')
-		}
-		this.setData({
-			scrollTop: top
-		})
-  },
+    tap: function(e) {
+        const {scrollTop, height, width, type, isShowBaseBottom} = this.data
+        const left = width/3
+        const right = width/3*2
+        const x = e.detail.x
+        let top
+        if (x< left) {
+            top = scrollTop - height
+        } else if (x > right) {
+            top = scrollTop + height
+        } else {
+            if (type === 1) {
+                // 这里应该判断是2！！！
+                this.setData({
+                    isShowBaseBottom: !isShowBaseBottom
+                })
+
+            }
+        }
+        this.setData({
+            scrollTop: top
+        })
+    },
 	scroll: function(e) {
 		const {arr, arrHeight, height, cid, id} = this.data
 		for (var i = 0; i < arrHeight.length; i++) {
@@ -127,12 +136,16 @@ Page({
         if (e.detail.scrollTop + height > e.detail.scrollHeight - 50) {
             //到底部
             console.log('到底部')
-            wx.setStorageSync('read_current'+cid, id)
+            wx.setStorageSync('read_current_'+cid, id)
         }
 	},
-  handleShowFontSet: function() {
-    this.setData({
-      isShowFontSet: !this.data.isShowFontSet
-    })
-  },
+    handleShowFontSet: function() {
+        this.setData({
+          isShowFontSet: !this.data.isShowFontSet
+        })
+    },
+    link: function (e) {
+        console.log(e)
+
+    },
 })

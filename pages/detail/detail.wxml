@@ -47,7 +47,7 @@
 	</view>
 	<view class="bottom-bar">
 		<view>
-			<text class="current">{{readCurrent}}话/章</text>
+			<text class="current">{{directoryName}}</text>
 			<text>{{directoryName}}</text>
 		</view>
 		<navigator url="{{'/pages/read/read?id='+(readCurrent === 1 ? comic.chapters[0].chapter_id : readCurrent) +'&cid='+comic.comic_id}}" class="btn">
