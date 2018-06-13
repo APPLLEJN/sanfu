@@ -15,7 +15,7 @@
 			<view>By {{comic.author_name}}</view>
 			<view>{{comic.click_cnt}}万热度/{{comic.like_cnt}}万点赞/{{comic.fav_cnt}}万收藏</view>
 			<view>{{comic.owner}}</view>
-			<view>更新至第{{comic.number_of_chapter}}话：</view>
+			<view>更新至第{{comic.number_of_chapter}}话：{{comic.last_chapter_name || comic.last_chapter_title}}</view>
 		</view>
 	</view>
 	<view class="content">
@@ -38,7 +38,7 @@
 		<view class="directory-list {{tabOn === 1 ? 'detail-content' : 'none'}}">
       <view wx:if="{{order=='down'}}" class='order-btn'><image src='/assets/images/down-icon.png'></image>倒序</view>
       <view wx:else class='order-btn'><image src='/assets/images/up-icon.png'></image>正序</view>
-      <view class='directory-list-title'>连载中 <text>最后更新第<text class='current'>{{comic.number_of_chapter}}</text>话/章 2018-05-09</text> </view>
+      <view class='directory-list-title'>连载中 <text>最后更新第<text class='current'>{{comic.number_of_chapter}}</text>话/章 {{comic.last_chapter_date}}</text> </view>
       <view class='directory-list-box'>
 		  	<block  wx:for="{{comic.chapters}}" wx:key="*this">
 			  	<navigator url="{{'/pages/read/read?id='+item.chapter_id+'&cid='+comic.comic_id}}" class='directory-item'>{{item.title}}</navigator>
