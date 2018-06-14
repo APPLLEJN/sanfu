@@ -15,12 +15,12 @@
   <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
     <view class='read-bottom-top'>
       <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
-      <view class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</view>
+      <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
       <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
     </view>
     <view class='read-bottom-cp'>
-      <view class='cp-btn prev'><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
-      <view class='cp-btn next'><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
+      <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
+      <view class='cp-btn next' data-id="{{next_id}}" bindtap="jumpToNext"><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
     </view>
   </view>
   <view class='read-setting'>
@@ -35,8 +35,8 @@
       <navigator url="/pages/index/index" class='setting-item home'><image src='/assets/images/setting-home.png'></image></navigator>
       <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='setting-item mulu'><image src='/assets/images/setting-mulu.png'></image></navigator>
       <view class='setting-item set' bindtap='handleShowFontSet'><image src='/assets/images/setting-set.png'></image></view>
-      <view data-type="prev" data-prev="{{prev}}" class='setting-item prev' bindtap="link"><image src='/assets/images/setting-prev.png'></image></view>
-      <view data-type="next" data-prev="{{next}}" class='setting-item next' bindtap="link"><image src='/assets/images/setting-next.png'></image></view>
+      <view data-id="{{prev_id}}" class='setting-item prev' bindtap="jumpToPrev"><image src='/assets/images/setting-prev.png'></image></view>
+      <view data-id="{{next_id}}" class='setting-item next' bindtap="jumpToNext"><image src='/assets/images/setting-next.png'></image></view>
     </view>
   </view>
 </view>

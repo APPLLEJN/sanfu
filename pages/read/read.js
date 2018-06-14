@@ -20,7 +20,9 @@ Page({
         isCollected: false,
         isLiked: false,
         isShowFontSet: false,
-        isShowBaseBottom: true
+        isShowBaseBottom: true,
+        prev_id: null,
+        next_id: null,
 	  },
     
     onLoad: function (option) {
@@ -71,7 +73,9 @@ Page({
                     imageList: result.data.content,
                     isCollected: result.data.has_faved == 0 ? false : true,
                     isLiked: result.data.has_liked == 0 ? false : true,
-                    comic_id: result.data.comic_id
+                    comic_id: result.data.comic_id,
+                    prev_id: result.data.previous_chapter_id,
+                    next_id: result.data.next_chapter_id
                 }, () => this.getRect())
             }
 		})
@@ -148,9 +152,28 @@ Page({
           isShowFontSet: !this.data.isShowFontSet
         })
     },
-    link: function (e) {
-        console.log(e)
+    jumpToPrev: function (e) {
+        const {cid} = this.data
+        if (e.currentTarget.dataset.id) {
+            wx.navigateTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
+        } else {
+            wx.showToast({
+                title: '已经是第一章了',
+                duration: 2000
+            })
+        }
 
+    },
+    jumpToNext: function (e) {
+        const {cid} = this.data
+        if (e.currentTarget.dataset.id) {
+            wx.navigateTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
+        } else {
+            wx.showToast({
+                title: '已经是最后一章了',
+                duration: 2000
+            })
+        }
     },
     handleCollect: function() {
       app.request({
