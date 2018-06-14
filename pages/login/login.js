@@ -14,7 +14,7 @@ Page({
         })
         
     },
-    getUserinfo: function () {
+    getUserinfo: function (e) {
         const fromPath = this.data.fromPath
         wx.login({
             success: function(res) {
@@ -29,15 +29,15 @@ Page({
                         data: {js_code: res.code},
                         success: (result) => {
                             const {cash, user_id} = result.data
-                            wx.getUserInfo({
-                                success: (data) => {
-                                    wx.setStorageSync('token', result.data.access_token)
-                                    wx.setStorageSync('userInfo', Object.assign({}, data.userInfo, {cash, user_id}))
-                                    wx.reLaunch({
-                                      url: decodeURIComponent(fromPath)
-                                    })
-                                }
+                            // wx.getUserInfo({
+                            //     success: (data) => {
+                            wx.setStorageSync('token', result.data.access_token)
+                            wx.setStorageSync('userInfo', Object.assign({}, e.detail.userInfo, {cash, user_id}))
+                            wx.reLaunch({
+                              url: decodeURIComponent(fromPath)
                             })
+                            //     }
+                            // })
                         }
                     })
                 } else {
