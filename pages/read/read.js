@@ -130,7 +130,7 @@ Page({
 	scroll: function(e) {
 		const {arr, arrHeight, height} = this.data
 		for (var i = 0; i < arrHeight.length; i++) {
-			if (arrHeight[i] < e.detail.scrollTop + height + 120 ) {
+			if (arrHeight[i] < e.detail.scrollTop + height + 150 ) {
 				if (arr[i] == false) {
 					arr[i] = true;
 				}

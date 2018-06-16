@@ -1,7 +1,6 @@
 .home-update image.image{
   width:100%;
   min-height: 350rpx;
-  background: red;
   color: #999;
   font-size: 22rpx;
 }

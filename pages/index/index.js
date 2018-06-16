@@ -97,4 +97,9 @@ Page({
     onReachBottom: function () {
         this.getPopularComics(this.data.recommendIndex)
     },
+    handleSearch: function () {
+        wx.navigateTo({
+            url: '/pages/search/search'
+        })
+    }
 })

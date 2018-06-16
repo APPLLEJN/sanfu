@@ -2,7 +2,7 @@
   <block wx:if="{{type==1}}">
     <scroll-view class='scroll-image' style="height: {{height}}px" scroll-y="{{!locked}}" scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
         <block wx:for="{{imageList}}" wx:key="*this">
-            <image lazy-load="{{true}}" mode="widthFix" class="image {{arr[index] ? '' : 'default'}}" src="{{arr[index] ? item : '/assets/images/img_load2.png'}}"></image>
+            <image lazy-load="{{true}}" mode="widthFix" class="image {{arr[index] ? '' : 'default'}}" src="{{arr[index] ? item : '/assets/images/img_load.png'}}"></image>
         </block>
     </scroll-view>
   </block>

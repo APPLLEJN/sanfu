@@ -29,7 +29,6 @@ App({
         const userInfo = wx.getStorageSync('userInfo')
         const token = wx.getStorageSync('token')
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
-        console.log(options, 'options.path')
         let query = ''
         for (let key in options.query) {
             console.log(key, options.query, options.query[key])
@@ -153,12 +152,12 @@ App({
                 
                 if (!res.data) return fail()
                 const data = res.data
-                // if (data.code == 502) {
-                //   wx.navigateTo({
-                //     url: '/pages/login/login'
-                //   })
-                //   return
-                // }
+                 if (data.code == 502 || data.code == 501) {
+                   wx.reLaunch({
+                     url: '/pages/login/login'
+                   })
+                   return
+                 }
                 if (data) return success(data)
                 success(data)
             },

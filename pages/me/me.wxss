@@ -17,7 +17,6 @@
   width: 135rpx;
   height: 135rpx;
   border-radius: 100%;
-  background : red
 }
 
 .user-info .user-name {

@@ -1,5 +1,5 @@
 <view class="page-container">
-    <input type="text" placeholder="搜索感兴趣的作品或作者" class="home_search"
+    <input type="text" placeholder="搜索感兴趣的作品或作者" class="home_search" bindfocus='handleSearch'
            placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/15px 15px no-repeat;" />
     <swiper indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
