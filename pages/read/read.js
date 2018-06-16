@@ -7,7 +7,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 Page({
     data: {
         comic_id: null,
-        type: 1,
+        type: 2,
         scrollTop: 0,
         height: wx.getSystemInfoSync().windowHeight,
         width: wx.getSystemInfoSync().windowWidth,
@@ -23,6 +23,7 @@ Page({
         isShowBaseBottom: true,
         prev_id: null,
         next_id: null,
+        locked: true
 	  },
     
     onLoad: function (option) {
@@ -34,8 +35,6 @@ Page({
         this.setData({
             id: option.id,
             cid: option.cid,
-            prev: option.prev,
-            next: option.next
         })
         //setTimeout(() => {
         //  var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
@@ -65,18 +64,23 @@ Page({
                 wx.setNavigationBarTitle({
                     title: result.data.title
                 })
-                const { content } = result.data
+                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id } = result.data
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
+                    type: content_type,
                     arr: arr,
                     imageList: result.data.content,
                     isCollected: result.data.has_faved == 0 ? false : true,
                     isLiked: result.data.has_liked == 0 ? false : true,
-                    comic_id: result.data.comic_id,
-                    prev_id: result.data.previous_chapter_id,
-                    next_id: result.data.next_chapter_id
-                }, () => this.getRect())
+                    comic_id: comic_id,
+                    prev_id: previous_chapter_id,
+                    next_id: next_chapter_id
+                }, () => {
+                    if(content_type===1) {
+                        this.getRect()
+                    }
+                })
             }
 		})
 	},
@@ -120,7 +124,6 @@ Page({
                 this.setData({
                     isShowBaseBottom: !isShowBaseBottom
                 })
-
             }
         }
         this.setData({
@@ -128,7 +131,7 @@ Page({
         })
     },
 	scroll: function(e) {
-		const {arr, arrHeight, height, cid, id} = this.data
+		const {arr, arrHeight, height} = this.data
 		for (var i = 0; i < arrHeight.length; i++) {
 			if (arrHeight[i] < e.detail.scrollTop + height + 50 ) {
 				if (arr[i] == false) {
@@ -140,12 +143,6 @@ Page({
 			scrollTop: e.detail.scrollTop,
 			arr: this.data.arr
 		})
-        console.log(e.detail.scrollTop, height, e.detail.scrollHeight)
-        if (e.detail.scrollTop + height > e.detail.scrollHeight - 50) {
-            //到底部
-            console.log('到底部')
-            wx.setStorageSync('read_current_'+cid, id)
-        }
 	},
     handleShowFontSet: function() {
         this.setData({
@@ -204,5 +201,10 @@ Page({
           })
         }
       })
+    },
+    onReachBottom: function() {
+        const {cid, id} = this.data
+        console.log('onReachBottom')
+        wx.setStorageSync('read_current_'+cid, id)
     }
 })
