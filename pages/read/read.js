@@ -23,7 +23,7 @@ Page({
         isShowBaseBottom: true,
         prev_id: null,
         next_id: null,
-        locked: true
+        locked: false
 	  },
     
     onLoad: function (option) {
