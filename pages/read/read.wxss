@@ -223,7 +223,7 @@
 }
 
 .pay-wrapper view.tips {
-  margin-top: 100rpx;
+  margin-top: 15%;
   color: #9f9f9f
 }
 

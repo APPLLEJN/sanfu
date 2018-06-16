@@ -14,7 +14,6 @@
 }
 .home-item image.bg {
   width: 100%;
-  background: #ff5977;
   position: absolute;
   top: 0;
   left: 0;

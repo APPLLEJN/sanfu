@@ -47,7 +47,7 @@
     <view class="text">余额不足</view>
     <view>点击下方按钮，回复"1"后充值后解锁</view>
     <button open-type="contact">马上充值</button>
-    <image class="pay-image" src="/assets/images/bg_blur.pic" alt=""></image>
+    <image class="pay-image" src="/assets/images/bg_blur.png" alt=""></image>
   </view>
   <view wx:if="{{locked && type==2}}" class="pay-wrapper novel">
     <view class="novel-wrapper">
