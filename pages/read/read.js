@@ -7,7 +7,7 @@ var WxParse = require('../../wxParse/wxParse.js');
 Page({
     data: {
         comic_id: null,
-        type: 2,
+        type: null,
         scrollTop: 0,
         height: wx.getSystemInfoSync().windowHeight,
         width: wx.getSystemInfoSync().windowWidth,
@@ -32,6 +32,8 @@ Page({
         this.setData({
             id: option.id,
             cid: option.cid,
+            height: wx.getSystemInfoSync().windowHeight,
+            width: wx.getSystemInfoSync().windowWidth,
         })
         setTimeout(() => {
          var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
@@ -65,7 +67,7 @@ Page({
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
-                     type: content_type,
+                    type: content_type,
                     arr: arr,
                     imageList: result.data.content,
                     isCollected: result.data.has_faved == 0 ? false : true,

@@ -203,13 +203,13 @@
   height:195px;
   color: #666;
   font-size: 26rpx;
-  z-index: 11;
+  z-index: 10;
   text-align: center;
 }
 
 .pay-wrapper.novel {
   height: 100%;
-  background: rgba(255,255,255,0.5)
+  background: rgba(255,255,255,0.9)
 }
 
 .pay-wrapper.novel .novel-wrapper {
@@ -217,7 +217,9 @@
 }
 
 .pay-wrapper view {
-  margin-top: 17rpx
+  margin-top: 17rpx;
+  position: relative;
+  z-index: 2
 }
 
 .pay-wrapper view.tips {
@@ -239,6 +241,8 @@
   font-size: 34rpx;
   border-radius: 44rpx;
   margin-top: 17rpx;
+  position: relative;
+  z-index: 2
 }
 
 .pay-image {
@@ -247,5 +251,5 @@
   left:0;
   right:0;
   bottom:0;
-  z-index:10;
+  z-index:1;
 }

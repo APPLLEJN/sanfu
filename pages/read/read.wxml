@@ -7,10 +7,10 @@
     </scroll-view>
   </block>
   <block wx:else>
-    <view style='font-size: {{currentFontSize}}!important;' bindtap="tap">
+    <scroll-view style='font-size: {{currentFontSize}}!important;' bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}">
       <import src="/wxParse/wxParse.wxml"/>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-    </view>
+    </scroll-view>
   </block>
 
   <view wx:if="{{!locked}}">
@@ -42,13 +42,11 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{locked && type==1}}">
-    <view class="pay-wrapper">
-      <view class="tips">支持作者，解锁后阅读</view>
-      <view class="text">余额不足</view>
-      <view>点击下方按钮，回复"1"后充值后解锁</view>
-      <button open-type="contact">马上充值</button>
-    </view>
+  <view class="pay-wrapper" wx:if="{{locked && type==1}}">
+    <view class="tips">支持作者，解锁后阅读</view>
+    <view class="text">余额不足</view>
+    <view>点击下方按钮，回复"1"后充值后解锁</view>
+    <button open-type="contact">马上充值</button>
     <image class="pay-image" src="/assets/images/bg_blur.pic" alt=""></image>
   </view>
   <view wx:if="{{locked && type==2}}" class="pay-wrapper novel">

@@ -28,15 +28,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   filter: blur(30rpx);
-  display: none;
 }
 .detail-wrapper .info image {
 	width: 224rpx;
 	margin-right: 24rpx;
-  z-index: 2;
+    z-index: 2;
+    position: relative
 }
 .detail-wrapper .info-text {
   z-index: 2;
+  position: relative
+
 }
 .detail-wrapper .info-text .title {
 	font-size: 34rpx
