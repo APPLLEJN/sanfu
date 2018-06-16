@@ -22,6 +22,8 @@
 }
 .read-bottom-top .bottom-btn {
   flex: 1;
+  height: 160rpx;
+  overflow: hidden;
   font-size: 26rpx;
   color: #666;
   text-align: center;
