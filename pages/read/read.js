@@ -23,7 +23,8 @@ Page({
         isShowBaseBottom: true,
         prev_id: null,
         next_id: null,
-        locked: false
+        locked: false,
+        currentFontSize: '100%'
 	  },
     
     onLoad: function (option) {
@@ -36,19 +37,19 @@ Page({
             id: option.id,
             cid: option.cid,
         })
-        //setTimeout(() => {
-        //  var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
-        //  /**
-        //  * WxParse.wxParse(bindName , type, data, target,imagePadding)
-        //  * 1.bindName绑定的数据名(必填)
-        //  * 2.type可以为html或者md(必填)
-        //  * 3.data为传入的具体数据(必填)
-        //  * 4.target为Page对象,一般为this(必填)
-        //  * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-        //  */
-        //  var that = this;
-        //  WxParse.wxParse('article', 'html', article, that, 5);
-        //}, 1000)
+        setTimeout(() => {
+         var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
+         /**
+         * WxParse.wxParse(bindName , type, data, target,imagePadding)
+         * 1.bindName绑定的数据名(必填)
+         * 2.type可以为html或者md(必填)
+         * 3.data为传入的具体数据(必填)
+         * 4.target为Page对象,一般为this(必填)
+         * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+         */
+         var that = this;
+         WxParse.wxParse('article', 'html', article, that, 5);
+        }, 1000)
 
     },
 	onReady: function () {},
@@ -68,7 +69,7 @@ Page({
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
-                    type: content_type,
+                    // type: content_type,
                     arr: arr,
                     imageList: result.data.content,
                     isCollected: result.data.has_faved == 0 ? false : true,
@@ -148,6 +149,11 @@ Page({
         this.setData({
           isShowFontSet: !this.data.isShowFontSet
         })
+    },
+    handleChangeFontSize: function(e) {
+      this.setData({
+        currentFontSize: e.target.dataset.type
+      })
     },
     jumpToPrev: function (e) {
         const {cid} = this.data
