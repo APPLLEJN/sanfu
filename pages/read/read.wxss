@@ -11,7 +11,10 @@
   width: 100%;
 }
 .read .scroll-image image {
-  min-height: 300rpx;
+  /* min-height: 300rpx; */
+}
+.read .scroll-image image.default {
+  /* min-height: 900rpx; */
 }
 .read-bottom {
   position: fixed;
