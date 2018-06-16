@@ -28,10 +28,6 @@ Page({
 	  },
     
     onLoad: function (option) {
-        this.setData({
-          me: {name: 'jn', money: '999999', id: '223344'}
-        })
-
         this.getDetail(option.id, option.cid)
         this.setData({
             id: option.id,
@@ -69,7 +65,7 @@ Page({
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
-                    // type: content_type,
+                     type: content_type,
                     arr: arr,
                     imageList: result.data.content,
                     isCollected: result.data.has_faved == 0 ? false : true,
@@ -120,7 +116,7 @@ Page({
         } else if (x > right) {
             top = scrollTop + height
         } else {
-            if (type === 1) {
+            if (type === 2) {
                 // 这里应该判断是2！！！
                 this.setData({
                     isShowBaseBottom: !isShowBaseBottom
@@ -134,7 +130,7 @@ Page({
 	scroll: function(e) {
 		const {arr, arrHeight, height} = this.data
 		for (var i = 0; i < arrHeight.length; i++) {
-			if (arrHeight[i] < e.detail.scrollTop + height + 50 ) {
+			if (arrHeight[i] < e.detail.scrollTop + height + 120 ) {
 				if (arr[i] == false) {
 					arr[i] = true;
 				}

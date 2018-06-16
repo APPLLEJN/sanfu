@@ -7,14 +7,14 @@
     </scroll-view>
   </block>
   <block wx:else>
-    <view style='font-size: {{currentFontSize}}!important;'>
+    <view style='font-size: {{currentFontSize}}!important;' bindtap="tap">
       <import src="/wxParse/wxParse.wxml"/>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
   </block>
+
   <view wx:if="{{!locked}}">
-    <view class='read-bottom' style='display: none'>
-    <!-- <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'> -->
+     <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
       <view class='read-bottom-top'>
         <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
         <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
