@@ -17,6 +17,7 @@
   top: 0;
   z-index: 1;
   overflow: hidden;
+  background: #fff;
 }
 .detail-wrapper .info .info-bg {
   position: absolute;
@@ -27,6 +28,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   filter: blur(30rpx);
+  display: none;
 }
 .detail-wrapper .info image {
 	width: 224rpx;

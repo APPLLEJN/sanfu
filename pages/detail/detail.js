@@ -11,7 +11,8 @@ Page({
     	isCollected: false,
 		id: null,
 		readCurrent: 1,
-		directoryName: ''
+		directoryName: '',
+    isBgShow: false
     },
     
     onLoad: function (option) {
@@ -65,7 +66,8 @@ Page({
 				this.setData({
 					comic: result.data,
           			chapters: result.data.chapters,
-					directoryName: readCurrent === 1 ? result.data.chapters[0].title : result.data.chapters.filter(item=>item.chapter_id==readCurrent)[0].title
+					directoryName: readCurrent === 1 ? result.data.chapters[0].title : result.data.chapters.filter(item=>item.chapter_id==readCurrent)[0].title,
+          isBgShow: true
 				})
 			}
 		})

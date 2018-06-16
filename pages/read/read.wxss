@@ -8,7 +8,13 @@
 }
 
 .read image {
-  width: 100%
+  width: 100%;
+}
+.read .scroll-image image {
+  /* min-height: 300rpx; */
+}
+.read .scroll-image image.default {
+  /* min-height: 900rpx; */
 }
 .read-bottom {
   position: fixed;
@@ -27,6 +33,8 @@
 }
 .read-bottom-top .bottom-btn {
   flex: 1;
+  height: 160rpx;
+  overflow: hidden;
   font-size: 26rpx;
   color: #666;
   text-align: center;
