@@ -2,6 +2,11 @@
 .read {
   padding-bottom: 260rpx;
 }
+
+.read.locked {
+  padding-bottom: 0;
+}
+
 .read image {
   width: 100%
 }
@@ -182,4 +187,59 @@
 .font-selection .selection-item.selected {
   color: #ff5977;
   border-color: #ff5977;
+}
+
+.pay-wrapper {
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:195px;
+  color: #666;
+  font-size: 26rpx;
+  z-index: 11;
+  text-align: center;
+}
+
+.pay-wrapper.novel {
+  height: 100%;
+  background: rgba(255,255,255,0.5)
+}
+
+.pay-wrapper.novel .novel-wrapper {
+  margin-top: 30%;
+}
+
+.pay-wrapper view {
+  margin-top: 17rpx
+}
+
+.pay-wrapper view.tips {
+  margin-top: 100rpx;
+  color: #9f9f9f
+}
+
+.pay-wrapper view.text {
+  margin: 17rpx 0 9rpx;
+  color: #ff5977;
+  font-size: 30rpx;
+}
+
+.pay-wrapper button {
+  width: 80%;
+  height: 88rpx;
+  color: #fff;
+  background: #ff5977;
+  font-size: 34rpx;
+  border-radius: 44rpx;
+  margin-top: 17rpx;
+}
+
+.pay-image {
+  height: 200px;
+  position: fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:10;
 }

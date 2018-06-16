@@ -1,8 +1,8 @@
-<view class="read">
+<view class="{{locked ? 'read locked' : 'read'}}">
   <block wx:if="{{type==1}}">
-    <scroll-view style="height: {{height}}px" scroll-y scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
+    <scroll-view style="height: {{height}}px" scroll-y="{{!locked}}" scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
         <block wx:for="{{imageList}}" wx:key="*this">
-            <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/me.png'}}"></image>
+            <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/img_load.png'}}"></image>
         </block>
     </scroll-view>
   </block>
@@ -12,31 +12,50 @@
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     </view>
   </block>
-  <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
-    <view class='read-bottom-top'>
-      <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
-      <view class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</view>
-      <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
-    </view>
-    <view class='read-bottom-cp'>
-      <view class='cp-btn prev'><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
-      <view class='cp-btn next'><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
-    </view>
-  </view>
-  <view class='read-setting'>
-    <view class='read-setting-font' style='display: {{isShowFontSet?"block":"none"}}'>字体大小
-      <view class='font-selection'>
-        <view class='selection-item'>A-</view>
-        <view class='selection-item selected'>A</view>
-        <view class='selection-item'>A+</view>
+  <view wx:if="{{!locked}}">
+    <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
+      <view class='read-bottom-top'>
+        <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+        <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
+        <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
+      </view>
+      <view class='read-bottom-cp'>
+        <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
+        <view class='cp-btn next' data-id="{{next_id}}" bindtap="jumpToNext"><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
       </view>
     </view>
-    <view class='read-setting-box'>
-      <navigator url="/pages/index/index" class='setting-item home'><image src='/assets/images/setting-home.png'></image></navigator>
-      <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='setting-item mulu'><image src='/assets/images/setting-mulu.png'></image></navigator>
-      <view class='setting-item set' bindtap='handleShowFontSet'><image src='/assets/images/setting-set.png'></image></view>
-      <view data-type="prev" data-prev="{{prev}}" class='setting-item prev' bindtap="link"><image src='/assets/images/setting-prev.png'></image></view>
-      <view data-type="next" data-prev="{{next}}" class='setting-item next' bindtap="link"><image src='/assets/images/setting-next.png'></image></view>
+    <view class='read-setting'>
+      <view class='read-setting-font' style='display: {{isShowFontSet?"block":"none"}}'>字体大小
+        <view class='font-selection'>
+          <view class='selection-item'>A-</view>
+          <view class='selection-item selected'>A</view>
+          <view class='selection-item'>A+</view>
+        </view>
+      </view>
+      <view class='read-setting-box'>
+        <navigator url="/pages/index/index" class='setting-item home'><image src='/assets/images/setting-home.png'></image></navigator>
+        <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='setting-item mulu'><image src='/assets/images/setting-mulu.png'></image></navigator>
+        <view class='setting-item set' bindtap='handleShowFontSet'><image src='/assets/images/setting-set.png'></image></view>
+        <view data-id="{{prev_id}}" class='setting-item prev' bindtap="jumpToPrev"><image src='/assets/images/setting-prev.png'></image></view>
+        <view data-id="{{next_id}}" class='setting-item next' bindtap="jumpToNext"><image src='/assets/images/setting-next.png'></image></view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{locked && type==1}}">
+    <view class="pay-wrapper">
+      <view class="tips">支持作者，解锁后阅读</view>
+      <view class="text">余额不足</view>
+      <view>点击下方按钮，回复"1"后充值后解锁</view>
+      <button open-type="contact">马上充值</button>
+    </view>
+    <image class="pay-image" src="/assets/images/bg_blur.pic" alt=""></image>
+  </view>
+  <view wx:if="{{locked && type==2}}" class="pay-wrapper novel">
+    <view class="novel-wrapper">
+      <view class="tips">支持作者，解锁后阅读</view>
+      <view class="text">余额不足</view>
+      <view>点击下方按钮，回复"1"后充值后解锁</view>
+      <button open-type="contact">马上充值</button>
     </view>
   </view>
 </view>
