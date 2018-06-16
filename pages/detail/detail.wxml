@@ -1,7 +1,7 @@
 <view class="detail-wrapper">
 	<view class="info">
     <view class='info-bg-wrap'>
-      <view class='info-bg' style='background-image: url({{comic.resource}})'></view>
+      <view class='info-bg' style='display:{{isBgShow?"block":"none"}};background-image: url({{comic.resource}})'></view>
     </view>
 		  <!-- <image src="{{comic.resource}}" mode="widthFix"></image>  -->
 	  	<image src="{{comic.resource}}" mode="widthFix"></image>

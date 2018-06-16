@@ -1,6 +1,6 @@
 <view class="{{locked ? 'read locked' : 'read'}}">
   <block wx:if="{{type==1}}">
-    <scroll-view style="height: {{height}}px" scroll-y="{{!locked}}" scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
+    <scroll-view class='scroll-image' style="height: {{height}}px" scroll-y="{{!locked}}" scroll-top="{{scrollTop}}" bindtap="tap" bindscroll="scroll">
         <block wx:for="{{imageList}}" wx:key="*this">
             <image lazy-load="{{true}}" mode="widthFix" class="image" src="{{arr[index] ? item : '/assets/images/img_load.png'}}"></image>
         </block>
