@@ -7,7 +7,8 @@ Page({
     searchResultList: null,
     currentPage: 1,
     searchHistory: wx.getStorageSync('searchHistory') || [],
-    currentData: ''
+    currentData: '',
+    hotList: []
   },
   handleGoBack: function () {
     // this.triggerEvent('handleBack')
@@ -16,7 +17,8 @@ Page({
     })
   },
   handleChange: function () {
-    console.log('change')
+    // console.log('change')
+    this.getData()
   },
   handleClearHistory: function () {
     this.setData({
@@ -84,7 +86,24 @@ Page({
     })
   },
   onLoad: function () {
-
+    this.getData()
+  },
+  getData: function() {
+    // 调用搜索接口
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/hot_word/get_some',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { access_token: wx.getStorageSync('token') },
+      success: (result) => {
+        // console.log(result)
+        this.setData({
+          hotList: result.data.hot_words
+        })
+      }
+    })
   },
   onReachBottom: function () {
     app.request({
@@ -102,5 +121,29 @@ Page({
       }
     })
   },
+  handleTapHot: function(e) {
+    // console.log(e.target.dataset.val)
+    // 调用搜索接口
+    app.request({
+      url: 'https://sanfu.weilubook.com/littleapp/comic/search',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: { page: this.data.currentPage, keyword: e.target.dataset.val },
+      success: (result) => {
+        this.setData({
+          searchResultList: [],
+          currentPage: 1,
+          currentData: e.target.dataset.val
+        })
+        this.setData({
+          searchResultList: this.data.searchResultList.concat(result.data.comics),
+          currentPage: this.data.currentPage + 1,
+        })
+      }
+    })
+
+  }
 })
 

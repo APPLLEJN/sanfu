@@ -65,6 +65,8 @@
 .cp-btn {
   flex: 1;
   text-align: center;
+  height: 60rpx;
+  overflow: hidden;
   line-height: 60rpx;
 }
 .cp-btn .cp-text {
@@ -72,13 +74,14 @@
   display: inline-block;
   color: #666;
   font-size: 30rpx;
-  line-height: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
 }
 .cp-btn .cp-text image {
   position: absolute;
   width: 14rpx;
   height: 24rpx;
-  top: 3rpx;
+  top: 16rpx;
 }
 .cp-btn.prev {
   border-right: 2rpx solid #e7e7e7;
