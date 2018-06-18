@@ -76,9 +76,7 @@ Page({
                     prev_id: previous_chapter_id,
                     next_id: next_chapter_id
                 }, () => {
-                    if(content_type===1) {
-                        this.getRect()
-                    }
+                    if(content_type===1) {this.getRect()}
                 })
             }
 		})
@@ -156,7 +154,7 @@ Page({
     jumpToPrev: function (e) {
         const {cid} = this.data
         if (e.currentTarget.dataset.id) {
-            wx.navigateTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
+            wx.redirectTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
         } else {
             wx.showToast({
                 title: '已经是第一章了',
@@ -166,9 +164,10 @@ Page({
 
     },
     jumpToNext: function (e) {
+        console.log('eeeeeenext')
         const {cid} = this.data
         if (e.currentTarget.dataset.id) {
-            wx.navigateTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
+            wx.redirectTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
         } else {
             wx.showToast({
                 title: '已经是最后一章了',
@@ -210,5 +209,8 @@ Page({
         const {cid, id} = this.data
         console.log('onReachBottom')
         wx.setStorageSync('read_current_'+cid, id)
+        this.setData({
+            isShowBaseBottom: true
+        })
     }
 })
