@@ -9,12 +9,12 @@
   <view class='search-hot' style='display: {{ searchResultList?"none":"block" }}'>
     <view class='search-hot-title'>热门搜索</view>
     <view class='search-hot-label-area'>
-      <text>琅琊榜</text>
-      <text>雨后人去楼也空</text>
+      <text wx:for="{{hotList}}" wx:key="{{item}}" data-val="{{item}}" bindtap='handleTapHot'>{{item}}</text>
+      <!-- <text>雨后人去楼也空</text>
       <text>人偶</text>
       <text>江左琅琊榜</text>
       <text>雨后人去楼也空</text>
-      <text>人偶</text>
+      <text>人偶</text> -->
     </view>
     <view class='search-hot-chenge-btn' bindtap='handleChange'><image src='/assets/images/change.png'></image> 换一换</view>
   </view>
