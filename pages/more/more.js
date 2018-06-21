@@ -15,7 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getData(options.type)
+    this.getData(options.type, options.child_site)
+    this.setData({
+        type: options.type,
+        child_site: options.child_site,
+    })
   },
 
   /**
@@ -37,7 +41,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getData()
+    const {child_site, type} = this.data
+    this.getData(type, child_site)
   },
 
   /**
@@ -47,7 +52,7 @@ Page({
   
   },
 
-  getData: function(type) {
+  getData: function(type, child_site) {
     let is_fine_quality = ''
     let sort_type = ''
     if (type == 'fine') {
@@ -65,7 +70,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
-      data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: '', class_id: '', finished: '', is_charge: '', is_fine_quality: is_fine_quality, sort_type: sort_type },
+      data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: '', class_id: '', finished: '', is_charge: '', is_fine_quality: is_fine_quality, sort_type: sort_type, child_site: child_site },
       success: (result) => {
         this.setData({
           moreList: this.data.moreList.concat(result.data.comics),

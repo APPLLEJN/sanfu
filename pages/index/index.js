@@ -46,7 +46,7 @@ Page({
         this.setData({
             recommendIndex: +e.currentTarget.id,
             popularComics: [],
-            page: 1
+            page: 1,
         }, () => {
             this.getData(+e.currentTarget.id)
             this.getPopularComics(+e.currentTarget.id)
