@@ -1,4 +1,4 @@
 <view class="home-title" style="flex-direction:row;">
     <view class="text">{{text}}</view>
-    <view class="more"><navigator url="/pages/more/more?type={{type}}">更多<image src="/assets/images/more.png"/></navigator></view>
+    <view class="more"><navigator url="/pages/more/more?type={{type}}&child_site={{child_site}}">更多<image src="/assets/images/more.png"/></navigator></view>
 </view>

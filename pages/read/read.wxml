@@ -6,9 +6,9 @@
         </block>
         <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
           <view class='read-bottom-top'>
-            <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+            <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
             <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
-            <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
+            <view class='bottom-btn like' catchtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 {{like_cnt}}</view>
           </view>
           <view class='read-bottom-cp'>
             <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
@@ -23,9 +23,9 @@
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
       <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
         <view class='read-bottom-top'>
-          <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+          <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
           <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
-          <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
+          <view class='bottom-btn like' catchtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 {{like_cnt}}</view>
         </view>
         <view class='read-bottom-cp'>
           <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>

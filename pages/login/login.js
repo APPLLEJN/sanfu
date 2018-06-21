@@ -18,6 +18,7 @@ Page({
         const fromPath = this.data.fromPath
         wx.login({
             success: function(res) {
+                console.log(res, '====')
                 if (res.code) {
                     //发起网络请求
                     app.request({

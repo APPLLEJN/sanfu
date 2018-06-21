@@ -58,12 +58,12 @@ Page({
             header: {
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
-            data: {chapter_id: id, comic_id: cid},
+            data: {chapter_id: id, comic_id: cid, access_token: wx.getStorageSync('token')},
             success: (result) => {
                 wx.setNavigationBarTitle({
                     title: result.data.title
                 })
-                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked } = result.data
+                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt } = result.data
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
@@ -75,7 +75,8 @@ Page({
                     comic_id: comic_id,
                     prev_id: previous_chapter_id,
                     next_id: next_chapter_id,
-                    locked: !unlocked
+                    locked: !unlocked,
+                    like_cnt: like_cnt
                 }, () => {
                     if(content_type===1) {this.getRect()}
                 })
@@ -191,6 +192,8 @@ Page({
       })
     },
     handleLike: function () {
+        let {like_cnt, isLiked} = this.data
+        if (isLiked) return
       app.request({
         url: 'https://sanfu.weilubook.com/littleapp/comic/like',
         method: 'POST',
@@ -200,7 +203,8 @@ Page({
         data: { comic_id: this.data.comic_id, access_token: wx.getStorageSync('token') },
         success: (result) => {
           this.setData({
-            isLiked: true
+            isLiked: true,
+            like_cnt: +like_cnt + 1
           })
         }
       })

@@ -8,6 +8,10 @@ Component({
             type: String,
             value: ''
         },
+        child_site: {
+            type: String,
+            value: ''
+        },
         url: {
             type: String,
             value: ''
