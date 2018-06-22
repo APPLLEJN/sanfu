@@ -1,7 +1,9 @@
 <view class="page-container">
-    <input type="text" placeholder="搜索感兴趣的作品或作者" class="home_search" bindfocus='handleSearch'
-           placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/15px 15px no-repeat;" />
-    <swiper indicator-dots="{{indicatorDots}}"
+    <view class='search'>
+        <view class='search-input' bindtap='handleSearch'>搜索感兴趣的作品或作者</view>
+        <!-- <input type="text" placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/14px 14px no-repeat;" /> -->
+    </view>
+    <swiper indicator-dots="{{indicatorDots}}" style="max-height: 300rpx"
             autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
         <block wx:for="{{bannerList}}" wx:key="*this">
             <swiper-item>
@@ -17,7 +19,7 @@
         <view class="flex-item" bindtap="changeRecommend" id="2"><image src="{{recommendIndex === 2 ? '/assets/images/four_on.png' : '/assets/images/four.png'}}" alt="" mode="widthFix" /></view>
         <view class="flex-item" bindtap="changeRecommend" id="3"><image src="{{recommendIndex === 3? '/assets/images/weilu_on.png' : '/assets/images/weilu.png'}}" alt="" mode="widthFix" /></view>
     </view>
-    <homeTitle text="精品推荐" type="fine"></homeTitle>
+    <homeTitle text="精品推荐" type="fine" child_site="{{recommendIndex}}"></homeTitle>
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{fineQualitiyComics}}" wx:key="*this">
@@ -25,7 +27,7 @@
             </block>
         </veiw>
     </view>
-    <homeTitle text="新作推荐" type="created"></homeTitle>
+    <homeTitle text="新作推荐" type="created" child_site="{{recommendIndex}}"></homeTitle>
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{newComics}}" wx:key="*this">
@@ -33,7 +35,7 @@
             </block>
         </veiw>
     </view>
-    <homeTitle text="最新更新" type="updated"></homeTitle>
+    <homeTitle text="最新更新" type="updated" child_site="{{recommendIndex}}"></homeTitle>
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{newUpdateComics}}" wx:key="*this">
@@ -41,7 +43,7 @@
             </block>
         </veiw>
     </view>
-    <homeTitle text="人气更新"></homeTitle>
+    <homeTitle text="人气更新" child_site="{{recommendIndex}}"></homeTitle>
     <block wx:for="{{popularComics}}" wx:key="*this">
         <homeUpdateItem sid="{{item.comic_id}}" image="{{item.pic_url}}" title="{{item.title}}" info="{{item.info}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}" numberChapter="{{item.number_of_chapter}}"></homeUpdateItem>
     </block>

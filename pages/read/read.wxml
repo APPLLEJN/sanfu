@@ -4,28 +4,39 @@
         <block wx:for="{{imageList}}" wx:key="*this">
             <image lazy-load="{{true}}" mode="widthFix" class="image {{arr[index] ? '' : 'default'}}" src="{{arr[index] ? item : '/assets/images/img_load.png'}}"></image>
         </block>
+        <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
+          <view class='read-bottom-top'>
+            <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+            <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
+            <view class='bottom-btn like' catchtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 {{like_cnt}}</view>
+          </view>
+          <view class='read-bottom-cp'>
+            <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
+            <view class='cp-btn next' data-id="{{next_id}}" bindtap="jumpToNext"><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
+          </view>
+        </view>
     </scroll-view>
   </block>
   <block wx:else>
     <scroll-view style='font-size: {{currentFontSize}}!important;' bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}">
       <import src="/wxParse/wxParse.wxml"/>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
+        <view class='read-bottom-top'>
+          <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
+          <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
+          <view class='bottom-btn like' catchtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 {{like_cnt}}</view>
+        </view>
+        <view class='read-bottom-cp'>
+          <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
+          <view class='cp-btn next' data-id="{{next_id}}" bindtap="jumpToNext"><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
+        </view>
+      </view>
     </scroll-view>
   </block>
 
   <view wx:if="{{!locked}}">
-     <view class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
-      <view class='read-bottom-top'>
-        <view class='bottom-btn collect' bindtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
-        <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
-        <view class='bottom-btn like' bindtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 543</view>
-      </view>
-      <view class='read-bottom-cp'>
-        <view class='cp-btn prev' data-id="{{prev_id}}" bindtap="jumpToPrev"><view class='cp-text'><image src='/assets/images/cp_prev.png'></image> 上一话</view></view>
-        <view class='cp-btn next' data-id="{{next_id}}" bindtap="jumpToNext"><view class='cp-text'><image src='/assets/images/cp_next.png'></image> 下一话</view></view>
-      </view>
-    </view>
-    <view class='read-setting' style="display:block">
+    <view class='read-setting' style='display: {{isShowBaseBottom?"none":"block"}}'>
       <view class='read-setting-font' style='display: {{isShowFontSet?"block":"none"}}'>字体大小
         <view class='font-selection'>
           <view class='selection-item {{currentFontSize=="75%"?"selected":""}}' data-type="75%" bindtap='handleChangeFontSize'>A-</view>

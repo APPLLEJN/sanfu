@@ -58,12 +58,12 @@ Page({
             header: {
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
-            data: {chapter_id: id, comic_id: cid},
+            data: {chapter_id: id, comic_id: cid, access_token: wx.getStorageSync('token')},
             success: (result) => {
                 wx.setNavigationBarTitle({
                     title: result.data.title
                 })
-                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id } = result.data
+                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt } = result.data
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
@@ -74,11 +74,11 @@ Page({
                     isLiked: result.data.has_liked == 0 ? false : true,
                     comic_id: comic_id,
                     prev_id: previous_chapter_id,
-                    next_id: next_chapter_id
+                    next_id: next_chapter_id,
+                    locked: !unlocked,
+                    like_cnt: like_cnt
                 }, () => {
-                    if(content_type===1) {
-                        this.getRect()
-                    }
+                    if(content_type===1) {this.getRect()}
                 })
             }
 		})
@@ -156,7 +156,7 @@ Page({
     jumpToPrev: function (e) {
         const {cid} = this.data
         if (e.currentTarget.dataset.id) {
-            wx.navigateTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
+            wx.redirectTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
         } else {
             wx.showToast({
                 title: '已经是第一章了',
@@ -168,7 +168,7 @@ Page({
     jumpToNext: function (e) {
         const {cid} = this.data
         if (e.currentTarget.dataset.id) {
-            wx.navigateTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
+            wx.redirectTo({url: '/pages/read/read?id='+e.currentTarget.dataset.id +'&cid='+cid})
         } else {
             wx.showToast({
                 title: '已经是最后一章了',
@@ -192,6 +192,8 @@ Page({
       })
     },
     handleLike: function () {
+        let {like_cnt, isLiked} = this.data
+        if (isLiked) return
       app.request({
         url: 'https://sanfu.weilubook.com/littleapp/comic/like',
         method: 'POST',
@@ -201,14 +203,10 @@ Page({
         data: { comic_id: this.data.comic_id, access_token: wx.getStorageSync('token') },
         success: (result) => {
           this.setData({
-            isLiked: true
+            isLiked: true,
+            like_cnt: +like_cnt + 1
           })
         }
       })
-    },
-    onReachBottom: function() {
-        const {cid, id} = this.data
-        console.log('onReachBottom')
-        wx.setStorageSync('read_current_'+cid, id)
     }
 })

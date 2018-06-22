@@ -1,6 +1,5 @@
 @import "/wxParse/wxParse.wxss";
 .read {
-  padding-bottom: 260rpx;
 }
 
 .read.locked {
@@ -17,10 +16,7 @@
   /* min-height: 900rpx; */
 }
 .read-bottom {
-  position: fixed;
   width: 100%;
-  left: 0;
-  bottom: 0;
   background: #fff;
   z-index: 9999;
   border-top: 2rpx solid #e7e7e7;
