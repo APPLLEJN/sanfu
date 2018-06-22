@@ -1,0 +1,120 @@
+.charge-page {
+  height: 100%;
+  background: #f4f4f4;
+}
+.item-wrap {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.item-wrap .item-title {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.item-wrap .item-title text {
+  line-height: 30rpx;
+  border-left: 10rpx solid #ff5977;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.item-wrap .item-content {
+  padding: 0 30rpx 50rpx;
+}
+.item-wrap .tip-content .item-content-p {
+  color: #aaa;
+  font-size: 26rpx;
+  line-height: 40rpx;
+}
+.tab-content {
+  position: relative;
+}
+.tab-content .contact-p {
+  font-size: 28rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.tab-content button {
+  width:80%;
+  height:88rpx;
+  color:#fff;
+  background:#ff5977;
+  font-size:34rpx;
+  border-radius:44rpx;
+  margin-top:17rpx;
+  position:relative;
+  z-index:2;
+}
+.tab-content .tab-selection {
+  width: 32%;
+  height: 3.4375rem;
+  line-height: 2.4375rem;
+  float: left;
+  margin-right: 2%;
+  border: 1px solid #ffb045;
+  border-radius: .3125rem;
+  text-align: center;
+  position: relative;
+  margin-bottom: .625rem;
+}
+.tab-content .tab-selection.active {
+  background-color: #fef2ea;
+}
+.tab-content .tab-selection:nth-child(3n+3) {
+  margin-right: 0;
+}
+.tab-content .tab-selection .num1 {
+  color: #ffb045;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.tab-content .tab-selection .num2-line {
+  position: absolute;
+  width: 100%;
+  height: 32rpx;
+  line-height: 32rpx;
+  left: 0;
+  top: 56rpx;
+  text-align: center;
+}
+/* .tab-content .tab-selection .num2 {
+  display: inline-block;
+  padding-left: .9375rem;
+  background: url(../images/coin.png) left center no-repeat;
+  background-size: .6875rem .6875rem;
+  font-size: .6875rem;
+  color: #dbb26f;
+} */
+.tab-content .tab-selection .num2 .special {
+  color: #ffb045;
+}
+.item-wrap.advice-wrap {
+  padding: 1.5625rem .9375rem;
+}
+.advice-wrap .advice-content {
+  padding: 30rpx;
+  background-color: #f7f6f2;
+  position: relative;
+}
+.advice-content .advice-content-p {
+  color: #666;
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+.advice-content image {
+  width: 154rpx;
+  height: 176rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  margin-top: -88rpx;
+}
+.advice-content .advice-title {
+  color: #ddc69e;
+  font-size: .9375rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+
+
+

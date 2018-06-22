@@ -8,3 +8,9 @@
 	text-align: center;
 	margin-top: 42rpx
 }
+.no-record {
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}

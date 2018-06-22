@@ -11,7 +11,8 @@
     "pages/category/category",
     "pages/feedback/feedback",
     "pages/read/read",
-    "pages/more/more"
+    "pages/more/more",
+    "pages/charge/charge"
   ],
   "window": {
     "backgroundTextStyle": "light",

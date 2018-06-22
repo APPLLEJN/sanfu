@@ -86,6 +86,9 @@ Page({
     })
   },
   onLoad: function () {
+    this.setData({
+      searchHistory: wx.getStorageSync('searchHistory') || []
+    })
     this.getData()
   },
   getData: function() {

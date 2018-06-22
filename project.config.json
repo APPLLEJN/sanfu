@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -85,6 +85,12 @@
 					"id": -1,
 					"name": "登录",
 					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "充值",
+					"pathName": "pages/charge/charge",
 					"query": ""
 				}
 			]

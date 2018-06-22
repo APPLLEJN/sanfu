@@ -1,0 +1,31 @@
+<view class='charge-page'>
+  <view class="item-wrap tip-wrap">
+      <view class="item-title"><text>温馨提示</text></view>
+      <view class="item-content tip-content">
+        <view class='item-content-p'>1.尊敬的读者您好，进入VIP章后需充值购买正版漫画图书，才能继续阅读。</view>
+        <view class='item-content-p'>2.未完本的作品会持续更新，您的支持是画手创作的最大动力，衷心感谢您对正版的支持。</view>
+      </view>
+    </view>
+    <view class="item-wrap tab-wrap">
+      <view class="item-title"><text>微信充值</text></view>
+      <view class="item-content tab-content clearfix">
+        <view class='contact-p'>点击下方按钮，回复"1"后充值后解锁</view>
+        <button open-type="contact">马上充值</button>
+        <!-- <view class="tab-selection"><text class="num1">30元</text><view class="num2-line"><view class="num2">3000</view></view></view>
+        <view class="tab-selection"><text class="num1">50元</text><view class="num2-line"><view class="num2">5000</view></view></view>
+        <view class="tab-selection"><text class="num1">80元</text><view class="num2-line"><view class="num2">8000</view></view></view>
+        <view class="tab-selection"><text class="num1">100元</text><view class="num2-line"><view class="num2">10000<text class="special">+2000</text></view></view></view>
+        <view class="tab-selection"><text class="num1">200元</text><view class="num2-line"><view class="num2">20000<text class="special">+5000</text></view></view></view>
+        <view class="tab-selection"><text class="num1">500元</text><view class="num2-line"><view class="num2">50000<text class="special">+20000</text></view></view></view> -->
+      </view>
+    </view>
+    <view class="item-wrap advice-wrap">
+      <view class="advice-content">
+        <view class="advice-title">建议您</view>
+        <view class='advice-content-p'>关注右下角“XX”公众号</view>
+        <view class='advice-content-p'>以方便您的阅读和充值</view>
+        <view class='advice-content-p'>每天还有更多精彩漫画推荐哦~</view>
+         <image src="/assets/images/qr_code.png"></image>
+      </view>
+    </view>
+</view>

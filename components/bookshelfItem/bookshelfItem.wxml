@@ -10,7 +10,8 @@
     </view>
     <view class='item-author' wx:if="{{!isCategory}}">By {{bookItem.author_name}}</view>
     <view class='item-author category' wx:if="{{isCategory}}">By {{bookItem.author_name}}/{{bookItem.finished=='0'?'连载中':'已完结'}}</view>
-    <view class='item-info' wx:if="{{!isCategory}}">阅读进度：{{bookItem.read_cnt}}话/{{bookItem.number_of_chapter}}话</view>
+    <view class='item-info' wx:if="{{!isCategory && bookItem.read_cnt > 0}}">阅读进度：{{bookItem.read_cnt}}话/{{bookItem.number_of_chapter}}话</view>
+    <view class='item-info' wx:if="{{!isCategory && bookItem.read_cnt == 0}}">暂未阅读</view>
     <view class='item-info no-category' wx:if="{{!isCategory}}">更新至第{{bookItem.number_of_chapter}}话：{{bookItem.intro}}</view>
     <view class='item-info category' wx:if="{{isCategory}}">{{bookItem.intro}}</view>
     <view class='item-more' wx:if="{{isCategory}}">

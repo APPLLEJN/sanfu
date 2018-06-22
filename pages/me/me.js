@@ -6,7 +6,7 @@ Page({
     data: {
     	me: {},
 		list: [
-			{icon: '/assets/images/recharge.png', name: '充值', link: ''},
+      { icon: '/assets/images/recharge.png', name: '充值', link: '/pages/charge/charge'},
 			{icon: '/assets/images/recharge_record.png', name: '充值记录', link: '/pages/record/record?type=recharge'},
 			{icon: '/assets/images/pay_record.png', name: '消费记录', link: '/pages/record/record?type=pay'},
 			{icon: '/assets/images/qa.png', name: '常见问题', link: '/pages/qa/qa'},
