@@ -208,13 +208,5 @@ Page({
           })
         }
       })
-    },
-    onReachBottom: function() {
-        const {cid, id} = this.data
-        console.log('onReachBottom')
-        wx.setStorageSync('read_current_'+cid, id)
-        this.setData({
-            isShowBaseBottom: true
-        })
     }
 })
