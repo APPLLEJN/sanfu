@@ -56,6 +56,7 @@
   <view class="pay-wrapper" wx:if="{{locked && type==1}}">
     <view class="tips">支持作者，解锁后阅读</view>
     <view class="text">余额不足</view>
+    <view>需要{{price}}元，当前余额{{last_price}}元</view>
     <view>点击下方按钮，回复"1"后充值后解锁</view>
     <button open-type="contact">马上充值</button>
     <image class="pay-image" src="/assets/images/bg_blur.png" alt=""></image>
@@ -64,6 +65,7 @@
     <view class="novel-wrapper">
       <view class="tips">支持作者，解锁后阅读</view>
       <view class="text">余额不足</view>
+      <view>需要{{price}}元，当前余额{{last_price}}元</view>
       <view>点击下方按钮，回复"1"后充值后解锁</view>
       <button open-type="contact">马上充值</button>
     </view>

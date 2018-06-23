@@ -15,6 +15,10 @@ Component({
         url: {
             type: String,
             value: ''
-        }
+        },
+        showMore: {
+            type: Boolean,
+            value: ''
+        },
     }
 })

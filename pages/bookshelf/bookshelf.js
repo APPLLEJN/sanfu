@@ -162,19 +162,21 @@ Page({
   handleTop: function (e) {
     const id = e.detail
     app.request({
-      url: 'https://sanfu.weilubook.com/littleapp/comic/set_top',
+      url: 'https://sanfu.weilubook.com/littleapp/favorite_comic/set_top',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       data: { access_token: wx.getStorageSync('token'), comic_id: id },
       success: (result) => {
-        console.log(777)
         this.setData({
           currentPage: 1
         })
         if (this.data.tabType == 'bookshelf') {
-          this.getBookData()
+          this.setData({
+              currentBookPage: 1,
+              bookshelfList: []
+          }, () => {this.getBookData()})
         } else {
           this.getHistoryData()
         }
@@ -184,7 +186,7 @@ Page({
   handleCancelTop: function (e) {
     const id = e.detail
     app.request({
-      url: 'https://sanfu.weilubook.com/littleapp/comic/remove_top',
+      url: 'https://sanfu.weilubook.com/littleapp/favorite_comic/remove_top',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -195,7 +197,10 @@ Page({
           currentPage: 1
         })
         if (this.data.tabType == 'bookshelf') {
-          this.getBookData()
+            this.setData({
+                currentBookPage: 1,
+                bookshelfList: []
+            }, () => {this.getBookData()})
         } else {
           this.getHistoryData()
         }

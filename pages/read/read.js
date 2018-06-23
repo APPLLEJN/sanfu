@@ -63,7 +63,7 @@ Page({
                 wx.setNavigationBarTitle({
                     title: result.data.title
                 })
-                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt } = result.data
+                const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt, price } = result.data
                 const { arr } = this.data
                 content.map(item => arr.push(false))
                 this.setData({
@@ -76,7 +76,9 @@ Page({
                     prev_id: previous_chapter_id,
                     next_id: next_chapter_id,
                     locked: !unlocked,
-                    like_cnt: like_cnt
+                    like_cnt: like_cnt,
+                    price: price/100,
+                    last_price: wx.getStorageSync('userInfo').cash/100
                 }, () => {
                     if(content_type===1) {this.getRect()}
                 })
