@@ -103,12 +103,11 @@ Page({
 
 	},
     tap: function(e) {
-        console.log('enter')
         const {scrollTop, height, width, type, isShowBaseBottom} = this.data
         const left = width/3
         const right = width/3*2
         const x = e.detail.x
-        let top
+        let top = scrollTop
         if (x< left) {
             top = scrollTop - height
         } else if (x > right) {
@@ -140,6 +139,7 @@ Page({
 		})
 	},
     handleShowFontSet: function() {
+        console.log('000000088888')
         this.setData({
           isShowFontSet: !this.data.isShowFontSet
         })
