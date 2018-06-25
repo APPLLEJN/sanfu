@@ -1,13 +1,12 @@
 @import "../../wxParse/wxParse.wxss";
 .detail-wrapper .info {
-	padding: 50rpx 30rpx;
+	padding: 50rpx 0 30rpx 30rpx;
 	background: black;
 	font-size: 24rpx;
 	color: #fff;
 	display: flex;
 	align-items: center;
-  position: relative;
-  
+    position: relative;
 }
 .detail-wrapper .info .info-bg-wrap {
   position: absolute;
@@ -193,6 +192,9 @@
   color: #555;
   margin: 0 7rpx 20rpx;
   position: relative;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .directory-list-box .directory-item image {
   position: absolute;

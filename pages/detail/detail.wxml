@@ -48,7 +48,6 @@
 	<view class="bottom-bar">
 		<view>
 			<text class="current">{{directoryName}}</text>
-			<text>{{directoryName}}</text>
 		</view>
 		<navigator url="{{'/pages/read/read?id='+ readCurrent +'&cid='+comic.comic_id}}" class="btn">
 			{{readCurrent === comic.chapters[0].chapter_id ? '开始阅读' : '继续阅读'}}

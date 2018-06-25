@@ -64,7 +64,7 @@
   -webkit-box-orient: vertical;
 }
 .bookshelf-item .item-right .item-info.no-category {
-  width: 345rpx;
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

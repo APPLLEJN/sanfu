@@ -22,6 +22,7 @@
 .home-item image.icon {
   width: 30rpx;
   height: 30rpx;
+  display: flex;
 }
 
 /* .home-item .top-text {
@@ -78,6 +79,7 @@
 /*}*/
 
 .home-item .title {
+  width: 215rpx;
   color: #666;
   font-size: 28rpx;
   align-items:center;
@@ -89,9 +91,8 @@
 }
 
 .home-item .title .title-name {
-  /* display:flex; */
-  /* flex: 1; */
-  max-width: 130rpx;
+  max-width: calc(100% - 40rpx);
+  //max-width: 82%;
   margin-right: 6rpx;
   text-align: left;
   overflow: hidden;

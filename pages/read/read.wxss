@@ -199,11 +199,15 @@
   left:0;
   right:0;
   bottom:0;
-  height:195px;
+  height:240px;
   color: #666;
   font-size: 26rpx;
   z-index: 10;
   text-align: center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
 }
 
 .pay-wrapper.novel {
@@ -222,12 +226,12 @@
 }
 
 .pay-wrapper view.tips {
-  margin-top: 15%;
+  margin-top: 17%;
   color: #9f9f9f
 }
 
 .pay-wrapper view.text {
-  margin: 17rpx 0 9rpx;
+  margin: 17rpx 0 0rpx;
   color: #ff5977;
   font-size: 30rpx;
 }
@@ -245,7 +249,7 @@
 }
 
 .pay-image {
-  height: 200px;
+  height: 225px;
   position: fixed;
   left:0;
   right:0;
