@@ -51,7 +51,7 @@ Page({
                     title: result.data.title
                 })
                 const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt, price } = result.data
-                if (content_type === 1) {
+                if (+content_type === 1) {
                     const { arr } = this.data
                     content.map(item => arr.push(false))
                     this.setData({
@@ -73,7 +73,7 @@ Page({
                     price: price * 100/10000,
                     last_price: wx.getStorageSync('userInfo').cash * 100/10000
                 }, () => {
-                    if(content_type===1) {this.getRect()}
+                    if(+content_type===1) {this.getRect()}
                 })
             }
 		})
