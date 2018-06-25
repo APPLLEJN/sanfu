@@ -18,9 +18,11 @@
     </scroll-view>
   </block>
   <block wx:else>
-    <scroll-view style='font-size: {{currentFontSize}}!important;' bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}">
+    <scroll-view bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}">
       <import src="/wxParse/wxParse.wxml"/>
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <view class="novel-content" style='font-size: {{currentFontSize}}!important;'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      </view>
       <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
         <view class='read-bottom-top'>
           <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>

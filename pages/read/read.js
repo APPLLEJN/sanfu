@@ -35,24 +35,11 @@ Page({
             height: wx.getSystemInfoSync().windowHeight,
             width: wx.getSystemInfoSync().windowWidth,
         })
-        setTimeout(() => {
-         var article = '<p>我是HTML代码</p><img src="http://sanfu.weilubook.com/uploads/resources/2018/05/30/15276703116.jpg"><video src="http://www.zhangxinxu.com/study/media/cat.mp4" controls="controls"></video><audio src="http://mp3.9ku.com/hot/2011/12-13/461514.mp3" name="测试" author="测试" poster="haibao.jpg"></audio>';
-         /**
-         * WxParse.wxParse(bindName , type, data, target,imagePadding)
-         * 1.bindName绑定的数据名(必填)
-         * 2.type可以为html或者md(必填)
-         * 3.data为传入的具体数据(必填)
-         * 4.target为Page对象,一般为this(必填)
-         * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-         */
-         var that = this;
-         WxParse.wxParse('article', 'html', article, that, 5);
-        }, 1000)
-
     },
 	onReady: function () {},
 	getDetail: function (id, cid) {
-		app.request({
+        var that = this;
+        app.request({
             url: 'https://sanfu.weilubook.com/littleapp/chapter/detail',
             method: 'POST',
             header: {
@@ -64,11 +51,17 @@ Page({
                     title: result.data.title
                 })
                 const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt, price } = result.data
-                const { arr } = this.data
-                content.map(item => arr.push(false))
+                if (content_type === 1) {
+                    const { arr } = this.data
+                    content.map(item => arr.push(false))
+                    this.setData({
+                        arr: arr
+                    })
+                } else {
+                    WxParse.wxParse('article', 'html', content, that, 5);
+                }
                 this.setData({
                     type: content_type,
-                    arr: arr,
                     imageList: result.data.content,
                     isCollected: result.data.has_faved == 0 ? false : true,
                     isLiked: result.data.has_liked == 0 ? false : true,
@@ -77,8 +70,8 @@ Page({
                     next_id: next_chapter_id,
                     locked: !unlocked,
                     like_cnt: like_cnt,
-                    price: price/100,
-                    last_price: wx.getStorageSync('userInfo').cash/100
+                    price: price * 100/10000,
+                    last_price: wx.getStorageSync('userInfo').cash * 100/10000
                 }, () => {
                     if(content_type===1) {this.getRect()}
                 })
@@ -110,6 +103,7 @@ Page({
 
 	},
     tap: function(e) {
+        console.log('enter')
         const {scrollTop, height, width, type, isShowBaseBottom} = this.data
         const left = width/3
         const right = width/3*2
@@ -120,7 +114,7 @@ Page({
         } else if (x > right) {
             top = scrollTop + height
         } else {
-            if (type === 2) {
+            if (+type === 2) {
                 // 这里应该判断是2！！！
                 this.setData({
                     isShowBaseBottom: !isShowBaseBottom

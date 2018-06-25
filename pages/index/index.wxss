@@ -80,3 +80,7 @@
   color: #666;
   text-align: center
 }
+
+.page-container {
+  overflow-x: hidden
+}
