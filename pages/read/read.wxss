@@ -163,7 +163,7 @@
   padding: 0 54rpx;
   font-size: 30rpx;
   color: #fff;
-  position: fixed;
+  /* position: fixed; */
 }
 .font-selection {
   position: absolute;
