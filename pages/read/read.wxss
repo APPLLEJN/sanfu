@@ -291,3 +291,67 @@
 .novel-content.font125 .wxParse-p .wxParse-inline {
   text-indent: 60rpx;
 }
+.novel-wrapper.spec {
+  text-align: center;
+}
+.novel-spec-box {
+  display:inline-block;
+  width: 568rpx;
+  height: 454rpx;
+  border: 2rpx solid #aaa;
+  border-radius: 10rpx;
+  background: #fffbf2;
+  box-sizing: border-box;
+  padding-top: 76rpx;
+}
+.novel-spec-box .spec-box-p1 {
+  font-size: 30rpx;
+  color: rgb(51,51,51);
+}
+.novel-spec-box .spec-box-p2 {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  color: rgb(255,89,119);
+}
+.novel-spec-box .spec-box-p2 {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: rgb(173,173,173);
+}
+.novel-spec-box .spec-box-p5-w {
+  text-align: center;
+}
+.novel-spec-box .spec-box-p5 {
+  display: inline-block;
+  position: relative;
+  margin-top: 20rpx;
+  font-size: 22rpx;
+  color: rgb(173,173,173);
+  height: 30rpx;
+  line-height: 30rpx;
+  text-indent: 40rpx;
+}
+.novel-spec-box .spec-box-p5 .radio {
+  margin-top: 0;
+  position: absolute;
+  display: block;
+  width: 24rpx;
+  height: 24rpx;
+  top: 3rpx;
+  left: 0;
+  border: 2rpx solid #aaa;
+  border-radius: 50%;
+}
+.novel-spec-box .spec-box-p5 .radio .s-radio {
+  margin-top: 0;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  z-index: 10
+}
+.novel-spec-box .spec-box-p5-w.autopay .radio .s-radio {
+  background: #ff5977;
+}

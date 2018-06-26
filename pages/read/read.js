@@ -24,7 +24,8 @@ Page({
         prev_id: null,
         next_id: null,
         locked: false,
-        currentFontSize: '100'
+        currentFontSize: '100',
+        isAutopay: true
 	  },
     
     onLoad: function (option) {
@@ -211,5 +212,10 @@ Page({
         wx.navigateTo({
             url: '/pages/detail/detail?id='+cid+'&isCatalog=true'
         })
+    },
+    handleChangeAutopay: function () {
+       this.setData({
+         isAutopay: !this.data.isAutopay
+       })
     }
 })

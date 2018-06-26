@@ -74,13 +74,13 @@
     </view>
   </view>
   <view wx:if="{{locked && enough_price}}" class="pay-wrapper novel">
-    <view class="novel-wrapper">
-      <view>
-        <view class="tips">购买当前章节需要</view>
-        <view class="text">需要{{price}}金币</view>
-        <view>当前拥有{{last_price}}金币</view>
+    <view class="novel-wrapper spec">
+      <view class='novel-spec-box'>
+        <view class="tips spec-box-p1">购买当前章节需要</view>
+        <view class="text spec-box-p2">需要{{price}}金币</view>
+        <view class='spec-box-p3'>当前拥有{{last_price}}金币</view>
         <button>立即购买</button>
-        <view>立即购买后续章节</view>
+        <view class='spec-box-p5-w {{isAutopay?"autopay":""}}' bindtap='handleChangeAutopay'><view class='spec-box-p5'><view class='radio'><view class='s-radio'></view></view> 立即购买后续章节</view></view>
       </view>
     </view>
   </view>

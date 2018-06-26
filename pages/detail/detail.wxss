@@ -166,6 +166,10 @@
 .directory-list-title {
   color: #333;
   font-size: 30rpx;
+  padding-right: 100rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .directory-list-title text {
   color: #aaa;
