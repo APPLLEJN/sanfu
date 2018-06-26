@@ -216,7 +216,11 @@
 }
 
 .pay-wrapper.novel .novel-wrapper {
-  margin-top: 30%;
+  margin-top: 0%;
+}
+
+.pay-wrapper.novel .novel-wrapper view.tips {
+  margin-top: 0%;
 }
 
 .pay-wrapper view {

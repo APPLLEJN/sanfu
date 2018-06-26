@@ -7,7 +7,7 @@
         <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
           <view class='read-bottom-top'>
             <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
-            <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
+            <view class='bottom-btn directory' catchtap='handleLink'><image src='/assets/images/directory.png'></image> 目录</view>
             <view class='bottom-btn like' catchtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 {{like_cnt}}</view>
           </view>
           <view class='read-bottom-cp'>
@@ -27,7 +27,7 @@
       <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
         <view class='read-bottom-top'>
           <view class='bottom-btn collect' catchtap='handleCollect'><image src='/assets/images/collect{{isCollected?"ed":""}}.jpg'></image> 收藏</view>
-          <navigator url="{{'/pages/detail/detail?id='+cid+'&isCatalog=true'}}" class='bottom-btn directory'><image src='/assets/images/directory.png'></image> 目录</navigator>
+          <view class='bottom-btn directory' catchtap='handleLink'><image src='/assets/images/directory.png'></image> 目录</view>
           <view class='bottom-btn like' catchtap='handleLike'><image src='/assets/images/like{{isLiked?"d":""}}.png'></image> 赞 {{like_cnt}}</view>
         </view>
         <view class='read-bottom-cp'>
@@ -56,21 +56,32 @@
       </view>
     </view>
   </view>
-  <view class="pay-wrapper" wx:if="{{locked && type==1}}">
+  <view class="pay-wrapper" wx:if="{{locked && !enough_price && type==1}}">
     <view class="tips">支持作者，解锁后阅读</view>
     <view class="text">余额不足</view>
-    <view>需要{{price}}元，当前余额{{last_price}}元</view>
+    <view>需要{{price}}金币，当前余额{{last_price}}金币</view>
     <view>点击下方按钮，回复"1"后充值后解锁</view>
     <button open-type="contact">马上充值</button>
     <image class="pay-image" src="/assets/images/bg_blur.png" alt=""></image>
   </view>
-  <view wx:if="{{locked && type==2}}" class="pay-wrapper novel">
+  <view wx:if="{{locked && !enough_price && type==2}}" class="pay-wrapper novel">
     <view class="novel-wrapper">
       <view class="tips">支持作者，解锁后阅读</view>
       <view class="text">余额不足</view>
-      <view>需要{{price}}元，当前余额{{last_price}}元</view>
+      <view>需要{{price}}金币，当前余额{{last_price}}金币</view>
       <view>点击下方按钮，回复"1"后充值后解锁</view>
       <button open-type="contact">马上充值</button>
+    </view>
+  </view>
+  <view wx:if="{{locked && enough_price}}" class="pay-wrapper novel">
+    <view class="novel-wrapper">
+      <view>
+        <view class="tips">购买当前章节需要</view>
+        <view class="text">需要{{price}}金币</view>
+        <view>当前拥有{{last_price}}金币</view>
+        <button>立即购买</button>
+        <view>立即购买后续章节</view>
+      </view>
     </view>
   </view>
 </view>

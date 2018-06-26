@@ -70,8 +70,9 @@ Page({
                     next_id: next_chapter_id,
                     locked: !unlocked,
                     like_cnt: like_cnt,
-                    price: price * 100/10000,
-                    last_price: wx.getStorageSync('userInfo').cash * 100/10000
+                    price: price,
+                    last_price: wx.getStorageSync('userInfo').cash,
+                    enough_price: wx.getStorageSync('userInfo').cash >= price
                 }, () => {
                     if(+content_type===1) {this.getRect()}
                 })
@@ -204,5 +205,11 @@ Page({
           })
         }
       })
+    },
+    handleLink () {
+        const {cid} = this.data
+        wx.navigateTo({
+            url: '/pages/detail/detail?id='+cid+'&isCatalog=true'
+        })
     }
 })
