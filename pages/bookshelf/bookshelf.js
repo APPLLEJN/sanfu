@@ -12,7 +12,8 @@ Page({
     currentBookPage: 1,
     currentHistoryPage: 1,
     bookshelfList: [],
-    historyList: []
+    historyList: [],
+    initSlide: 0
   },
 
   handleChangeTab: function (e) {
@@ -181,6 +182,11 @@ Page({
           this.getHistoryData()
         }
       }
+    })
+  },
+  handleInitSlide: function(e) {
+    this.setData({
+      initSlide: e.detail
     })
   },
   handleCancelTop: function (e) {

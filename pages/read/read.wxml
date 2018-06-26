@@ -20,7 +20,8 @@
   <block wx:else>
     <scroll-view bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}">
       <import src="/wxParse/wxParse.wxml"/>
-      <view class="novel-content" style='font-size: {{currentFontSize}}!important;'>
+      <!-- <view class="novel-content" style='font-size: {{currentFontSize}}!important;'> -->
+      <view class="novel-content font{{currentFontSize}}"> 
         <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
       </view>
       <view wx:if="{{!locked}}" class='read-bottom' style='display: {{isShowBaseBottom?"block":"none"}}'>
@@ -41,9 +42,9 @@
     <view class='read-setting' style='display: {{isShowBaseBottom?"none":"block"}}'>
       <view class='read-setting-font' style='display: {{isShowFontSet?"block":"none"}}'>字体大小
         <view class='font-selection'>
-          <view class='selection-item {{currentFontSize=="75%"?"selected":""}}' data-type="75%" bindtap='handleChangeFontSize'>A-</view>
-          <view class='selection-item {{currentFontSize=="100%"?"selected":""}}' data-type="100%" bindtap='handleChangeFontSize'>A</view>
-          <view class='selection-item {{currentFontSize=="125%"?"selected":""}}' data-type="125%"  bindtap='handleChangeFontSize'>A+</view>
+          <view class='selection-item {{currentFontSize=="75"?"selected":""}}' data-type="75" bindtap='handleChangeFontSize'>A-</view>
+          <view class='selection-item {{currentFontSize=="100"?"selected":""}}' data-type="100" bindtap='handleChangeFontSize'>A</view>
+          <view class='selection-item {{currentFontSize=="125"?"selected":""}}' data-type="125"  bindtap='handleChangeFontSize'>A+</view>
         </view>
       </view>
       <view class='read-setting-box'>

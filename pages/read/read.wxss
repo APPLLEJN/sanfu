@@ -263,3 +263,27 @@
   line-height: 1.8;
   color: #333;
 }
+.novel-content .wxParse-p {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.novel-content.font75 .wxParse-p {
+  font-size: 24rpx;
+}
+.novel-content.font125 .wxParse-p {
+  font-size: 32rpx;
+  text-indent: 60rpx;
+}
+.wxParse-inline {
+  display: inline-block!important;
+}
+.novel-content .wxParse-p .wxParse-inline {
+  text-indent: 56rpx;
+}
+.novel-content.font75 .wxParse-p .wxParse-inline {
+  text-indent: 52rpx;
+}
+.novel-content.font125 .wxParse-p .wxParse-inline {
+  text-indent: 60rpx;
+}

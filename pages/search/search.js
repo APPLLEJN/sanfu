@@ -27,6 +27,11 @@ Page({
     wx.setStorageSync('searchHistory', [])
   },
   handleSearch: function (e) {
+    this.setData({
+      searchResultList: [],
+      currentPage: 1,
+      currentData: e.detail.value
+    })
     // 调用搜索接口
     app.request({
       url: 'https://sanfu.weilubook.com/littleapp/comic/search',
@@ -36,11 +41,7 @@ Page({
       },
       data: { page: this.data.currentPage, keyword: e.detail.value },
       success: (result) => {
-        this.setData({
-          searchResultList: [],
-          currentPage: 1,
-          currentData: e.detail.value
-        })
+        
         this.setData({
           searchResultList: this.data.searchResultList.concat(result.data.comics),
           currentPage: this.data.currentPage + 1,

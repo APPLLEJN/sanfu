@@ -13,7 +13,11 @@ Component({
     isCategory: {
       type: Boolean,
       value: false
-    }
+    },
+    initSlide: {
+      type: String,
+      value: ''
+    },
   },
 
   data: {
@@ -42,6 +46,7 @@ Component({
       this.triggerEvent('cancelTopItem', this.data.bookItem.comic_id)
     },
     handleTouchstart: function (e) {
+      this.triggerEvent('initSlide', this.data.bookItem.comic_id)
       if (this.data.isSlide) {
         this.setData({
           startX: e.changedTouches[0].clientX,

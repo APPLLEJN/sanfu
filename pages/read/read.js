@@ -24,7 +24,7 @@ Page({
         prev_id: null,
         next_id: null,
         locked: false,
-        currentFontSize: '100%'
+        currentFontSize: '100'
 	  },
     
     onLoad: function (option) {

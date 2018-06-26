@@ -21,7 +21,7 @@
     <view class="company_info">
         <view class="company_info_inner">
             <view>
-                <view>2018-2088XX文化有限公司版权号</view>
+                <!-- <view>2018-2088XX文化有限公司版权号</view> -->
                 <view>客服QQ：241968416516</view>
                 <view>工作时间：9:00-18:00</view>
                 <view>网络备案号128819-12号</view>

@@ -1,5 +1,5 @@
 <!--components/bookshelfItem/bookshelfItem.wxml-->
-<view class='bookshelf-item {{isTouchMove?"slide":""}}' bindtouchstart="handleTouchstart" bindtouchmove="handleTouchmove" bindtap='handleNav'>
+<view class='bookshelf-item {{(isTouchMove&&(initSlide==bookItem.comic_id))?"slide":""}}' bindtouchstart="handleTouchstart" bindtouchmove="handleTouchmove" bindtap='handleNav'>
   <image class='left-image' src='{{bookItem.resource}}'></image>
   <image class='top-icon' src='/assets/images/top-mark.png' wx:if="{{bookItem.is_top == 1}}"></image>
   <view class='item-right'>
