@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "bookshelfItem": "/components/bookshelfItem/bookshelfItem"
+    "bookshelfItem": "/components/bookshelfItem/bookshelfItem",
+    "homeUpdateItem": "/components/homeUpdateItem/homeUpdateItem"
   }
 }

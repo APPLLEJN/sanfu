@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    type: '',
     moreList: [],
     currentPage: 1
   },
@@ -55,17 +56,18 @@ Page({
   getData: function(type, child_site) {
     let is_fine_quality = ''
     let sort_type = ''
+    let url = 'https://sanfu.weilubook.com/littleapp/comic/get_list'
     if (type == 'fine') {
       is_fine_quality = '1'
     } else if (type == 'created') {
       sort_type = 'created_at'
     } else if (type == 'updated') {
       sort_type = 'updated_at'
-    } else {
-
+    } else if (type == 'popular') {
+      url = 'https://sanfu.weilubook.com/littleapp/popular_comic/get_list'
     }
     app.request({
-      url: 'https://sanfu.weilubook.com/littleapp/comic/get_list',
+      url: url,
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -73,7 +75,7 @@ Page({
       data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: '', class_id: '', finished: '', is_charge: '', is_fine_quality: is_fine_quality, sort_type: sort_type, child_site: child_site },
       success: (result) => {
         this.setData({
-          moreList: this.data.moreList.concat(result.data.comics),
+          moreList: this.data.moreList.concat(type == 'popular' ? result.data.popular_comics : result.data.comics),
           currentPage: this.data.currentPage + 1
         })
       }

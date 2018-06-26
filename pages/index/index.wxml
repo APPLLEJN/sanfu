@@ -52,7 +52,7 @@
             暂无相关产品
         </view>
     </view>
-    <homeTitle text="人气更新" child_site="{{recommendIndex}}" showMore="{{!!popularComics.length}}"></homeTitle>
+    <homeTitle text="人气更新" type="popular" child_site="{{recommendIndex}}" showMore="{{!!popularComics.length}}"></homeTitle>
     <block wx:for="{{popularComics}}" wx:key="*this">
         <homeUpdateItem sid="{{item.comic_id}}" image="{{item.pic_url}}" title="{{item.title}}" info="{{item.info}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}" numberChapter="{{item.number_of_chapter}}"></homeUpdateItem>
     </block>
