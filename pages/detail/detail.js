@@ -57,7 +57,7 @@ Page({
 
         if (this.data.comic.click_cnt && this.data.comic.click_cnt > 10000) {
           this.setData({
-            click_cnt: (this.data.comic.click_cnt/10000).toFixed(1)
+            click_cnt: (this.data.comic.click_cnt/10000).toFixed(1)+ '万'
           })
         } else {
           this.setData({
@@ -66,7 +66,7 @@ Page({
         }
         if (this.data.comic.like_cnt && this.data.comic.like_cnt > 10000) {
           this.setData({
-            like_cnt: (this.data.comic.like_cnt / 10000).toFixed(1)
+            like_cnt: (this.data.comic.like_cnt / 10000).toFixed(1) + '万'
           })
         } else {
           this.setData({
@@ -75,7 +75,7 @@ Page({
         }
         if (this.data.comic.fav_cnt && this.data.comic.fav_cnt > 10000) {
           this.setData({
-            fav_cnt: (this.data.comic.fav_cnt / 10000).toFixed(1)
+            fav_cnt: (this.data.comic.fav_cnt / 10000).toFixed(1) + '万'
           })
         } else {
           this.setData({
