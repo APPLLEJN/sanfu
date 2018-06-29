@@ -3,7 +3,7 @@
         <image src="{{me.avatarUrl}}" class="avatar"></image>
         <view class="user-name">
             <view>{{me.nickName}}</view>
-            <view class="money-wrapper"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{me.cash}}金币</view>
+            <view class="money-wrapper"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{last_price}}金币</view>
         </view>
         <view class="user-id">
             ID:{{me.user_id}}

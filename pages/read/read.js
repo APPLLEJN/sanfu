@@ -25,17 +25,22 @@ Page({
         next_id: null,
         locked: false,
         currentFontSize: '100',
-        isAutopay: true
+        isAutopay: true,
+        last_price: null
 	  },
     
     onLoad: function (option) {
         this.getDetail(option.id, option.cid)
+        this.getUserInfo()
         this.setData({
             id: option.id,
             cid: option.cid,
             height: wx.getSystemInfoSync().windowHeight,
             width: wx.getSystemInfoSync().windowWidth,
         })
+    },
+    onShow: function() {
+        this.getUserInfo()
     },
 	onReady: function () {},
 	getDetail: function (id, cid) {
@@ -51,7 +56,11 @@ Page({
                 wx.setNavigationBarTitle({
                     title: result.data.title
                 })
+                const { code } = result
                 const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt, price } = result.data
+                if(code === 402) {
+                    console.log(code, 'code')
+                }
                 if (+content_type === 1) {
                     const { arr } = this.data
                     content.map(item => arr.push(false))
@@ -69,11 +78,9 @@ Page({
                     comic_id: comic_id,
                     prev_id: previous_chapter_id,
                     next_id: next_chapter_id,
-                    locked: !unlocked,
+                    locked: code === 402 || code === 403,
                     like_cnt: like_cnt,
-                    price: price,
-                    last_price: wx.getStorageSync('userInfo').cash,
-                    enough_price: wx.getStorageSync('userInfo').cash >= price
+                    price: price * 100 /10000
                 }, () => {
                     if(+content_type===1) {this.getRect()}
                 })
@@ -141,7 +148,6 @@ Page({
 		})
 	},
     handleShowFontSet: function() {
-        console.log('000000088888')
         this.setData({
           isShowFontSet: !this.data.isShowFontSet
         })
@@ -217,5 +223,35 @@ Page({
        this.setData({
          isAutopay: !this.data.isAutopay
        })
+    },
+    handleBuy : function () {
+        app.request({
+            url: 'https://sanfu.weilubook.com/littleapp/chapter/buy',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: { chapter_id: this.data.id, access_token: wx.getStorageSync('token'), is_auto_buy: this.data.isAutopay ? 1 : 0 },
+            success: (result) => {
+                this.setData({
+                    locked: false
+                })
+            }
+        })
+    },
+    getUserInfo: function () {
+        app.request({
+            url: 'https://sanfu.weilubook.com/littleapp/user/get_info',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: { access_token: wx.getStorageSync('token') },
+            success: (result) => {
+                this.setData({
+                    last_price: result.data.cash * 100 /10000
+                })
+             }
+        })
     }
 })
