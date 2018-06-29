@@ -107,5 +107,5 @@ Page({
 		  order: e.target.dataset.type,
 		  chapters: this.data.chapters.reverse()
 		})
-	}
+	},
 })
