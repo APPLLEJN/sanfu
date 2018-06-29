@@ -5,7 +5,8 @@
   position: relative;
   padding-left: 192rpx; 
   overflow: hidden;
-  transition: .5s;
+  transition: .2s;
+  /* display: flex; */
 }
 .bookshelf-item.slide {
   transform: translateX(-310rpx);
@@ -70,13 +71,17 @@
   text-overflow: ellipsis;
 }
 .bookshelf-item .item-delete {
-  position: absolute;
+  display: none;
+  position: absolute; 
   width: 310rpx;
   height: 144rpx;
-  top: 0;
-  right: -312rpx;
+  top: 0; 
+  right: -312rpx; 
   border-left: 2rpx solid #e7e7e7;
   margin: 40rpx 0;
+}
+.bookshelf-item.slide .item-delete {
+   display: block; 
 }
 .bookshelf-item .item-delete .delete-btn {
   width: 50%;

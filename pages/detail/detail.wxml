@@ -13,9 +13,9 @@
 				<image wx:if="{{comic.child_site==3}}" class="icon" src="/assets/images/lu.png" mode="widthFix"></image>
 			</view>
 			<view>By {{comic.author_name}}</view>
-			<view>{{comic.click_cnt}}万热度/{{comic.like_cnt}}万点赞/{{comic.fav_cnt}}万收藏</view>
+			<view>{{click_cnt}}热度/{{like_cnt}}点赞/{{fav_cnt}}收藏</view>
 			<view>{{comic.owner}}</view>
-			<view>更新至第{{comic.last_chapter_title}}话</view>
+			<view>更新至第{{comic.last_chapter_title}}</view>
 		</view>
 	</view>
 	<view class="content">
