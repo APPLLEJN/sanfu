@@ -22,7 +22,6 @@ Page({
         this.getUserInfo()
     },
     tap: function(e) {
-    	console.log(this.data.showAnswer)
     	const index = e.currentTarget.id
     	const arr = this.data.showAnswer
     	arr[index] = !this.data.showAnswer[index]
@@ -40,7 +39,7 @@ Page({
             data: { access_token: wx.getStorageSync('token') },
             success: (result) => {
             this.setData({
-            	last_price: result.data.cash * 100 /10000
+            	last_price: result.data.cash
        		 })
     	}
     })

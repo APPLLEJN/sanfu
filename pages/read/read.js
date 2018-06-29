@@ -80,7 +80,7 @@ Page({
                     next_id: next_chapter_id,
                     locked: code === 402 || code === 403,
                     like_cnt: like_cnt,
-                    price: price * 100 /10000
+                    price: price
                 }, () => {
                     if(+content_type===1) {this.getRect()}
                 })
@@ -249,7 +249,7 @@ Page({
             data: { access_token: wx.getStorageSync('token') },
             success: (result) => {
                 this.setData({
-                    last_price: result.data.cash * 100 /10000
+                    last_price: result.data.cash
                 })
              }
         })
