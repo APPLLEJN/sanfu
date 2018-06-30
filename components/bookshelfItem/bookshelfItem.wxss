@@ -3,18 +3,24 @@
   margin-top: 30rpx;
   height: 224rpx;
   position: relative;
-  padding-left: 192rpx; 
   overflow: hidden;
   transition: .2s;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   /* display: flex; */
 }
-.bookshelf-item.slide {
-  transform: translateX(-310rpx);
-  overflow: visible;
+.bookshelf-item.slide .item-right, .bookshelf-item.slide .item-delete {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
+
+.bookshelf-item .left-image-wrapper {
+  position: relative;
+  margin-right: 15px
+}
+
 .bookshelf-item .left-image {
-  position: absolute; 
-  display: block;
   width: 168rpx;
   height: 224rpx;
   left: 0;
@@ -29,7 +35,24 @@
   top: 0;
 }
 .bookshelf-item .item-right {
+  display: flex;
+  width: 100%;
+  line-height: 22px;
+  margin-right:0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(310px);
+  transform: translateX(310px);
+  margin-left: -310px
+}
+
+.bookshelf-item .item-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .bookshelf-item .item-right .item-title {
   color: #333;
@@ -47,7 +70,7 @@
 .bookshelf-item .item-right .item-author {
   font-size: 24rpx;
   color: #999;
-  margin-top: 25rpx;
+  margin-top: 10rpx;
 }
 .bookshelf-item .item-right .item-author.category {
   margin-top: 10rpx;
@@ -71,34 +94,33 @@
   text-overflow: ellipsis;
 }
 .bookshelf-item .item-delete {
-  display: none;
-  position: absolute; 
+  display: flex;
   width: 310rpx;
   height: 144rpx;
-  top: 0; 
-  right: -312rpx; 
   border-left: 2rpx solid #e7e7e7;
   margin: 40rpx 0;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(310px);
+  transform: translateX(310px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
-.bookshelf-item.slide .item-delete {
-   display: block; 
-}
+
 .bookshelf-item .item-delete .delete-btn {
   width: 50%;
-  line-height: 190rpx;
-  display: inline-block;
   text-align: center;
   font-size: .75rem;
   color: rgb(153,153,153);
   position: relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 .bookshelf-item .item-delete .delete-btn image {
-  position: absolute;
   width: 40rpx;
   height: 40rpx;
-  left: 50%;
-  margin-left: -20rpx;
-  top: 30rpx;
 }
 .bookshelf-item .item-more {
   display: flex;

@@ -31,7 +31,7 @@
 			<view class="title">同类好书</view>
 			<veiw class="similar-inner">
 				<block wx:for="{{comic.good_books}}" wx:key="*this">
-					<homeItem image="{{item.resource}}" name="{{item.comic_name}}" sid="{{item.comic_id}}" cnt="{{item.like_cnt}}" type="{{item.child_site}}"></homeItem>
+					<homeItem image="{{item.resource}}" name="{{item.comic_name}}" sid="{{item.comic_id}}" cnt="{{item.click_cnt}}" type="{{item.child_site}}"></homeItem>
 				</block>
 			</veiw>
 		</view>

@@ -2,7 +2,7 @@
 <view class='more-page'>
   <view class='more-list' wx:if="{{type == 'popular'}}">
     <block wx:for="{{moreList}}" wx:key="{{item.comic_id}}">
-      <homeUpdateItem sid="{{item.comic_id}}" image="{{item.pic_url}}" title="{{item.title}}" info="{{item.info}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}" numberChapter="{{item.number_of_chapter}}"></homeUpdateItem>
+      <homeUpdateItem sid="{{item.comic_id}}" image="{{item.pic_url}}" title="{{item.title}}" info="{{item.info}}" cnt="{{item.click_cnt}}" type="{{item.child_site}}" numberChapter="{{item.number_of_chapter}}"></homeUpdateItem>
     </block>
   </view>
   <view class='more-list' wx:else>

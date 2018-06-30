@@ -18,7 +18,7 @@
     </scroll-view>
   </block>
   <block wx:else>
-    <scroll-view bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}">
+    <scroll-view bindtap="tap" style="height: {{height}}px" scroll-y="{{!locked}}" scroll-top="{{scrollTop}}">
       <import src="/wxParse/wxParse.wxml"/>
       <!-- <view class="novel-content" style='font-size: {{currentFontSize}}!important;'> -->
       <view class="novel-content font{{currentFontSize}}"> 

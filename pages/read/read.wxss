@@ -355,3 +355,11 @@
 .novel-spec-box .spec-box-p5-w.autopay .radio .s-radio {
   background: #ff5977;
 }
+
+.novel-content.font125 .wxParse-p .wxParse-inline {
+  width:100%;
+
+}
+.novel-content.font125 .wxParse-p {
+  text-indent:0rpx;
+}

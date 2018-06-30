@@ -24,7 +24,7 @@ Page({
         prev_id: null,
         next_id: null,
         locked: false,
-        currentFontSize: '100',
+        currentFontSize: 100,
         isAutopay: true,
         last_price: null
 	  },
@@ -68,6 +68,7 @@ Page({
                         arr: arr
                     })
                 } else {
+                    console.log(this.data.currentFontSize, '=======')
                     WxParse.wxParse('article', 'html', content, that, 5);
                 }
                 this.setData({
@@ -80,7 +81,8 @@ Page({
                     next_id: next_chapter_id,
                     locked: code === 402 || code === 403,
                     like_cnt: like_cnt,
-                    price: price
+                    price: price,
+                    currentFontSize: wx.getStorageSync('currentFontSize')
                 }, () => {
                     if(+content_type===1) {this.getRect()}
                 })
@@ -154,8 +156,9 @@ Page({
     },
     handleChangeFontSize: function(e) {
       this.setData({
-        currentFontSize: e.target.dataset.type
+        currentFontSize: e.target.dataset.type,
       })
+      wx.setStorageSync('currentFontSize', e.target.dataset.type)
     },
     jumpToPrev: function (e) {
         const {cid} = this.data

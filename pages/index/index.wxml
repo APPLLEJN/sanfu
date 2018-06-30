@@ -23,7 +23,7 @@
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{fineQualitiyComics}}" wx:key="*this">
-                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}"></homeItem>
+                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}" cnt="{{item.click_cnt}}" type="{{item.child_site}}"></homeItem>
             </block>
         </veiw>
         <view class="no_more" wx:if="{{!fineQualitiyComics.length}}">
@@ -34,7 +34,7 @@
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{newComics}}" wx:key="*this">
-                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}"></homeItem>
+                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}" cnt="{{item.click_cnt}}" type="{{item.child_site}}"></homeItem>
             </block>
         </veiw>
         <view class="no_more" wx:if="{{!newComics.length}}">
@@ -45,7 +45,7 @@
     <view class="home-content-wrapper">
         <veiw class="home-content-inner">
             <block wx:for="{{newUpdateComics}}" wx:key="*this">
-                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}"></homeItem>
+                <homeItem image="{{item.resource}}" name="{{item.name}}" sid="{{item.id}}" cnt="{{item.click_cnt}}" type="{{item.child_site}}"></homeItem>
             </block>
         </veiw>
         <view class="no_more" wx:if="{{!newUpdateComics.length}}">
@@ -54,7 +54,7 @@
     </view>
     <homeTitle text="人气更新" type="popular" child_site="{{recommendIndex}}" showMore="{{!!popularComics.length}}"></homeTitle>
     <block wx:for="{{popularComics}}" wx:key="*this">
-        <homeUpdateItem sid="{{item.comic_id}}" image="{{item.pic_url}}" title="{{item.title}}" info="{{item.info}}" cnt="{{item.fav_cnt}}" type="{{item.child_site}}" numberChapter="{{item.number_of_chapter}}"></homeUpdateItem>
+        <homeUpdateItem sid="{{item.comic_id}}" image="{{item.pic_url}}" title="{{item.title}}" info="{{item.info}}" cnt="{{item.click_cnt}}" type="{{item.child_site}}" numberChapter="{{item.number_of_chapter}}"></homeUpdateItem>
     </block>
     <view class="no_more" wx:if="{{!popularComics.length}}">
         暂无相关产品
