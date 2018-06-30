@@ -17,14 +17,13 @@
 
 .bookshelf-item .left-image-wrapper {
   position: relative;
-  margin-right: 15px
+  display:flex;
+  width: 278rpx
 }
 
 .bookshelf-item .left-image {
   width: 168rpx;
   height: 224rpx;
-  left: 0;
-  top: 0;
 }
 .top-icon {
   position: absolute;
@@ -37,13 +36,13 @@
 .bookshelf-item .item-right {
   display: flex;
   width: 100%;
-  line-height: 22px;
+  line-height: 20px;
   margin-right:0;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  -webkit-transform: translateX(310px);
-  transform: translateX(310px);
-  margin-left: -310px
+  -webkit-transform: translateX(160px);
+  transform: translateX(160px);
+  margin-left: -160px
 }
 
 .bookshelf-item .item-content-wrapper {
@@ -102,8 +101,8 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  -webkit-transform: translateX(310px);
-  transform: translateX(310px);
+  -webkit-transform: translateX(160px);
+  transform: translateX(160px);
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
