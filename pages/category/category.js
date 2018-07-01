@@ -80,7 +80,7 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
-      data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: this.data.currentTab, class_id: '', finished: this.data.finishStatus, is_charge: this.data.payType },
+      data: { access_token: wx.getStorageSync('token'), page: this.data.currentPage, content_type: this.data.currentTab, class_id: this.data.categoryTab, finished: this.data.finishStatus, is_charge: this.data.payType },
       success: (result) => {
         this.setData({
           categoryList: this.data.categoryList.concat(result.data.comics),

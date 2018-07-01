@@ -8,7 +8,7 @@ Page({
    */
   data: {
     currentNum: 0,
-    
+    textValue: ''
   },
 
 
@@ -91,7 +91,10 @@ Page({
                 title: '提交成功',
                 icon: 'success',
                 duration: 2000
-            })
+              })
+              this.setData({
+                textValue: ''
+              })
           },
           fail: () => {
             wx.showToast({

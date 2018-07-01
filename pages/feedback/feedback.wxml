@@ -4,7 +4,7 @@
     <view class='feedback-box'>
       <view class='feedback-area-box'>
         <view class='area-num'>{{currentNum}}/300</view>
-        <textarea name="textarea" maxlength='300' placeholder='请输入您的意见' placeholder-style='color: #cacaca;' bindinput='handleInput'></textarea>
+        <textarea name="textarea" maxlength='300' placeholder='请输入您的意见' placeholder-style='color: #cacaca;' bindinput='handleInput' value='{{textValue}}'></textarea>
       </view>
     </view>
     <view class='feedback-btn-area'>
