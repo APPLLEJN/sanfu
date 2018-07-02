@@ -4,7 +4,7 @@
         <!-- <input type="text" placeholder='搜索感兴趣的作品或作者' placeholder-style="color:#999999; background: url(/assets/images/search.png) 70px center/14px 14px no-repeat;" /> -->
     </view>
     <swiper indicator-dots="{{indicatorDots}}" style="max-height: 300rpx"
-            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+            circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
         <block wx:for="{{bannerList}}" wx:key="*this">
             <swiper-item>
                 <navigator url="/pages/detail/detail?id={{item.url}}" class="list-item">
