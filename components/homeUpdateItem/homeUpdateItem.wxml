@@ -1,6 +1,6 @@
 <view class="home-update">
     <navigator url="/pages/detail/detail?id={{sid}}" class="list-item">
-    <image class="image"></image>
+    <image class="image" src="{{image}}"></image>
     <view class="text-wp">
         <view class="title">
             <view>
