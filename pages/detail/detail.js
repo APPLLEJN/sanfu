@@ -12,7 +12,7 @@ Page({
       id: null,
       readCurrent: 1,
       directoryName: '',
-    	isBgShow: false,
+	  isBgShow: false,
       click_cnt: '0',
       like_cnt: '0',
       fav_cnt: '0'

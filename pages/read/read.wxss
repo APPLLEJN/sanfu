@@ -14,6 +14,7 @@
 }
 .read .scroll-image image.default {
   /* min-height: 900rpx; */
+  padding: 20rpx 0;
 }
 .read-bottom {
   width: 100%;
@@ -343,14 +344,16 @@
   border-radius: 50%;
 }
 .novel-spec-box .spec-box-p5 .radio .s-radio {
-  margin-top: 0;
   width: 16rpx;
   height: 16rpx;
   border-radius: 50%;
   position: absolute;
-  top: 4rpx;
-  left: 4rpx;
-  z-index: 10
+  z-index: 10;
+  top:50%;
+  left:50%;
+  margin-left:-8rpx;
+  margin-top:-8rpx;
+
 }
 .novel-spec-box .spec-box-p5-w.autopay .radio .s-radio {
   background: #ff5977;
