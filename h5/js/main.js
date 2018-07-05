@@ -1,9 +1,22 @@
 var isDev = true;
 
 var Main = {
-  
+  isIOS: false,
   _initDom: function() {
     var _this = this
+
+    FastClick.attach(document.body);
+
+    // 判断是否ios
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+      this.isIOS = true
+    }
+
+    if (this.isIOS) {
+      $('.text2.ios').css('display', 'block')
+    } else {
+      $('.text2.android').css('display', 'block')
+    }
 
     this._initWxJsSdk();
     
@@ -11,6 +24,13 @@ var Main = {
   _bindEvent: function() {
     var _this = this;
 
+    $('.tab-selection').on('click', function() {
+      $('.share-wrap').css('display', 'block')
+    })
+
+    $('#closeBtn').on('click', function() {
+      $('.share-wrap').css('display', 'none')
+    })
   },
   _initWxJsSdk: function() {
     // TODO: 服务端获取timestamp等参数

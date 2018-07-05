@@ -209,6 +209,68 @@ body {
   margin-bottom: .5rem;
 }
 
+.share-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.6);
+  z-index: 99;
+  display: none;
+}
+.share-wrap .arrow {
+  width: 8.3125rem;
+  height: 9.1rem;
+  position: absolute;
+  top: 0;
+  right: 2.8125rem;
+  background: url(../images/share-arrow.png) no-repeat;
+  background-size: 8.3125rem 9.1rem;
+}
+.share-wrap .text1 {
+  width: 14.6rem;
+  height: 1.8125rem;
+  position: absolute;
+  top: 14.0625rem;
+  left: 50%;
+  margin-left: -7.3rem;
+  background: url(../images/text1.png) no-repeat;
+  background-size: 14.6rem 1.8125rem;
+}
+.share-wrap .text2 {
+  width: 14.6rem;
+  height: 1.5625rem;
+  position: absolute;
+  top: 16.25rem;
+  left: 50%;
+  margin-left: -7.3rem;
+  display: none;
+}
+.share-wrap .text2.ios {
+  background: url(../images/text2-ios.png) no-repeat;
+  background-size: 14.6rem 1.5625rem;
+}
+.share-wrap .text2.android {
+  background: url(../images/text2-a.png) no-repeat;
+  background-size: 14.6rem 1.5625rem;
+}
+.share-wrap .confirm-btn {
+  width: 13.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  position: absolute;
+  top: 25.3125rem;
+  left: 50%;
+  margin-left: -6.75rem;
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 1.25rem;
+  font-size: 1.0625rem;
+  text-align: center;
+  color: #fff;
+}
+
 
 
 
