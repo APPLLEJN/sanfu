@@ -1,7 +1,6 @@
 .home-title {
   display: flex;
   justify-content: space-between;
-  padding-right: 30rpx;
   align-items: center;
   margin-bottom: 30rpx;
 }
@@ -15,13 +14,18 @@
 
 .home-title .more {
   display:flex;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #33b2f9;
+  align-items: center;
+}
+
+.home-title .more navigator {
+  padding: 7rpx 30rpx 7rpx 20rpx;
+  display: flex;
   align-items: center;
 }
 
 .home-title .more image {
   width: 16rpx;
-  height: 24rpx;
-  margin-left: 5rpx;
+  margin-left: 8rpx;
 }
