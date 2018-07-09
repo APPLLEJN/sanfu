@@ -26,6 +26,14 @@ App({
         : '', // 正式环境
     
     onLaunch: function (options) {
+        this.request({
+            url: 'https://sanfu.weilubook.com/littleapp/user/boot',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {access_token: wx.getStorageSync('token')}
+        })
         const userInfo = wx.getStorageSync('userInfo')
         const token = wx.getStorageSync('token')
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
