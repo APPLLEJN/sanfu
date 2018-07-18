@@ -6,18 +6,23 @@ Page({
     data: {
     	me: {},
 		list: [
-      		{ icon: '/assets/images/recharge.png', name: '充值', link: '/pages/charge/charge'},
-			{icon: '/assets/images/recharge_record.png', name: '充值记录', link: '/pages/record/record?type=recharge'},
-			{icon: '/assets/images/pay_record.png', name: '消费记录', link: '/pages/record/record?type=pay'},
 			{icon: '/assets/images/qa.png', name: '常见问题', link: '/pages/qa/qa'},
       		{icon: '/assets/images/opinion.png', name: '意见反馈', link: '/pages/feedback/feedback'}
 		],
+        listOnline: [
+            { icon: '/assets/images/recharge.png', name: '充值', link: '/pages/charge/charge'},
+            {icon: '/assets/images/recharge_record.png', name: '充值记录', link: '/pages/record/record?type=recharge'},
+            {icon: '/assets/images/pay_record.png', name: '消费记录', link: '/pages/record/record?type=pay'},
+            {icon: '/assets/images/qa.png', name: '常见问题', link: '/pages/qa/qa'},
+            {icon: '/assets/images/opinion.png', name: '意见反馈', link: '/pages/feedback/feedback'}
+        ],
         last_price: null
     },
     
     onLoad: function () {
 		this.setData({
-			me: wx.getStorageSync('userInfo')
+            closeRecharge: app.globalData.closeRecharge,
+            me: wx.getStorageSync('userInfo')
 		})
         this.getUserInfo()
     },

@@ -3,14 +3,14 @@
         <image src="{{me.avatarUrl}}" class="avatar"></image>
         <view class="user-name">
             <view>{{me.nickName}}</view>
-            <view class="money-wrapper"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{last_price}}金币</view>
+            <view class="money-wrapper" wx:if="{{!closeRecharge}}"><image src="/assets/images/money.png" mode="widthFix"></image>余额：{{last_price}}金币</view>
         </view>
         <view class="user-id">
             ID:{{me.user_id}}
         </view>
     </view>
     <view class="list">
-        <block wx:for="{{list}}" wx:key="*this">
+        <block wx:for="{{closeRecharge ? list : listOnline}}" wx:key="*this">
             <navigator url="{{item.link}}" class="list-item">
                 <image src="{{item.icon}}" class="icon" mode="widthFix"></image>
                 <text>{{item.name}}</text>

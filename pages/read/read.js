@@ -26,13 +26,15 @@ Page({
         locked: false,
         currentFontSize: 100,
         isAutopay: true,
-        last_price: null
+        last_price: null,
+        closeRecharge: null
 	  },
     
     onLoad: function (option) {
         this.getDetail(option.id, option.cid)
         this.getUserInfo()
         this.setData({
+            closeRecharge: app.globalData.closeRecharge,
             id: option.id,
             cid: option.cid,
             height: wx.getSystemInfoSync().windowHeight,

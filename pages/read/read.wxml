@@ -56,7 +56,7 @@
       </view>
     </view>
   </view>
-  <view class="pay-wrapper" wx:if="{{locked && (last_price < price) && type==1}}">
+  <view class="pay-wrapper" wx:if="{{locked && (last_price < price) && type==1 && !closeRecharge}}">
     <view>{{last_price}}{{price}}{{(last_price < price)}}</view>
     <view class="tips">支持作者，解锁后阅读</view>
     <view class="text">余额不足</view>
@@ -65,7 +65,7 @@
     <button open-type="contact">马上充值</button>
     <image class="pay-image" src="/assets/images/bg_blur.png" alt=""></image>
   </view>
-  <view wx:if="{{locked && (last_price < price) && type==2}}" class="pay-wrapper novel">
+  <view wx:if="{{locked && (last_price < price) && type==2 && !closeRecharge}}" class="pay-wrapper novel">
     <view class="novel-wrapper">
       <view class="tips">支持作者，解锁后阅读</view>
       <view class="text">余额不足</view>
@@ -74,7 +74,7 @@
       <button open-type="contact">马上充值</button>
     </view>
   </view>
-  <view wx:if="{{locked && last_price>= price}}" class="pay-wrapper novel">
+  <view wx:if="{{locked && last_price>= price && !closeRecharge}}" class="pay-wrapper novel">
     <view class="novel-wrapper spec">
       <view class='novel-spec-box'>
         <view class="tips spec-box-p1">购买当前章节需要</view>

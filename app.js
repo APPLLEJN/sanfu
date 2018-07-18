@@ -26,6 +26,7 @@ App({
         : '', // 正式环境
     
     onLaunch: function (options) {
+        var that = this;
         this.request({
             url: 'https://sanfu.weilubook.com/littleapp/user/boot',
             method: 'POST',
@@ -33,6 +34,17 @@ App({
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
             data: {access_token: wx.getStorageSync('token')}
+        })
+        this.request({
+            url: 'https://sanfu.weilubook.com/littleapp/package/get_switch',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {version_code: 1},
+            success: function (result) {
+                that.globalData.closeRecharge = +result.data.close_recharge
+            }
         })
         const userInfo = wx.getStorageSync('userInfo')
         const token = wx.getStorageSync('token')
