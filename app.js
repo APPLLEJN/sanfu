@@ -43,11 +43,13 @@ App({
             },
             data: {version_code: 1},
             success: function (result) {
-                that.globalData.closeRecharge = +result.data.close_recharge
+                // that.globalData.closeRecharge = +result.data.close_recharge
+                that.globalData.closeRecharge = false
             }
         })
         const userInfo = wx.getStorageSync('userInfo')
         const token = wx.getStorageSync('token')
+        this.globalData.userInfo = userInfo
         console.log('🎈 App已启动。当前用户信息', userInfo, token)
         let query = ''
         for (let key in options.query) {

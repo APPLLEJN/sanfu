@@ -60,9 +60,9 @@ Page({
                 })
                 const { code } = result
                 const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt, price } = result.data
-                if(code === 402) {
-                    console.log(code, 'code')
-                }
+                // if(code === 402) {
+                //     console.log(code, 'code')
+                // }
                 if (+content_type === 1) {
                     const { arr } = this.data
                     content.map(item => arr.push(false))

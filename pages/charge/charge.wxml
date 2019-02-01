@@ -10,13 +10,14 @@
       <view class="item-title"><text>微信充值</text></view>
       <view class="item-content tab-content clearfix">
         <view class='contact-p'>点击下方按钮，回复"1"后充值后解锁</view>
-        <button open-type="contact">马上充值</button>
+        <!--<button open-type="contact">马上充值</button>-->
         <!-- <view class="tab-selection"><text class="num1">30元</text><view class="num2-line"><view class="num2">3000</view></view></view>
         <view class="tab-selection"><text class="num1">50元</text><view class="num2-line"><view class="num2">5000</view></view></view>
         <view class="tab-selection"><text class="num1">80元</text><view class="num2-line"><view class="num2">8000</view></view></view>
         <view class="tab-selection"><text class="num1">100元</text><view class="num2-line"><view class="num2">10000<text class="special">+2000</text></view></view></view>
         <view class="tab-selection"><text class="num1">200元</text><view class="num2-line"><view class="num2">20000<text class="special">+5000</text></view></view></view>
         <view class="tab-selection"><text class="num1">500元</text><view class="num2-line"><view class="num2">50000<text class="special">+20000</text></view></view></view> -->
+        <button bindtap="recharge">马上充值</button>
       </view>
     </view>
     <view class="item-wrap advice-wrap">
