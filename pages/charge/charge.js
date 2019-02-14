@@ -73,15 +73,15 @@ Page({
           header: {
               'content-type': 'application/x-www-form-urlencoded' // 默认值
           },
-          data: { access_token: wx.getStorageSync('token'), cash: e.target.dataset.money },
+          data: { access_token: wx.getStorageSync('token'), cash: e.currentTarget.dataset.money },
           success: (result) => {
-            const {time_stamp, nonce_str, prepay_id, sign} = result
+            const {timestamp, nonce_str, prepay_id, pay_sign} = result.data
               wx.requestPayment({
-                  timeStamp: time_stamp + '',
+                  timeStamp: timestamp + '',
                   nonceStr: nonce_str,
                   package: `prepay_id=${prepay_id}`,
                   signType: 'MD5',
-                  paySign: sign
+                  paySign: pay_sign
               })
           }
       })
