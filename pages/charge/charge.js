@@ -66,15 +66,14 @@ Page({
   
   },
 
-  recharge: function () {
-    console.log( app.globalData.userInfo, ' app.globalData.userInfo')
+  recharge: function (e) {
       app.request({
           url: 'https://sanfu.weilubook.com/littleapp/recharge/unifiedorder',
           method: 'POST',
           header: {
               'content-type': 'application/x-www-form-urlencoded' // 默认值
           },
-          data: { access_token: wx.getStorageSync('token'), user_id: app.globalData.userInfo.user_id, cash: this.data.cash },
+          data: { access_token: wx.getStorageSync('token'), cash: e.target.dataset.money },
           success: (result) => {
             const {time_stamp, nonce_str, prepay_id, sign} = result
               wx.requestPayment({
