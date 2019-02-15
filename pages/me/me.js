@@ -26,6 +26,9 @@ Page({
 		})
         this.getUserInfo()
     },
+    onShow: function () {
+        this.getUserInfo()
+    },
     tap: function(e) {
     	const index = e.currentTarget.id
     	const arr = this.data.showAnswer

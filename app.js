@@ -44,6 +44,7 @@ App({
             data: {version_code: 1},
             success: function (result) {
                 // that.globalData.closeRecharge = +result.data.close_recharge
+                // that.globalData.closeRecharge = wx.getSystemInfoSync().system.indexOf('iOS') > -1
                 that.globalData.closeRecharge = false
             }
         })

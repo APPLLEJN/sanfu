@@ -7,14 +7,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-      cash: 1
+      cash: 1,
+      isIos: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      const res = wx.getSystemInfoSync()
+      this.setData({
+          isIos: res.system.indexOf('iOS') > -1
+      })
+      if (res.system.indexOf('iOS') > -1) return
+      app.request({
+          url: 'https://sanfu.weilubook.com/littleapp/recharge/get_configs',
+          method: 'GET',
+          header: {},
+          data: { access_token: wx.getStorageSync('token')},
+          success: (result) => {
+              this.setData({
+                  recharge_configs: result.data.recharge_configs
+              })
+          }
+      })
   },
 
   /**
@@ -73,7 +89,7 @@ Page({
           header: {
               'content-type': 'application/x-www-form-urlencoded' // 默认值
           },
-          data: { access_token: wx.getStorageSync('token'), cash: e.currentTarget.dataset.money },
+          data: { access_token: wx.getStorageSync('token'), money: e.currentTarget.dataset.money },
           success: (result) => {
             const {timestamp, nonce_str, prepay_id, pay_sign} = result.data
               wx.requestPayment({
@@ -81,7 +97,12 @@ Page({
                   nonceStr: nonce_str,
                   package: `prepay_id=${prepay_id}`,
                   signType: 'MD5',
-                  paySign: pay_sign
+                  paySign: pay_sign,
+                  success: () => {
+                      wx.showToast({
+                        title: '充值成功'
+                      })
+                  }
               })
           }
       })

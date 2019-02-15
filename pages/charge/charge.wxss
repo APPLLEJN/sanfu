@@ -116,6 +116,11 @@
   margin-bottom: .5rem;
 }
 
+.isIos {
+  text-align: center;
+  color:#aaa;
+}
+
 
 
 

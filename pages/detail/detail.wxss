@@ -204,9 +204,9 @@
   position: absolute;
   width: 23rpx;
   height: 24rpx;
-  right: 12rpx;
+  right: 10rpx;
   top: 50%;
-  margin-top: -12rpx;
+  margin-top: 4rpx;
 }
 
 .detail-wrapper .info .title .icon {
