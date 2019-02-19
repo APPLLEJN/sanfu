@@ -67,15 +67,20 @@ App({
         
     },
     onShow: function (options) {
-        // if (!this.globalData.hasUserInfo &&
-        //     (typeof options === 'object' && options.path !== "pages/login/login")
-        // )
-        //     wx.reLaunch({ url: "/pages/login/login" })
-        // else if (!this.globalData.hasUserInfo)
-        //     wx.redirectTo({
-        //         url: '/pages/login/login'
-        //     })
-        //
+        var that = this;
+        this.request({
+            url: 'https://sanfu.weilubook.com/littleapp/package/get_switch',
+            method: 'POST',
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {version_code: 1},
+            success: function (result) {
+                // that.globalData.closeRecharge = +result.data.close_recharge
+                // that.globalData.closeRecharge = wx.getSystemInfoSync().system.indexOf('iOS') > -1
+                that.globalData.closeRecharge = wx.getSystemInfoSync().system.indexOf('iOS') > -1 &&  +result.data.close_recharge
+            }
+        })
     },
     onHide: function (options) {
         // 回到首页

@@ -56,6 +56,7 @@
       </view>
     </view>
   </view>
+  <view class="pay-wrapper novel" wx:if="{{closeRecharge}}"></view>
   <view class="pay-wrapper" wx:if="{{locked && (last_price < price) && type==1 && !closeRecharge}}">
     <view>{{last_price}}{{price}}{{(last_price < price)}}</view>
     <view class="tips">支持作者，解锁后阅读</view>
