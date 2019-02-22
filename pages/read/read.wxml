@@ -56,25 +56,35 @@
       </view>
     </view>
   </view>
-  <view class="pay-wrapper novel" wx:if="{{closeRecharge}}"></view>
+  <view class="pay-wrapper novel" wx:if="{{closeRecharge}}">
+    <view class="novel-wrapper spec">
+      <view class='novel-spec-box ios'>
+        <view class="tips spec-box-p1">提示</view>
+        <view class='spec-box-p2'>小程序暂不支持付费阅读</view>
+        <navigator open-type="navigateBack">确定</navigator>
+      </view>
+    </view>
+  </view>
+  <!--<view class="pay-wrapper" wx:if="{{true}}">-->
   <view class="pay-wrapper" wx:if="{{locked && (last_price < price) && type==1 && !closeRecharge}}">
-    <view>{{last_price}}{{price}}{{(last_price < price)}}</view>
     <view class="tips">支持作者，解锁后阅读</view>
     <view class="text">余额不足</view>
     <view>需要{{price}}金币，当前余额{{last_price}}金币</view>
     <view>点击下方按钮，回复"1"后充值后解锁</view>
-    <button open-type="contact">马上充值</button>
+    <navigator url="/pages/charge/charge">马上充值</navigator>
     <image class="pay-image" src="/assets/images/bg_blur.png" alt=""></image>
   </view>
+  <!--<view class="pay-wrapper novel" wx:if="{{true}}">-->
   <view wx:if="{{locked && (last_price < price) && type==2 && !closeRecharge}}" class="pay-wrapper novel">
     <view class="novel-wrapper">
       <view class="tips">支持作者，解锁后阅读</view>
       <view class="text">余额不足</view>
       <view>需要{{price}}金币，当前余额{{last_price}}金币</view>
-      <view>点击下方按钮，回复"1"后充值后解锁</view>
-      <button open-type="contact">马上充值</button>
+      <!--<view>点击下方按钮，回复"1"后充值后解锁</view>-->
+      <navigator url="/pages/charge/charge">马上充值</navigator>
     </view>
   </view>
+  <!--<view wx:if="{{false}}" class="pay-wrapper novel">-->
   <view wx:if="{{locked && last_price>= price && !closeRecharge}}" class="pay-wrapper novel">
     <view class="novel-wrapper spec">
       <view class='novel-spec-box'>

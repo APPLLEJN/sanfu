@@ -241,16 +241,22 @@
   font-size: 30rpx;
 }
 
-.pay-wrapper button {
+.pay-wrapper navigator, .pay-wrapper button {
   width: 80%;
   height: 88rpx;
+  line-height: 88rpx;
   color: #fff;
   background: #ff5977;
   font-size: 34rpx;
   border-radius: 44rpx;
-  margin-top: 17rpx;
+  margin: 17rpx auto 0;
   position: relative;
-  z-index: 2
+  z-index: 2;
+  opacity: 1
+}
+
+.novel-spec-box.ios navigator {
+  margin: 0 auto;
 }
 
 .pay-image {
@@ -305,6 +311,7 @@
   box-sizing: border-box;
   padding-top: 76rpx;
 }
+
 .novel-spec-box .spec-box-p1 {
   font-size: 30rpx;
   color: rgb(51,51,51);
@@ -319,6 +326,23 @@
   font-size: 24rpx;
   color: rgb(173,173,173);
 }
+
+.novel-spec-box.ios {
+  height: 380rpx;
+  padding-top: 64rpx;
+}
+
+.novel-spec-box.ios .spec-box-p1 {
+  font-size: 34rpx;
+  color: #222222;
+}
+
+.novel-spec-box.ios .spec-box-p2 {
+  font-size: 30rpx;
+  color: #666;
+  margin: 42rpx 0 48rpx;
+}
+
 .novel-spec-box .spec-box-p5-w {
   text-align: center;
 }

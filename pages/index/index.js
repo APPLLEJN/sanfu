@@ -22,7 +22,7 @@ Page({
         newUpdateComics: [],
         popularComics: [],
         page: 1,
-        height: wx.getSystemInfoSync().windowWidth/750 * 300
+        height: wx.getSystemInfoSync().windowWidth/750 * 350
     },
     changeIndicatorDots: function(e) {
         this.setData({
