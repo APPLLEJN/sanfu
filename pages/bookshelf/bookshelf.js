@@ -219,5 +219,6 @@ Page({
         }
       }
     })
-  }
+  },
+  onShareAppMessage(res) {}
 })

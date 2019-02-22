@@ -104,5 +104,6 @@ Page({
             })
           }
     })
-  }
+  },
+    onShareAppMessage(res) {}
 })

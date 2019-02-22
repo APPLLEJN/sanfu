@@ -258,5 +258,6 @@ Page({
                 })
              }
         })
-    }
+    },
+    onShareAppMessage(res) {},
 })

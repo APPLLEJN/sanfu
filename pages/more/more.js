@@ -80,5 +80,6 @@ Page({
         })
       }
     })
-  }
+  },
+    onShareAppMessage(res) {},
 })

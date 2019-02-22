@@ -106,4 +106,5 @@ Page({
 		  chapters: this.data.chapters.reverse()
 		})
 	},
+    onShareAppMessage(res) {}
 })

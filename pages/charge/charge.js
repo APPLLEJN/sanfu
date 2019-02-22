@@ -106,5 +106,6 @@ Page({
               })
           }
       })
-  }
+  },
+    onShareAppMessage(res) {}
 })

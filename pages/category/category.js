@@ -164,5 +164,6 @@ Page({
     })
     this.handleHideSelect()
     this.getData()
-  }
+  },
+  onShareAppMessage(res) {}
 })

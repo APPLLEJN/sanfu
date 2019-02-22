@@ -22,6 +22,7 @@ Page({
         newUpdateComics: [],
         popularComics: [],
         page: 1,
+        height: wx.getSystemInfoSync().windowWidth/750 * 300
     },
     changeIndicatorDots: function(e) {
         this.setData({
@@ -102,5 +103,6 @@ Page({
         wx.navigateTo({
             url: '/pages/search/search'
         })
-    }
+    },
+    onShareAppMessage(res) {},
 })
