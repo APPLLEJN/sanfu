@@ -66,11 +66,12 @@
     </view>
   </view>
   <!--<view class="pay-wrapper" wx:if="{{true}}">-->
+  <!--<view>{{last_price}}  {{last_price < price}} {{locked}} </view>-->
   <view class="pay-wrapper" wx:if="{{locked && (last_price < price) && type==1 && !closeRecharge}}">
     <view class="tips">支持作者，解锁后阅读</view>
     <view class="text">余额不足</view>
     <view>需要{{price}}金币，当前余额{{last_price}}金币</view>
-    <view>点击下方按钮，回复"1"后充值后解锁</view>
+    <!--<view>点击下方按钮，回复"1"后充值后解锁</view>-->
     <navigator url="/pages/charge/charge">马上充值</navigator>
     <image class="pay-image" src="/assets/images/bg_blur.png" alt=""></image>
   </view>

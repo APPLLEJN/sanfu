@@ -27,7 +27,8 @@ Page({
         currentFontSize: 100,
         isAutopay: true,
         last_price: null,
-        closeRecharge: null
+        closeRecharge: null,
+        price: 0
 	  },
     
     onLoad: function (option) {
@@ -60,9 +61,6 @@ Page({
                 })
                 const { code } = result
                 const { content, content_type, comic_id, previous_chapter_id, next_chapter_id, unlocked, like_cnt, price } = result.data
-                // if(code === 402) {
-                //     console.log(code, 'code')
-                // }
                 if (+content_type === 1) {
                     const { arr } = this.data
                     content.map(item => arr.push(false))
@@ -70,7 +68,6 @@ Page({
                         arr: arr
                     })
                 } else {
-                    console.log(this.data.currentFontSize, '=======')
                     WxParse.wxParse('article', 'html', content, that, 5);
                 }
                 this.setData({
@@ -83,7 +80,7 @@ Page({
                     next_id: next_chapter_id,
                     locked: code === 402 || code === 403,
                     like_cnt: like_cnt,
-                    price: price,
+                    price: +price,
                     currentFontSize: wx.getStorageSync('currentFontSize')
                 }, () => {
                     if(+content_type===1) {this.getRect()}
@@ -97,7 +94,6 @@ Page({
 			that.setData({
 				itemHeight: rect.height,
 			})
-			console.log(rect.height)
 			that.init(rect.height)
 		}).exec()
 	},
@@ -254,7 +250,7 @@ Page({
             data: { access_token: wx.getStorageSync('token') },
             success: (result) => {
                 this.setData({
-                    last_price: result.data.cash
+                    last_price: +result.data.cash
                 })
              }
         })
