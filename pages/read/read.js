@@ -234,9 +234,11 @@ Page({
             },
             data: { chapter_id: this.data.id, access_token: wx.getStorageSync('token'), is_auto_buy: this.data.isAutopay ? 1 : 0 },
             success: (result) => {
+                const {id, cid} = this.data
                 this.setData({
                     locked: false
                 })
+                this.getDetail(id, cid)
             }
         })
     },

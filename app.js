@@ -3,6 +3,8 @@
 // 开发模式开关
 const dev = true
 
+const VERSION_CODE = 1
+
 const showLoading = function (options) {
     if (wx.canIUse('showLoading')) {
         wx.showLoading(options);
@@ -41,7 +43,7 @@ App({
             header: {
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
-            data: {version_code: 1},
+            data: {version_code: VERSION_CODE},
             success: function (result) {
                 // that.globalData.closeRecharge = +result.data.close_recharge
                 // that.globalData.closeRecharge = wx.getSystemInfoSync().system.indexOf('iOS') > -1
@@ -142,6 +144,7 @@ App({
             toast = '请求中',
             ..._options
         } = options
+        _options.data = Object.assign({version_code: VERSION_CODE}, _options.data)
         const fail = err => {
             isFailed = true
             hideLoading()
